@@ -3,13 +3,15 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<head>
+		<title>Bike Race</title>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<style type="text/css">
-			#map { height: 500px; }
+			body { margin: 0; padding: 0; }
+			#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 		</style>
 	</head>
 	<body>
-		<div id="map">
+		<div id="map"><!--div to hold map-->
 			<script>
 				//mapbox street tiles with proper attribution and max zoom level.
 				//max zoom set to 18 because it's the greatest zoom level where everything shows
@@ -33,6 +35,7 @@
 				//leaflet layerGroup to hold divvy station markers
 				var stations = L.layerGroup();
 
+				//loop through .csv and add divvy stations to the statiosn layerGroup
 				d3.csv("Divvy_Bicycle_Stations.csv", function(station_list) {
 					for(var i = 0; i < station_list.length; i++)
 					{
@@ -45,6 +48,23 @@
 					}//end for loop through .csv file of divvy station locations
 				})//end D3 import of divvy station .csv file
 
+				var community_areas = new L.tileLayer.GeoJSON("community_areas.json");
+				community_areas.setGeoJSONOptions({
+				        /* style of GeoJSON feature */
+				        style: {
+				            "color": "#1B1",
+				            "fillColor": "#1B1",
+				            "weight": 0.7,
+				            "opacity": 0.3,
+				            "fillOpacity": 0.1
+				        },
+				        /* style of GeoJSON feature when hovered */
+				        hoverStyle: {
+				            "fillOpacity": 0.4
+				        },
+				        hoverOffset: new L.Point(30,-16)
+				});
+
 				//make a map with anchor lat,lon and zoom level
 				var map = L.map('map', {
 					center: [41.86968865729827, -87.64699459075926],
@@ -53,20 +73,58 @@
 				});//.setView([41.86968865729827, -87.64699459075926], 13);
 
 				//mutually exclusive base map layers
+				//it seems that the last layer in the list is the default layer
 				var baseMaps = {
-					"Street Map": street_map,
-					"Satellite": Esri_WorldImagery
+					"Satellite": Esri_WorldImagery,
+					"Street Map": street_map
 				};
-
-				//var street_names = L.layerGroup(Hydda_RoadsAndLabels);
 
 				//toggle-able overlays
 				var overlayMaps = {
 					"Divvy Stations": stations,
-					"Streets (for use with satellite map)": Hydda_RoadsAndLabels
+					"Streets (for use with satellite map)": Hydda_RoadsAndLabels,
+					"Community Areas": community_areas
 				};
 
-				L.control.layers(baseMaps, overlayMaps).addTo(map);
+				//options for layer control widget
+				var layerControlOptions = {
+					position: 'topleft',
+				}
+
+				//adds layer toggle control to the map in top right
+				L.control.layers(baseMaps, overlayMaps, layerControlOptions).addTo(map);
+				//adds a scale meter to map; defaults to bottom left
+				L.control.scale().addTo(map);
+
+				//style for JSON overlay of community areas
+				var style = {
+					"clickable": true,
+					"color": "#00D",
+					"fillColor": "#00D",
+					"weight": 1.0,
+					"opacity": 0.3,
+					"fillOpacity": 0.2
+				};
+				var hoverStyle = {
+					"fillOpacity": 0.5
+				}
+
+				
+				/*
+				var communityAreaLayer = new L.tileLayer.GeoJSON("community_areas.json"), {
+					clipTiles: true,
+					unique: function (feature) {
+						return feature.id;
+					}, {
+						style: style,
+						onEachFeature: function (feature, layer) {
+							if (feature.properties) {
+								var popupString = '<div class="popup">';
+							}
+						}
+					}
+				};//end generation of community areas layer from .json
+				*/
 			</script>
 		</div>
 	</body>
