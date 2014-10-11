@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<head>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<style type="text/css">
+			#map { height: 500px; }
+		</style>
+	</head>
+	<body>
+		<div id="map">
+			<script>
+				//mapbox street tiles with proper attribution and max zoom level.
+				//max zoom set to 18 because it's the greatest zoom level where everything shows
+				var street_map = L.tileLayer('http://{s}.tiles.mapbox.com/v3/nizobe.jn4og4o6/{z}/{x}/{y}.png', {
+				    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+				    maxZoom: 18
+				});//.addTo(map);
+
+				//satellite imagery tile layer
+				var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+					attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+				});//end satellite imagery tile layer
+
+				//street and road labels overlay
+				var Hydda_RoadsAndLabels = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
+			    	minZoom: 0,
+			    	maxZoom: 18,
+			    	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+				});//end street and road labels overlay
+
+				//leaflet layerGroup to hold divvy station markers
+				var stations = L.layerGroup();
+
+				d3.csv("Divvy_Bicycle_Stations.csv", function(station_list) {
+					for(var i = 0; i < station_list.length; i++)
+					{
+						var station_name = station_list[i].StationName;
+						var station_lat = station_list[i].Latitude;
+						var station_lon = station_list[i].Longitude;
+
+						//marker = new L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup().addTo()
+						stations.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());
+					}//end for loop through .csv file of divvy station locations
+				})//end D3 import of divvy station .csv file
+
+				//make a map with anchor lat,lon and zoom level
+				var map = L.map('map', {
+					center: [41.86968865729827, -87.64699459075926],
+					zoom: 13,
+					layers: [street_map, Esri_WorldImagery]
+				});//.setView([41.86968865729827, -87.64699459075926], 13);
+
+				//mutually exclusive base map layers
+				var baseMaps = {
+					"Street Map": street_map,
+					"Satellite": Esri_WorldImagery
+				};
+
+				//var street_names = L.layerGroup(Hydda_RoadsAndLabels);
+
+				//toggle-able overlays
+				var overlayMaps = {
+					"Divvy Stations": stations,
+					"Streets (for use with satellite map)": Hydda_RoadsAndLabels
+				};
+
+				L.control.layers(baseMaps, overlayMaps).addTo(map);
+			</script>
+		</div>
+	</body>
+</html>
