@@ -2,12 +2,15 @@
 <html>
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
 	<head>
 		<title>Bike Race</title>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<style type="text/css">
 			body { margin: 0; padding: 0; }
 			#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+
 		</style>
 	</head>
 	<body>
@@ -46,11 +49,12 @@
 						//marker = new L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup().addTo()
 						stations.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());
 					}//end for loop through .csv file of divvy station locations
-				})//end D3 import of divvy station .csv file
+				});//end D3 import of divvy station .csv file
 
+				/*
 				var community_areas = new L.tileLayer.GeoJSON("community_areas.json");
 				community_areas.setGeoJSONOptions({
-				        /* style of GeoJSON feature */
+				        /* style of GeoJSON feature /
 				        style: {
 				            "color": "#1B1",
 				            "fillColor": "#1B1",
@@ -58,12 +62,13 @@
 				            "opacity": 0.3,
 				            "fillOpacity": 0.1
 				        },
-				        /* style of GeoJSON feature when hovered */
+				        /* style of GeoJSON feature when hovered /
 				        hoverStyle: {
 				            "fillOpacity": 0.4
 				        },
 				        hoverOffset: new L.Point(30,-16)
 				});
+				*/
 
 				//make a map with anchor lat,lon and zoom level
 				var map = L.map('map', {
@@ -83,7 +88,7 @@
 				var overlayMaps = {
 					"Divvy Stations": stations,
 					"Streets (for use with satellite map)": Hydda_RoadsAndLabels,
-					"Community Areas": community_areas
+					//"Community Areas": community_areas
 				};
 
 				//options for layer control widget
@@ -96,6 +101,7 @@
 				//adds a scale meter to map; defaults to bottom left
 				L.control.scale().addTo(map);
 
+				/*
 				//style for JSON overlay of community areas
 				var style = {
 					"clickable": true,
@@ -108,7 +114,7 @@
 				var hoverStyle = {
 					"fillOpacity": 0.5
 				}
-
+				*/
 				
 				/*
 				var communityAreaLayer = new L.tileLayer.GeoJSON("community_areas.json"), {
