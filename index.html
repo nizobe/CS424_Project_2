@@ -5,12 +5,11 @@
 	<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
 	<head>
 		<title>Bike Race</title>
+		<script src="./community_areas.geojson"></script>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<style type="text/css">
 			body { margin: 0; padding: 0; }
 			#map { position: absolute; top: 0; bottom: 0; width: 100%; }
-
-
 		</style>
 	</head>
 	<body>
@@ -34,6 +33,11 @@
 			    	maxZoom: 18,
 			    	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 				});//end street and road labels overlay
+
+				//geoJSON layer to hold community areas
+				//var communityLayer = L.geoJson();
+				var communities = new L.LayerGroup();
+				L.geoJson(community_areas).addTo(communities);
 
 				//leaflet layerGroup to hold divvy station markers
 				var stations = L.layerGroup();
@@ -77,9 +81,12 @@
 					layers: [street_map, Esri_WorldImagery]
 				});//.setView([41.86968865729827, -87.64699459075926], 13);
 
-				//mutually exclusive base map layers
-				//it seems that the last layer in the list is the default layer
+				/*mutually exclusive base map layers
+				it seems that the last layer in the list is the default layer
+				caveat: satellite (second option on control widget) is checked by default,
+				even though the street maps layer is displaed by default */
 				var baseMaps = {
+					//"Street Map": street_map,
 					"Satellite": Esri_WorldImagery,
 					"Street Map": street_map
 				};
@@ -88,6 +95,7 @@
 				var overlayMaps = {
 					"Divvy Stations": stations,
 					"Streets (for use with satellite map)": Hydda_RoadsAndLabels,
+					"Community Areas": communities
 					//"Community Areas": community_areas
 				};
 
