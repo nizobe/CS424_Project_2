@@ -15,6 +15,75 @@
 	<body>
 		<div id="map"><!--div to hold map-->
 			<script>
+				//necessary to avoid scoping issues with community areas layer
+				var geojson;
+
+				//defines how community areas look when left alone
+				function style(feature) {
+					return {
+						fillColor: '#08519c',
+						weight: 3,//outline thickness
+						opacity: 1,//outline opacity
+						color: '#6baed6',//outline color
+						dashArray: '3',//dashed outline value
+						fillOpacity: 0.2
+					};
+				}//end function style(feature)
+
+				//function to highlight a community area on mouseover, similar fields to above function
+				function highlightFeature(e) {
+					var layer = e.target;
+
+					layer.setStyle({
+						weight: 4,
+						color: '#08306b',
+						dashArray: '',
+						fillOpacity: 0.5
+					});
+					//resolves issues with IE and Opera
+					if(!L.Browser.ie && !L.Browser.opera) {
+						layer.bringToFront();
+					}
+				}//end highlight community area on mouseover function
+
+				//function to reset highlighting of community area on mouseout
+				function resetHighlight(e) {
+					geojson.resetStyle(e.target);
+					//info.update();
+				}
+
+				//zoom to community area on click
+				function zoomToFeature(e) {
+					map.fitBounds(e.target.getBounds());
+				}
+
+				//do all "this stuff" for each community area
+				function onEachFeature(feature, layer) {
+					layer.on({
+						mouseover: highlightFeature,
+						mouseout: resetHighlight,
+						click: zoomToFeature
+					});
+				}
+
+				//actually load in the community areas geojson file
+				geojson = L.geoJson(community_areas, {
+					style: style,
+					onEachFeature:onEachFeature
+				});
+
+				/*
+				//control that shows community area info on hover
+				var ca_info = L.control();
+
+				//creates info control
+				info.onAdd = function(map) {
+					this._div = L.DomUtil.create('div', 'info');
+					this.update();
+					return this._div;
+				};
+				*/
+
 				//mapbox street tiles with proper attribution and max zoom level.
 				//max zoom set to 18 because it's the greatest zoom level where everything shows
 				var street_map = L.tileLayer('http://{s}.tiles.mapbox.com/v3/nizobe.jn4og4o6/{z}/{x}/{y}.png', {
@@ -34,10 +103,16 @@
 			    	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 				});//end street and road labels overlay
 
+				/*
 				//geoJSON layer to hold community areas
-				//var communityLayer = L.geoJson();
-				var communities = new L.LayerGroup();
-				L.geoJson(community_areas).addTo(communities);
+				//var communities = new L.LayerGroup();
+				var communitiesLayer = new L.LayerGroup();
+				var communities = L.geoJson(community_areas, {
+					onEachFeature: onEachFeature
+				}).addTo(communitiesLayer);
+				//add geoJSON data to communities layer
+				//L.geoJson(community_areas).addTo(communities);
+				*/
 
 				//leaflet layerGroup to hold divvy station markers
 				var stations = L.layerGroup();
@@ -91,21 +166,23 @@
 					"Street Map": street_map
 				};
 
-				//toggle-able overlays
+				//toggle-able overlays. visible name : variable name
 				var overlayMaps = {
 					"Divvy Stations": stations,
 					"Streets (for use with satellite map)": Hydda_RoadsAndLabels,
-					"Community Areas": communities
+					"Community Areas": geojson
+					//"Community Areas": communitiesLayer
 					//"Community Areas": community_areas
 				};
 
-				//options for layer control widget
+				//option(s) for layer control widget
 				var layerControlOptions = {
 					position: 'topleft',
 				}
 
 				//adds layer toggle control to the map in top right
 				L.control.layers(baseMaps, overlayMaps, layerControlOptions).addTo(map);
+				
 				//adds a scale meter to map; defaults to bottom left
 				L.control.scale().addTo(map);
 
