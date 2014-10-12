@@ -3,13 +3,89 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
+	<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
 	<head>
 		<title>Bike Race</title>
 		<script src="./community_areas.geojson"></script>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="./tabs-accordion.css">-->
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<style type="text/css">
 			body { margin: 0; padding: 0; }
 			#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+			#map {
+				z-index: 1;
+			}
+
+			.info {
+				padding: 6px 8px;
+				font: 14px/16px Arial, Helvetica, sans-serif;
+				background: white;
+				background: rgba(255, 255,255, 0, 0);
+				border-radius: 5px;
+			}
+
+			.info h4 {
+				margin: 0 0 5px;
+				color: #777;
+			}
+
+			#accordion {
+			    background:#333;
+			    width: 300px;
+			    border:1px solid #333;
+			    -background:#666;
+			    margin: 0 auto;
+			    z-index: 100;
+			    position: absolute;
+			    bottom: 2%;
+			    right: 1%;
+			    
+			    width: 15%;
+			    padding-left: 1%;
+			    padding-right: 1%;
+			}
+
+			/* accordion header */
+			#accordion h2 {
+			    background:#ccc;
+			    line-height: 14px;
+			    margin:0;
+			    padding:5px 15px;
+			    font-size:14px;
+			    font-weight:normal;
+			    border:1px solid #fff;
+			    border-bottom:1px solid #ddd;
+			    cursor:pointer;
+			}
+
+			/* currently active header */
+			#accordion h2.current {
+			    cursor:default;
+			    background-color:#fff;
+			}
+
+			/* accordion pane */
+			#accordion .pane {
+			    border:1px solid #fff;
+			    border-width:0 2px;
+			    display:none;
+			    height:180px;
+			    padding:15px;
+			    color:#fff;
+			    font-size:12px;
+			}
+
+			/* a title inside pane */
+			#accordion .pane h3 {
+			    font-weight:normal;
+			    margin:0;
+			    font-size:16px;
+			    color:#999;
+			}
 		</style>
 	</head>
 	<body>
@@ -44,12 +120,14 @@
 					if(!L.Browser.ie && !L.Browser.opera) {
 						layer.bringToFront();
 					}
+					//update info panel with name of community area on mouseover
+					info.update(layer.feature.properties);
 				}//end highlight community area on mouseover function
 
 				//function to reset highlighting of community area on mouseout
 				function resetHighlight(e) {
 					geojson.resetStyle(e.target);
-					//info.update();
+					info.update();
 				}
 
 				//zoom to community area on click
@@ -72,9 +150,13 @@
 					onEachFeature:onEachFeature
 				});
 
-				/*
+				//options for info panel control
+				var infoControlOptions = {
+					position: 'topleft'
+				}
+
 				//control that shows community area info on hover
-				var ca_info = L.control();
+				var info = L.control();//(null, infoControlOptions);
 
 				//creates info control
 				info.onAdd = function(map) {
@@ -82,7 +164,12 @@
 					this.update();
 					return this._div;
 				};
-				*/
+
+				info.update = function(props) {
+					this._div.innerHTML = '<h4>Community Area:</h4>' + (props ?
+						'<b>' + props.name + '</b><br />'
+						: 'Hover over a community area.');
+				};
 
 				//mapbox street tiles with proper attribution and max zoom level.
 				//max zoom set to 18 because it's the greatest zoom level where everything shows
@@ -117,6 +204,13 @@
 				//leaflet layerGroup to hold divvy station markers
 				var stations = L.layerGroup();
 
+				//markercluster to hold divvy stations
+				var markers = new L.MarkerClusterGroup({
+					spiderfyOnMaxZoom: true,
+					showCoverageOnHover: true,
+					zoomToBoundsOnClick: true,
+				});
+
 				//loop through .csv and add divvy stations to the statiosn layerGroup
 				d3.csv("Divvy_Bicycle_Stations.csv", function(station_list) {
 					for(var i = 0; i < station_list.length; i++)
@@ -125,8 +219,12 @@
 						var station_lat = station_list[i].Latitude;
 						var station_lon = station_list[i].Longitude;
 
+						//add to the layerGroup
 						//marker = new L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup().addTo()
 						stations.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());
+
+						//add to the markerClusterGroup
+						markers.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());
 					}//end for loop through .csv file of divvy station locations
 				});//end D3 import of divvy station .csv file
 
@@ -171,20 +269,25 @@
 					"Divvy Stations": stations,
 					"Streets (for use with satellite map)": Hydda_RoadsAndLabels,
 					"Community Areas": geojson
+					//"MARKER CLUSTER": markers
+					//"CA Info": info
 					//"Community Areas": communitiesLayer
 					//"Community Areas": community_areas
 				};
 
 				//option(s) for layer control widget
 				var layerControlOptions = {
-					position: 'topleft',
+					position: 'topleft'
 				}
 
 				//adds layer toggle control to the map in top right
 				L.control.layers(baseMaps, overlayMaps, layerControlOptions).addTo(map);
-				
+
 				//adds a scale meter to map; defaults to bottom left
 				L.control.scale().addTo(map);
+
+				//adds info panel with name of community area to map
+				info.addTo(map);
 
 				/*
 				//style for JSON overlay of community areas
@@ -218,5 +321,21 @@
 				*/
 			</script>
 		</div>
+		<div id="accordion">
+			<h2 class="current">First Pane</h2>
+			<div class="pane" style="display:block">...pane content...</div>
+			<h2>Second Pane</h2>
+			<div class="pane">...pane content...</div>
+			<h2>Third Pane</h2>
+			<div class="pane">...pane content...</div>
+		</div>
+		<script>
+			$(function() {
+				$("#accordion").tabs(
+					"#accordion div.pane",
+					{tabs: 'h2', effect: 'slide', initialIndex: null}
+				);
+			});
+		</script>
 	</body>
 </html>
