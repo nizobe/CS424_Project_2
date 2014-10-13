@@ -5,6 +5,8 @@
 	<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
 	<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
+	<!--<link rel="stylesheet" href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css"/>-->
+	<!--<script src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js"></script>-->
 	<head>
 		<title>Bike Race</title>
 		<script src="./community_areas.geojson"></script>
@@ -142,7 +144,7 @@
 						mouseout: resetHighlight,
 						click: zoomToFeature
 					});
-				}
+				}//end function onEachFeature
 
 				//actually load in the community areas geojson file
 				geojson = L.geoJson(community_areas, {
@@ -156,7 +158,7 @@
 				}
 
 				//control that shows community area info on hover
-				var info = L.control();//(null, infoControlOptions);
+				var info = L.control(infoControlOptions);
 
 				//creates info control
 				info.onAdd = function(map) {
@@ -250,7 +252,7 @@
 				//make a map with anchor lat,lon and zoom level
 				var map = L.map('map', {
 					center: [41.86968865729827, -87.64699459075926],
-					zoom: 13,
+					zoom: 11,
 					layers: [street_map, Esri_WorldImagery]
 				});//.setView([41.86968865729827, -87.64699459075926], 13);
 
@@ -288,6 +290,13 @@
 
 				//adds info panel with name of community area to map
 				info.addTo(map);
+
+				/*commented out because initial tests showed it's probably not useful
+				//OSMGeocoder search control
+				var osmGeocoder = new L.Control.OSMGeocoder();
+				//add the Geocoder control to the map
+				osmGeocoder.addTo(map);
+				*/
 
 				/*
 				//style for JSON overlay of community areas

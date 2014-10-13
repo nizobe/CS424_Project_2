@@ -7,7 +7,8 @@
 <node CREATED="1412709338729" ID="ID_858410898" MODIFIED="1412733477431" TEXT="Pan/Zoom Functionality">
 <icon BUILTIN="button_ok"/>
 </node>
-<node CREATED="1412709357099" ID="ID_1902974595" MODIFIED="1412709370900" TEXT="Satellite Map">
+<node CREATED="1412709357099" ID="ID_1902974595" MODIFIED="1413219795130" TEXT="Satellite Map">
+<icon BUILTIN="button_ok"/>
 <node CREATED="1412739443307" ID="ID_1318411003" MODIFIED="1412739451804" TEXT="IF we use Google Maps">
 <icon BUILTIN="button_ok"/>
 </node>
@@ -18,7 +19,9 @@
 <node CREATED="1412709404360" ID="ID_38644242" MODIFIED="1412733485999" TEXT="All Divvy Station Locations">
 <icon BUILTIN="button_ok"/>
 </node>
-<node CREATED="1412709444402" ID="ID_307220172" MODIFIED="1412712065517" TEXT="Community Areas (as toggle-able layer)"/>
+<node CREATED="1412709444402" ID="ID_307220172" MODIFIED="1413219800821" TEXT="Community Areas (as toggle-able layer)">
+<icon BUILTIN="button_ok"/>
+</node>
 <node CREATED="1412711618813" ID="ID_1436495796" MODIFIED="1412712335718" TEXT="Google Maps vs. Open Street Map?">
 <icon BUILTIN="help"/>
 </node>
