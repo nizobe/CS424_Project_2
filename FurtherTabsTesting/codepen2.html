@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
+	<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
+	<head>
+		<title>Bike Race</title>
+		<script src="./community_areas.geojson"></script>
+		<!--<script src="jquery-2.1.1.min.js"></script>-->
+		<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="./tabs-accordion.css">-->
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<style>
+			body { margin: 0; padding: 0; }
+			#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+			#map {
+				z-index: 1;
+			}
+
+			.info {
+				padding: 6px 8px;
+				font: 14px/16px Arial, Helvetica, sans-serif;
+				background: white;
+				background: rgba(255, 255,255, 0, 0);
+				border-radius: 5px;
+			}
+
+			.info h4 {
+				margin: 0 0 5px;
+				color: #777;
+			}
+
+			/* For a full explanation of this code, please refer to the blogpost at http://www.bram.us/2014/01/05/css-animated-content-switching/ */
+
+			body {
+			  background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEX4+Pj09PQf/c7fAAAAGklEQVR4Xq3MIQEAAADDIPqX/kvMIMEWEm8O7b0/wewc/NcAAAAASUVORK5CYII=) repeat;
+			  font-family: Georgia;
+			}
+
+			/* Panel Navigation */
+			.panelNav {
+			  list-style: none;
+			  margin: 0; padding: 0;
+			}
+
+			.panelNav li {
+			  display: inline-block;
+			  padding: 0 10px;
+			}
+
+
+			/*
+			PanelWrapper and Basic Panel styling.
+			Make sure to set `overflow:hidden` onto the wrapper. */
+			.panelWrapper {
+			  width: 400px;
+			  height: 200px;
+			  position: relative;
+			  overflow: hidden;
+			  border: 1px solid #464646;
+			}
+
+			.panel {
+			  position: absolute;
+			  left: 0;
+			  right: 0;
+			  top: 0;
+			  bottom: 0;
+			  
+			  text-align: center;
+			  line-height: 200px;
+			  font-size: 100px;
+			  color: #FFF;
+			  
+			  /*
+			  Prevent flickering of the screen when starting an animation
+			  @url http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+			  */
+			  -webkit-backface-visibility: hidden;
+			  backface-visibility: hidden;
+			}
+
+			/* Panel colors */
+			#panelA1, #panelA2, #panelA3, #panelA4, #panelA5, #panelA6, #panelA7 { background: #F00; }
+			#panelB1, #panelB2, #panelB3, #panelB4, #panelB5, #panelB6, #panelB7   { background: #0F0; }
+			#panelC1, #panelC2, #panelC3, #panelC4, #panelC5, #panelC6, #panelC7   { background: #00F; }
+
+
+			/*
+			A panel can be in one of the following states:
+			- [default],
+			- current (= the current active panel),
+			- exit (= the panel to slide/fade out),
+			- enter (= the panel to slide/fade in)
+
+			All [default] panels are hidden.
+			Above that we make sure the current panel is on top of the other panels
+			*/
+			.panel { z-index: -1; display: none; }
+			.panel.current, .panel.exit { z-index: 2; display: block; }
+			.panel.enter { display: block; }
+
+
+			/*
+			The key aspect in this example is the `.animating` class on the wrapper: only if the wrapper has the .animating class, CSS properties are transitioned.
+
+			This allows us to set starting positions without any transition, and then - once `.animating` is in place transition to the end position.
+			*/
+			.animating .exit,
+			.animating .enter {
+			  -webkit-transition: all .3s ease-in-out;
+			  -ms-transition: all .3s ease-in-out;
+			  transition: all .3s ease-in-out;
+			}
+
+			/*
+			What follows now are all transition start and end states. Names are re-used for both entering and exiting effects.
+
+			Note that some effects are aliases. Entering stage left (= from the left hand side of "the stage" (wrapper)) is the same as sliding in to the right.
+			*/
+
+
+			/* SLIDE OUT TRANSITIONS */
+			.exit.stageback,
+			.exit.stagetop,
+			.exit.slideup {
+			  -webkit-transform: translateY(0);
+			  -ms-transform: translateY(0);
+			  transform: translateY(0);
+			}
+			.animating .exit.stageback,
+			.animating .exit.stagetop,
+			.animating .exit.slideup {
+			  	-webkit-transform: translateY(-100%);
+			  -ms-transform: translateY(-100%);
+			  transform: translateY(-100%);
+			}
+
+			.exit.stagefront,
+			.exit.stagebottom,
+			.exit.slidedown {
+			  -webkit-transform: translateY(0);
+			  -ms-transform: translateY(0);
+			  transform: translateY(0);
+			}
+			.animating .exit.stagefront,
+			.animating .exit.stagebottom,
+			.animating .exit.slidedown {
+			  	-webkit-transform: translateY(100%);
+			  -ms-transform: translateY(100%);
+			  transform: translateY(100%);
+			}
+
+			.exit.stageleft,
+			.exit.slideleft {
+			  -webkit-transform: translateX(0);
+			  -ms-transform: translateX(0);
+			  transform: translateX(0);
+			}
+			.animating .exit.stageleft,
+			.animating .exit.slideleft {
+			  -webkit-transform: translateX(-100%);
+			  -ms-transform: translateX(-100%);
+			  transform: translateX(-100%);
+			}
+
+			.exit.stageright,
+			.exit.slideright {
+			  -webkit-transform: translateX(0);
+			  -ms-transform: translateX(0);
+			  transform: translateX(0);
+			}
+			.animating .exit.stageright,
+			.animating .exit.slideright {
+			  -webkit-transform: translateX(100%);
+			  -ms-transform: translateX(100%);
+			  transform: translateX(100%);
+			}
+
+
+			/* SLIDE IN TRANSITIONS */
+			.enter.stageback,
+			.enter.stagetop,
+			.enter.slidedown {
+			  -webkit-transform: translateY(-100%);
+			  -ms-transform: translateY(-100%);
+			  transform: translateY(-100%);
+			}
+			.animating .enter.stageback,
+			.animating .enter.stagetop,
+			.animating .enter.slidedown {
+			  -webkit-transform: translateY(0);
+			  -ms-transform: translateY(0);
+			  transform: translateY(0);
+			}
+
+			.enter.stagefront,
+			.enter.stagebottom,
+			.enter.slideup {
+			  -webkit-transform: translateY(100%);
+			  -ms-transform: translateY(100%);
+			  transform: translateY(100%);
+			}
+			.animating .enter.stagefront,
+			.animating .enter.stagebottom,
+			.animating .enter.slideup {
+			  -webkit-transform: translateY(0);
+			  -ms-transform: translateY(0);
+			  transform: translateY(0);
+			}
+
+			.enter.stageleft,
+			.enter.slideright {
+			  -webkit-transform: translateX(-100%);
+			  -ms-transform: translateX(-100%);
+			  transform: translateX(-100%);
+			}
+			.animating .enter.stageleft,
+			.animating .enter.slideright {
+			  -webkit-transform: translateX(0%);
+			  -ms-transform: translateX(0%);
+			  transform: translateX(0%);
+			}
+
+			.enter.stageright,
+			.enter.slideleft {
+			  -webkit-transform: translateX(100%);
+			  -ms-transform: translateX(100%);
+			  transform: translateX(100%);
+			}
+			.animating .enter.stageright,
+			.animating .enter.slideleft {
+			  -webkit-transform: translateX(0%);
+			  -ms-transform: translateX(0%);
+			  transform: translateX(0%);
+			}
+
+
+
+			/* SCALE TRANSITIONS, BEST TO COBMINE WITH FADE/OPACITY */
+			.enter.scaleup {
+			  -webkit-transform: scale(0.1);
+			  -ms-transform: scale(0.1);
+			  transform: scale(0.1);
+			}
+			.animating .enter.scaleup {
+			  	-webkit-transform: scale(1);
+			  -ms-transform: scale(1);
+			  transform: scale(1);
+			}
+
+			.exit.scaleup {
+			  -webkit-transform: scale(1);
+			  -ms-transform: scale(1);
+			  transform: scale(1);
+			}
+			.animating .exit.scaleup {
+			  	-webkit-transform: scale(1.9);
+			  -ms-transform: scale(1.9);
+			  transform: scale(1.9);
+			  opacity: 0;
+			}
+
+			.enter.scaledown {
+			  -webkit-transform: scale(1.9);
+			  -ms-transform: scale(1.9);
+			  transform: scale(1.9);
+			}
+			.animating .enter.scaledown {
+			  	-webkit-transform: scale(1);
+			  -ms-transform: scale(1);
+			  transform: scale(1);
+			}
+
+			.exit.scaledown {
+			  -webkit-transform: scale(1);
+			  -ms-transform: scale(1);
+			  transform: scale(1);
+			}
+			.animating .exit.scaledown {
+				  -webkit-transform: scale(0.1);
+			  -ms-transform: scale(0.1);
+			  transform: scale(0.1);
+			}
+
+
+			/* OPACITY/FADE TRANSITIONS */
+			.enter.fade {
+			  opacity: 0;
+			}
+			.animating .enter.fade {
+			  opacity: 1;
+			}
+			.exit.fade {
+			  opacity: 1;
+			}
+			.animating .exit.fade {
+			  opacity: 0;
+			}
+
+
+			/* Sequential animations: delay the animation of the entering panel */
+			.animating[data-concurrent="no"] .panel.enter,
+			.animating[data-sequential="yes"] .panel.enter{
+			  -webkit-transition-delay: .3s !important;
+			  -ms-transition-delay: .3s !important;
+			  transition-delay: .3s !important;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- For a full explanation of this code, please refer to the blogpost at http://www.bram.us/2014/01/05/css-animated-content-switching/ -->
+
+		<h2>3. Vertical Slide (enter and exit animations running sequential), with fade</h2>
+		<ul class="panelNav" data-panelwrapper="panelWrapper2">
+		  <li>
+		  	<a href="#panelA2">A</a>
+
+		  </li>
+		  <li><a href="#panelB2">B</a></li>
+		  <li><a href="#panelC2">C</a></li>
+		</ul>
+		<div class="panelWrapper" id="panelWrapper2" data-enter="slideup fade" data-exit="slidedown fade" data-sequential="yes">
+		  <div class="panel current" id="panelA2">
+		  	<div id="map"><!--div to hold map-->
+		  		<script>
+		  			//necessary to avoid scoping issues with community areas layer
+		  			var geojson;
+
+		  			//defines how community areas look when left alone
+		  			function style(feature) {
+		  				return {
+		  					fillColor: '#08519c',
+		  					weight: 3,//outline thickness
+		  					opacity: 1,//outline opacity
+		  					color: '#6baed6',//outline color
+		  					dashArray: '3',//dashed outline value
+		  					fillOpacity: 0.2
+		  				};
+		  			}//end function style(feature)
+
+		  			//function to highlight a community area on mouseover, similar fields to above function
+		  			function highlightFeature(e) {
+		  				var layer = e.target;
+
+		  				layer.setStyle({
+		  					weight: 4,
+		  					color: '#08306b',
+		  					dashArray: '',
+		  					fillOpacity: 0.5
+		  				});
+		  				//resolves issues with IE and Opera
+		  				if(!L.Browser.ie && !L.Browser.opera) {
+		  					layer.bringToFront();
+		  				}
+		  				//update info panel with name of community area on mouseover
+		  				info.update(layer.feature.properties);
+		  			}//end highlight community area on mouseover function
+
+		  			//function to reset highlighting of community area on mouseout
+		  			function resetHighlight(e) {
+		  				geojson.resetStyle(e.target);
+		  				info.update();
+		  			}
+
+		  			//zoom to community area on click
+		  			function zoomToFeature(e) {
+		  				map.fitBounds(e.target.getBounds());
+		  			}
+
+		  			//do all "this stuff" for each community area
+		  			function onEachFeature(feature, layer) {
+		  				layer.on({
+		  					mouseover: highlightFeature,
+		  					mouseout: resetHighlight,
+		  					click: zoomToFeature
+		  				});
+		  			}//end function onEachFeature
+
+		  			//actually load in the community areas geojson file
+		  			geojson = L.geoJson(community_areas, {
+		  				style: style,
+		  				onEachFeature:onEachFeature
+		  			});
+
+		  			//options for info panel control
+		  			var infoControlOptions = {
+		  				position: 'topleft'
+		  			}
+
+		  			//control that shows community area info on hover
+		  			var info = L.control(infoControlOptions);
+
+		  			//creates info control
+		  			info.onAdd = function(map) {
+		  				this._div = L.DomUtil.create('div', 'info');
+		  				this.update();
+		  				return this._div;
+		  			};
+
+		  			info.update = function(props) {
+		  				this._div.innerHTML = '<h4>Community Area:</h4>' + (props ?
+		  					'<b>' + props.name + '</b><br />'
+		  					: 'Hover over a community area.');
+		  			};
+
+		  			//mapbox street tiles with proper attribution and max zoom level.
+		  			//max zoom set to 18 because it's the greatest zoom level where everything shows
+		  			var street_map = L.tileLayer('http://{s}.tiles.mapbox.com/v3/nizobe.jn4og4o6/{z}/{x}/{y}.png', {
+		  			    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		  			    maxZoom: 18
+		  			});//.addTo(map);
+
+		  			//satellite imagery tile layer
+		  			var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+		  				attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+		  			});//end satellite imagery tile layer
+
+		  			//street and road labels overlay
+		  			var Hydda_RoadsAndLabels = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
+		  		    	minZoom: 0,
+		  		    	maxZoom: 18,
+		  		    	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		  			});//end street and road labels overlay
+
+		  			/*
+		  			//geoJSON layer to hold community areas
+		  			//var communities = new L.LayerGroup();
+		  			var communitiesLayer = new L.LayerGroup();
+		  			var communities = L.geoJson(community_areas, {
+		  				onEachFeature: onEachFeature
+		  			}).addTo(communitiesLayer);
+		  			//add geoJSON data to communities layer
+		  			//L.geoJson(community_areas).addTo(communities);
+		  			*/
+
+		  			//leaflet layerGroup to hold divvy station markers
+		  			var stations = L.layerGroup();
+
+		  			//markercluster to hold divvy stations
+		  			var markers = new L.MarkerClusterGroup({
+		  				spiderfyOnMaxZoom: true,
+		  				showCoverageOnHover: true,
+		  				zoomToBoundsOnClick: true,
+		  			});
+
+		  			//loop through .csv and add divvy stations to the statiosn layerGroup
+		  			d3.csv("Divvy_Bicycle_Stations.csv", function(station_list) {
+		  				for(var i = 0; i < station_list.length; i++)
+		  				{
+		  					var station_name = station_list[i].StationName;
+		  					var station_lat = station_list[i].Latitude;
+		  					var station_lon = station_list[i].Longitude;
+
+		  					//add to the layerGroup
+		  					//marker = new L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup().addTo()
+		  					stations.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());
+
+		  					//add to the markerClusterGroup
+		  					markers.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());
+		  				}//end for loop through .csv file of divvy station locations
+		  			});//end D3 import of divvy station .csv file
+
+		  			/*
+		  			var community_areas = new L.tileLayer.GeoJSON("community_areas.json");
+		  			community_areas.setGeoJSONOptions({
+		  			        /* style of GeoJSON feature /
+		  			        style: {
+		  			            "color": "#1B1",
+		  			            "fillColor": "#1B1",
+		  			            "weight": 0.7,
+		  			            "opacity": 0.3,
+		  			            "fillOpacity": 0.1
+		  			        },
+		  			        /* style of GeoJSON feature when hovered /
+		  			        hoverStyle: {
+		  			            "fillOpacity": 0.4
+		  			        },
+		  			        hoverOffset: new L.Point(30,-16)
+		  			});
+		  			*/
+
+		  			//make a map with anchor lat,lon and zoom level
+		  			var map = L.map('map', {
+		  				center: [41.86968865729827, -87.64699459075926],
+		  				zoom: 11,
+		  				layers: [street_map, Esri_WorldImagery]
+		  			});//.setView([41.86968865729827, -87.64699459075926], 13);
+
+		  			/*mutually exclusive base map layers
+		  			it seems that the last layer in the list is the default layer
+		  			caveat: satellite (second option on control widget) is checked by default,
+		  			even though the street maps layer is displaed by default */
+		  			var baseMaps = {
+		  				//"Street Map": street_map,
+		  				"Satellite": Esri_WorldImagery,
+		  				"Street Map": street_map
+		  			};
+
+		  			//toggle-able overlays. visible name : variable name
+		  			var overlayMaps = {
+		  				"Divvy Stations": stations,
+		  				"Streets (for use with satellite map)": Hydda_RoadsAndLabels,
+		  				"Community Areas": geojson
+		  				//"MARKER CLUSTER": markers
+		  				//"CA Info": info
+		  				//"Community Areas": communitiesLayer
+		  				//"Community Areas": community_areas
+		  			};
+
+		  			//option(s) for layer control widget
+		  			var layerControlOptions = {
+		  				position: 'topleft'
+		  			}
+
+		  			//adds layer toggle control to the map in top right
+		  			L.control.layers(baseMaps, overlayMaps, layerControlOptions).addTo(map);
+
+		  			//adds a scale meter to map; defaults to bottom left
+		  			L.control.scale().addTo(map);
+
+		  			//adds info panel with name of community area to map
+		  			info.addTo(map);
+
+		  			/*commented out because initial tests showed it's probably not useful
+		  			//OSMGeocoder search control
+		  			var osmGeocoder = new L.Control.OSMGeocoder();
+		  			//add the Geocoder control to the map
+		  			osmGeocoder.addTo(map);
+		  			*/
+
+		  			/*
+		  			//style for JSON overlay of community areas
+		  			var style = {
+		  				"clickable": true,
+		  				"color": "#00D",
+		  				"fillColor": "#00D",
+		  				"weight": 1.0,
+		  				"opacity": 0.3,
+		  				"fillOpacity": 0.2
+		  			};
+		  			var hoverStyle = {
+		  				"fillOpacity": 0.5
+		  			}
+		  			*/
+		  			
+		  			/*
+		  			var communityAreaLayer = new L.tileLayer.GeoJSON("community_areas.json"), {
+		  				clipTiles: true,
+		  				unique: function (feature) {
+		  					return feature.id;
+		  				}, {
+		  					style: style,
+		  					onEachFeature: function (feature, layer) {
+		  						if (feature.properties) {
+		  							var popupString = '<div class="popup">';
+		  						}
+		  					}
+		  				}
+		  			};//end generation of community areas layer from .json
+		  			*/
+		  		</script>
+		  	</div>
+		  </div>
+		  <div class="panel" id="panelB2">B</div>
+		  <div class="panel" id="panelC2">C</div>
+		</div>
+		<script>
+			// For a full explanation of this code, please refer to the blogpost at http://www.bram.us/2014/01/05/css-animated-content-switching/
+			jQuery(function($) {
+
+				var startAnimation = function($panelContainer) {
+
+					// Set .animating class (which triggers the CSS to start the animation)
+					$panelContainer.addClass('animating');
+
+				};
+
+				var updatePanelNav = function($panelNav, $panelContainer, $panelToSlideIn, numPanels) {
+
+					// Find index of $panelToSlideIn in the $panelContainer
+					var idx = $panelToSlideIn.index('#' + $panelContainer.attr('id') + ' > .panel');
+
+					if (idx === 0) {
+						$panelNav.find('a[href="#prev"]').addClass('inactive');
+					} else {
+						$panelNav.find('a[href="#prev"]').removeClass('inactive');
+					}
+
+					if (idx == numPanels-1) {
+						$panelNav.find('a[href="#next"]').addClass('inactive');
+					} else {
+						$panelNav.find('a[href="#next"]').removeClass('inactive');
+					}
+
+				};
+
+				var stopAnimation = function($panelContainer, $panels, $panelToSlideIn) {
+
+					// Fix for browsers who fire this handler for both prefixed and unprefixed events (looking at you, Chrome): remove any listeners
+					// $panelToSlideIn.off('transitionend webkitTransitionEnd	MSTransitionEnd');
+
+					// An optional extra class (or set of classes) that might be set on the panels
+					var extraClass = $panelContainer.data('extraclass') || '';
+
+					// set slid in panel as the current one
+					$panelToSlideIn.removeClass().addClass('panel current ' + extraClass);
+
+					// reset all other panels
+					$panels.filter(':not(#' + $panelToSlideIn.attr('id')	+ ')').removeClass().addClass('panel ' + extraClass);
+
+					// Allow a new animation
+					$panelContainer.removeClass('animating');
+
+				};
+
+				var setExitPanel = function($panelToSlideOut, exitAnimation) {
+
+					$panelToSlideOut
+						.addClass('exit ' + exitAnimation)
+						.removeClass('current');
+
+				};
+
+				var setEnterPanel = function($panelContainer, $panels, $panelToSlideIn, enterAnimation) {
+
+					$panelToSlideIn
+
+						// Slide it into view
+						.addClass('enter ' + enterAnimation)
+
+						// When sliding in is done,
+						// .one('transitionend webkitTransitionEnd MSTransitionEnd', function(e) {
+
+							// moved to a setTimeout in the click handling logic itself because Firefox doesn't always fire this!!!
+							// stopAnimation($panelContainer, $panels, $panelToSlideIn)
+
+						// })
+						;
+
+				};
+
+				$('.panelNav').each(function(i) {
+
+					var $panelNav = $(this),
+						$panelNavItems = $panelNav.find('a'),
+						$panelContainer = $('#' + $panelNav.data('panelwrapper')),
+						$panels = $panelContainer.find('> .panel'),
+						numPanels = $panels.length,
+						animationDuration = ($panelContainer.data('sequential') == 'yes') ? 600 : 300;
+
+
+					if (numPanels > 1) {
+						$panelNav.find('a[href="#next"]').removeClass('inactive');
+					}
+
+					// When clicking on any of the panel navigation items
+					$panelNavItems.on('click', function(e) {
+
+						// Don't follow the link
+						e.preventDefault();
+
+						// Local vars
+						var $panelToSlideIn, $panelToSlideOut, enterAnimation, exitAnimation;
+
+						// Don't do anything if we are currently animating
+						if ($panelContainer.is('.animating')) return false;
+
+						// Define the panel to slideOut
+						$panelToSlideOut = $panels.filter('.current');
+
+						// Define the the panel to slide in
+						if ($(this).attr('href') == '#next') {
+							$panelToSlideIn = $panels.filter('.current').next('.panel');
+						} else if ($(this).attr('href') == '#prev') {
+							$panelToSlideIn = $panels.filter('.current').prev('.panel');
+						} else {
+							$panelToSlideIn = /* $panels.filter('#' + */ $($(this).attr('href')) /* .attr('id')) */;
+						}
+
+						// Don't do anything if there is no new panel
+						if (!$panelToSlideIn.size()) return;
+
+						// Don't do anything if the new panel equals the current panel
+						if ($panelToSlideOut.attr('id') == $panelToSlideIn.attr('id')) return;
+
+						// Define animations to use
+						enterAnimation = $panelToSlideIn.data('enter') || $panelContainer.data('enter');
+						exitAnimation = $panelToSlideOut.data('exit') || $panelContainer.data('exit');
+
+						// Set the exit panel
+						setExitPanel($panelToSlideOut, exitAnimation);
+
+						// Set the enter panel
+						setEnterPanel($panelContainer, $panels, $panelToSlideIn, enterAnimation);
+
+						// Start the animation (immediately)
+						// @note: using a setTimeout because "it solves everything", dixit @rem
+						setTimeout(function() {
+							startAnimation($panelContainer);
+						}, 0);
+
+						// Update next/prev buttons
+						updatePanelNav($panelNav, $panelContainer, $panelToSlideIn, numPanels);
+
+						// Stop the animation after a while
+						setTimeout(function() {
+							stopAnimation($panelContainer, $panels, $panelToSlideIn);
+						}, animationDuration);
+
+					});
+
+
+				});
+
+
+			});
+		</script>  
+	</body>
+</html>
