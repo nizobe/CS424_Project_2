@@ -6,6 +6,10 @@ from datetime import date, timedelta
 dataStart = date(2013,6,27)
 dataEnd = date(2013,12,31)
 
+#function to generate list of days covered in the data
+
+#date_list = [dataStart + datetime.timedelta(days=x) for x in range(dataStart, dataEnd)]
+
 #count for num bikes out in a given hour
 clock_0 = 0
 clock_1 = 0
