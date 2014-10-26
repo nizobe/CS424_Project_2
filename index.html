@@ -92,7 +92,7 @@
 	<body>
 		<header>
 		</header>
-
+		
 		<div id="map"><!--div to hold map-->
 			<script>
 				//necessary to avoid scoping issues with community areas layer
@@ -194,6 +194,17 @@
 			    	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 				});//end street and road labels overlay
 
+				/*
+				//geoJSON layer to hold community areas
+				//var communities = new L.LayerGroup();
+				var communitiesLayer = new L.LayerGroup();
+				var communities = L.geoJson(community_areas, {
+					onEachFeature: onEachFeature
+				}).addTo(communitiesLayer);
+				//add geoJSON data to communities layer
+				//L.geoJson(community_areas).addTo(communities);
+				*/
+
 				//leaflet layerGroup to hold divvy station markers
 				var stations = L.layerGroup();
 
@@ -220,6 +231,25 @@
 						markers.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());
 					}//end for loop through .csv file of divvy station locations
 				});//end D3 import of divvy station .csv file
+
+				/*
+				var community_areas = new L.tileLayer.GeoJSON("community_areas.json");
+				community_areas.setGeoJSONOptions({
+				        /* style of GeoJSON feature /
+				        style: {
+				            "color": "#1B1",
+				            "fillColor": "#1B1",
+				            "weight": 0.7,
+				            "opacity": 0.3,
+				            "fillOpacity": 0.1
+				        },
+				        /* style of GeoJSON feature when hovered /
+				        hoverStyle: {
+				            "fillOpacity": 0.4
+				        },
+				        hoverOffset: new L.Point(30,-16)
+				});
+				*/
 
 				//make a map with anchor lat,lon and zoom level
 				var map = L.map('map', {
@@ -262,9 +292,62 @@
 
 				//adds info panel with name of community area to map
 				info.addTo(map);
-			</script>
-		</div> <!-- End Map -->
 
+				/*commented out because initial tests showed it's probably not useful
+				//OSMGeocoder search control
+				var osmGeocoder = new L.Control.OSMGeocoder();
+				//add the Geocoder control to the map
+				osmGeocoder.addTo(map);
+				*/
+
+				/*
+				//style for JSON overlay of community areas
+				var style = {
+					"clickable": true,
+					"color": "#00D",
+					"fillColor": "#00D",
+					"weight": 1.0,
+					"opacity": 0.3,
+					"fillOpacity": 0.2
+				};
+				var hoverStyle = {
+					"fillOpacity": 0.5
+				}
+				*/
+				
+				/*
+				var communityAreaLayer = new L.tileLayer.GeoJSON("community_areas.json"), {
+					clipTiles: true,
+					unique: function (feature) {
+						return feature.id;
+					}, {
+						style: style,
+						onEachFeature: function (feature, layer) {
+							if (feature.properties) {
+								var popupString = '<div class="popup">';
+							}
+						}
+					}
+				};//end generation of community areas layer from .json
+				*/
+			</script>
+		</div>
+		<div id="accordion">
+			<h2 class="current">First Pane</h2>
+			<div class="pane" style="display:block">...pane content...</div>
+			<h2>Second Pane</h2>
+			<div class="pane">...pane content...</div>
+			<h2>Third Pane</h2>
+			<div class="pane">...pane content...</div>
+		</div>
+		<script>
+			$(function() {
+				$("#accordion").tabs(
+					"#accordion div.pane",
+					{tabs: 'h2', effect: 'slide', initialIndex: null}
+				);
+			});
+		</script>
 
 
 		<footer>
