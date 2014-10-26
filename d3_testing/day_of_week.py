@@ -35,6 +35,7 @@ thuCount = 0
 friCount = 0
 satCount = 0
 
+#compute the number of bikes out for each day of the week
 for r_index, row in enumerate(open("num_day_week_updated.csv", 'r')):
 	segmentedLine = row.split(',')
 	for c_index, cell in enumerate(segmentedLine):
@@ -54,8 +55,7 @@ for r_index, row in enumerate(open("num_day_week_updated.csv", 'r')):
 				friCount+=1
 			elif cell == "Sat":
 				satCount+=1
-
-
+#print out the results of the above tally
 print "Sunday Count:" , sunCount
 print "Monday Count:" , monCount
 print "Tuesday Count:" , tueCount
