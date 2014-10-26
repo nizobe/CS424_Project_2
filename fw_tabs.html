@@ -13,15 +13,18 @@
 		<!--<link rel="stylesheet" type="text/css" href="./tabs-accordion.css">-->
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
 
+		<!--
 		<link rel="stylesheet" type="text/css" href="FurtherTabsTesting/FullWidthTabs-master/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="FurtherTabsTesting/FullWidthTabs-master/css/component.css" />
+		-->
+		
 		<style>
 			body { margin: 0; padding: 0; }
-			#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+			#map { position: absolute; /*top: 0; bottom: 0;*/ width: 100%; /*clip: inherit*/; overflow: scroll; }
 
-			#map {
-				z-index: 1;
-			}
+			/*#map {
+				z-index: -1;
+			}*/
 
 			.info {
 				padding: 6px 8px;
@@ -287,6 +290,8 @@
 								*/
 							</script>
 						</div><!--end id="map"-->
+					</section>
+					<section id="section-2"><!--aka tab2-->
 					</section>
 				</div><!--end div class="content"-->
 			</div><!--end id="tabs"-->
