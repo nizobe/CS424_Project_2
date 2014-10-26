@@ -5,15 +5,18 @@
 	<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
 	<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
 	<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
+	<!--<link rel="stylesheet" href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css"/>-->
+	<!--<script src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js"></script>-->
 	<head>
 		<title>Bike Race</title>
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<script src="./community_areas.geojson"></script>
+		<script src="jquery-2.1.1.min.js"></script>
 		<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="./tabs-accordion.css">-->
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<style type="text/css">
 			body { margin: 0; padding: 0; }
-			#map { position: absolute; top: 0; bottom: 0; }
+			#map { position: absolute; top: 0; bottom: 0; width: 100%; }
 
 			#map {
 				z-index: 1;
@@ -87,12 +90,7 @@
 			}
 		</style>
 	</head>
-
-
 	<body>
-		<header>
-		</header>
-		
 		<div id="map"><!--div to hold map-->
 			<script>
 				//necessary to avoid scoping issues with community areas layer
@@ -348,13 +346,5 @@
 				);
 			});
 		</script>
-
-
-		<footer>
-		</footer>
-
-		<!-- Bootstrap JS & jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</body>
 </html>
