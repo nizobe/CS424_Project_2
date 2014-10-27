@@ -20,6 +20,15 @@ def date_range(start_date, end_date, increment, period):
 date_list = date_range(dataStart, dataEnd, 1, 'days')
 #print date_list[0]
 
+#turn the above list into keys for a dictionary with all values set to zero
+date_dict = dict((day,0) for day in date_list)
+
+#just checking type of contents; spoiler: it's datetime.date
+'''
+print date_dict[date_list[0]]
+print type(date_list[0])
+'''
+
 #count for num bikes out in a given hour
 clock_0 = 0
 clock_1 = 0
@@ -74,6 +83,13 @@ for r_index, row in enumerate(open("num_day_week_updated.csv", 'r')):
 				friCount+=1
 			elif cell == "Sat":
 				satCount+=1
+		if c_index == 2: #column for start date formatted M(M)/D(D)/YYYY
+			csvDatePieces = cell.split('/')
+			parsedDate = date(csvDatePieces[2], csvDatePieces[0], csvDatePieces[1])
+			if date_dict.has_key(parsedDate):
+				date_dict[parsedDate] = date_dict[parsedDate] + 1
+
+
 #print out the results of the above tally
 print "Sunday Count:" , sunCount
 print "Monday Count:" , monCount
