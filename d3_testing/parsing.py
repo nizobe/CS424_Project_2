@@ -1,11 +1,12 @@
 '''
 trip_id,starttime,startdate,stoptime,enddate,startDay,endDay
 '''
-from datetime import date, timedelta, datetime
+#from datetime import date, timedelta, datetime, time
+import datetime as dt
 from dateutil import relativedelta
 
-dataStart = date(2013,6,27)
-dataEnd = date(2013,12,31)
+dataStart = dt.date(2013,6,27)
+dataEnd = dt.date(2013,12,31)
 
 #function to generate list of days covered in the data
 def date_range(start_date, end_date, increment, period):
@@ -27,6 +28,18 @@ date_dict = dict((day,0) for day in date_list)
 '''
 print date_dict[date_list[0]]
 print type(date_list[0])
+'''
+
+'''
+WIP bullshit atm
+hours = [(dt.time(i).strftime('%H')) for i in range(24)]
+
+for hour in hours:
+	hours[hour] = dt.time(hours[hour].strftime('%H'))
+
+print hours
+
+print type(hours)
 '''
 
 #count for num bikes out in a given hour
@@ -94,13 +107,13 @@ for r_index, row in enumerate(open("num_day_week_updated.csv", 'r')):
 			csvDatePieces = cell.split('/')
 			#print csvDatePieces[0]
 			#a datetime.date object to hold the split up slash date, to be used in dictionary
-			parsedDate = date(int(csvDatePieces[2]), int(csvDatePieces[0]), int(csvDatePieces[1]))
+			parsedDate = dt.date(int(csvDatePieces[2]), int(csvDatePieces[0]), int(csvDatePieces[1]))
 			if date_dict.has_key(parsedDate):
 				date_dict[parsedDate] = date_dict[parsedDate] + 1
 
 '''
 just testing out some dates and counts.
-everything works as it should
+everything works as it should, verified by hand on first two days of data
 you can access a date_dict by making a date object by hand like this:
 print date_dict[date(2013,6,28)]
 or by using one of the dates from date_list, which are in order
