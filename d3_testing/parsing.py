@@ -1,14 +1,24 @@
 '''
 trip_id,starttime,startdate,stoptime,enddate,startDay,endDay
 '''
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
+from dateutil import relativedelta
 
 dataStart = date(2013,6,27)
 dataEnd = date(2013,12,31)
 
 #function to generate list of days covered in the data
-
-#date_list = [dataStart + datetime.timedelta(days=x) for x in range(dataStart, dataEnd)]
+def date_range(start_date, end_date, increment, period):
+	dates = []
+	nxt = start_date
+	delta = relativedelta.relativedelta(**{period:increment})
+	while nxt <= end_date:
+		dates.append(nxt)
+		nxt += delta
+	return dates
+#date_list holds the dates, populate it with the above function
+date_list = date_range(dataStart, dataEnd, 1, 'days')
+#print date_list[0]
 
 #count for num bikes out in a given hour
 clock_0 = 0
