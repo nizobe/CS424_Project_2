@@ -3,9 +3,21 @@
   <head>
     <title>Niko Donut</title>
     <meta charset="utf-8">
-    <script type="https://raw.githubusercontent.com/novus/nvd3/master/nv.d3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link href="nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="nv.d3.min.js"></script>
+    <!--
+    <script src="https://raw.githubusercontent.com/novus/nvd3/master/nv.d3.min.js"></script>
+    <script src="https://raw.githubusercontent.com/novus/nvd3/master/nv.d3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/novus/nvd3/master/src/nv.d3.css" />
+    -->
 
     <style>
+      body {
+        height: 500px;
+        width: 500px;
+      }
+      /*
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             margin: auto;
@@ -22,13 +34,46 @@
             right: 10px;
             top: 10px;
         }
+        */
     </style>
   </head>
   <body>
-      <script src="http://d3js.org/d3.v3.min.js">
-
-      </script>
+      <!--<div id="donut"></div>-->
+      <svg id="chart" style="width: 100%; height: 100%;"></svg>
+      
       <script>
+        d3.csv("nv_day_of_week.csv", function(error, data) {
+          var donutData = [
+            {
+              key: "totals",
+              values: []
+            }
+          ];
+
+          data.forEach(function (d) {
+            d.value = +d.value
+            donutData[0].values.push(d)
+          })
+
+          nv.addGraph(function() {
+            var chart = nv.models.pieChart()
+              .x(function(d) {return d.label})
+              .y(function(d) {return d.value})
+              .showLabels(true)
+              .labelType("percent")
+              .donut(true)
+              .donutRatio(0.35)
+
+            d3.select("#chart")
+              .datum(donutData)
+              .attr("id", function(d) {console.log(d);})
+              .transition().duration(500)
+                .call(chart);
+
+            nv.utils.windowResize(chart.update);
+            return chart;
+          });//end nv.addGraph
+        });//end d3.csv
       /*
         var width = 960,
             height = 500,
