@@ -63,8 +63,15 @@ thuCount = 0
 friCount = 0
 satCount = 0
 
+'''
+last populated row with useful data = 759789 --> 759788 useful rows
+so because of zero-index, 759788 = last index of useful data
+'''
+
 #compute the number of bikes out for each day of the week
 for r_index, row in enumerate(open("num_day_week_updated.csv", 'r')):
+	if r_index == 759789:
+		break
 	segmentedLine = row.split(',')
 	for c_index, cell in enumerate(segmentedLine):
 		#print cell #prints each cell one line at a time
@@ -83,12 +90,26 @@ for r_index, row in enumerate(open("num_day_week_updated.csv", 'r')):
 				friCount+=1
 			elif cell == "Sat":
 				satCount+=1
-		if c_index == 2: #column for start date formatted M(M)/D(D)/YYYY
+		if c_index == 2 and r_index != 0: #column for start date formatted M(M)/D(D)/YYYY and skipping header row
 			csvDatePieces = cell.split('/')
-			parsedDate = date(csvDatePieces[2], csvDatePieces[0], csvDatePieces[1])
+			#print csvDatePieces[0]
+			#a datetime.date object to hold the split up slash date, to be used in dictionary
+			parsedDate = date(int(csvDatePieces[2]), int(csvDatePieces[0]), int(csvDatePieces[1]))
 			if date_dict.has_key(parsedDate):
 				date_dict[parsedDate] = date_dict[parsedDate] + 1
 
+'''
+just testing out some dates and counts.
+everything works as it should
+you can access a date_dict by making a date object by hand like this:
+print date_dict[date(2013,6,28)]
+or by using one of the dates from date_list, which are in order
+(date_dict keys (dates) are not guaranteed to be in any particular order)
+print date_dict[date_list[0]]
+both of these print out date object in YYYY-MM-DD format
+print date_list[0]
+print parsedDate
+'''
 
 #print out the results of the above tally
 print "Sunday Count:" , sunCount
