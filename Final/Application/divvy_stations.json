@@ -1,0 +1,1015 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "bbyy-e7gq",
+      "name" : "Divvy Bicycle Stations",
+      "attribution" : "Alta Bicycle Share, Inc.",
+      "attributionLink" : "http://divvybikes.com/stations/json",
+      "averageRating" : 0,
+      "category" : "Transportation",
+      "createdAt" : 1374184661,
+      "description" : "A list of the stations where one can pick up and return bicycles from the Divvy bicycle sharing system (http://divvybikes.com/).   This dataset contains all stations.  For a list of only those stations currently in service, see https://data.cityofchicago.org/d/67g3-8ig8. For real-time status of stations in machine-readable format, see http://divvybikes.com/stations/json.",
+      "displayType" : "table",
+      "downloadCount" : 304,
+      "indexUpdatedAt" : 1412679685,
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 5680414,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1384275404,
+      "publicationGroup" : 985352,
+      "publicationStage" : "published",
+      "rowIdentifierColumnId" : 102814184,
+      "rowsUpdatedAt" : 1412679652,
+      "rowsUpdatedBy" : "n9j5-zhen",
+      "state" : "normal",
+      "tableId" : 1201085,
+      "totalTimesRated" : 0,
+      "viewCount" : 856,
+      "viewLastModified" : 1384275713,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : {
+        }
+      }, {
+        "id" : 102814184,
+        "name" : "ID",
+        "dataTypeName" : "number",
+        "fieldName" : "id",
+        "position" : 1,
+        "renderTypeName" : "number",
+        "tableColumnId" : 12310023,
+        "width" : 91,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "5",
+          "sum" : "56719",
+          "null" : 0,
+          "average" : "189.0633333333333",
+          "largest" : "351",
+          "top" : [ {
+            "count" : 20,
+            "item" : "339"
+          }, {
+            "count" : 19,
+            "item" : "340"
+          }, {
+            "count" : 18,
+            "item" : "341"
+          }, {
+            "count" : 17,
+            "item" : "342"
+          }, {
+            "count" : 16,
+            "item" : "343"
+          }, {
+            "count" : 15,
+            "item" : "344"
+          }, {
+            "count" : 14,
+            "item" : "345"
+          }, {
+            "count" : 13,
+            "item" : "346"
+          }, {
+            "count" : 12,
+            "item" : "347"
+          }, {
+            "count" : 11,
+            "item" : "348"
+          }, {
+            "count" : 10,
+            "item" : "349"
+          }, {
+            "count" : 9,
+            "item" : "350"
+          }, {
+            "count" : 8,
+            "item" : "351"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "true"
+        }
+      }, {
+        "id" : 102814185,
+        "name" : "Station Name",
+        "dataTypeName" : "text",
+        "fieldName" : "station_name",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 12310024,
+        "width" : 244,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "900 W Harrison",
+          "null" : 0,
+          "largest" : "Wood St & Taylor St",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Emerald Ave & 31st St"
+          }, {
+            "count" : 19,
+            "item" : "Clark St & Wrightwood Ave"
+          }, {
+            "count" : 18,
+            "item" : "Adler Planetarium"
+          }, {
+            "count" : 17,
+            "item" : "Wolcott Ave & Polk St"
+          }, {
+            "count" : 16,
+            "item" : "Racine Ave & Wrightwood Ave"
+          }, {
+            "count" : 15,
+            "item" : "Wolcott Ave & Lawrence Ave"
+          }, {
+            "count" : 14,
+            "item" : "Lake Park Ave & 56th St"
+          }, {
+            "count" : 13,
+            "item" : "Ada St & Washington Blvd"
+          }, {
+            "count" : 12,
+            "item" : "Ashland Ave & Grace St"
+          }, {
+            "count" : 11,
+            "item" : "California Ave & 21st St"
+          }, {
+            "count" : 10,
+            "item" : "Halsted St & Wrightwood Ave"
+          }, {
+            "count" : 9,
+            "item" : "Ashland Ave & Chicago Ave"
+          }, {
+            "count" : 8,
+            "item" : "Cottage Grove Ave & 51st St, T"
+          } ]
+        },
+        "format" : {
+        }
+      }, {
+        "id" : 102814186,
+        "name" : "Address",
+        "dataTypeName" : "text",
+        "fieldName" : "address",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 12310025,
+        "width" : 184,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "1003 W. Lake St.",
+          "null" : 0,
+          "largest" : "Wood St & Taylor St",
+          "top" : [ {
+            "count" : 20,
+            "item" : "On Street"
+          }, {
+            "count" : 19,
+            "item" : "Clark St & Wrightwood Ave"
+          }, {
+            "count" : 18,
+            "item" : "Off Street"
+          }, {
+            "count" : 17,
+            "item" : "Wolcott Ave & Polk St"
+          }, {
+            "count" : 16,
+            "item" : "Racine Ave & Wrightwood Ave"
+          }, {
+            "count" : 15,
+            "item" : "Wolcott Ave & Lawrence Ave"
+          }, {
+            "count" : 14,
+            "item" : "Lake Park Ave & 56th St"
+          }, {
+            "count" : 13,
+            "item" : "Ada St & Washington Blvd"
+          }, {
+            "count" : 12,
+            "item" : "Ashland Ave & Grace St"
+          }, {
+            "count" : 11,
+            "item" : "California Ave & 21st St"
+          }, {
+            "count" : 10,
+            "item" : "Halsted St & Wrightwood Ave"
+          }, {
+            "count" : 9,
+            "item" : "Ashland Ave & Chicago Ave"
+          } ]
+        },
+        "format" : {
+        }
+      }, {
+        "id" : 102814187,
+        "name" : "Total Docks",
+        "dataTypeName" : "number",
+        "fieldName" : "total_docks",
+        "position" : 4,
+        "renderTypeName" : "number",
+        "tableColumnId" : 12310026,
+        "width" : 150,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "11",
+          "sum" : "5249",
+          "null" : 0,
+          "average" : "17.49666666666667",
+          "largest" : "43",
+          "top" : [ {
+            "count" : 20,
+            "item" : "19"
+          }, {
+            "count" : 19,
+            "item" : "15"
+          }, {
+            "count" : 18,
+            "item" : "11"
+          }, {
+            "count" : 17,
+            "item" : "23"
+          }, {
+            "count" : 16,
+            "item" : "31"
+          }, {
+            "count" : 15,
+            "item" : "27"
+          }, {
+            "count" : 14,
+            "item" : "39"
+          }, {
+            "count" : 13,
+            "item" : "43"
+          }, {
+            "count" : 12,
+            "item" : "35"
+          }, {
+            "count" : 11,
+            "item" : "18"
+          }, {
+            "count" : 10,
+            "item" : "21"
+          } ]
+        },
+        "format" : {
+        }
+      }, {
+        "id" : 102814188,
+        "name" : "Docks in Service",
+        "dataTypeName" : "number",
+        "description" : "Excludes docks taken out of service.  Calculated as the number of docks reported as containing available bicycles or available to receive a returned bicycle, as of the time this dataset was refreshed.",
+        "fieldName" : "docks_in_service",
+        "position" : 5,
+        "renderTypeName" : "number",
+        "tableColumnId" : 12310027,
+        "width" : 176,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "10.0",
+          "sum" : "5182.0",
+          "null" : 0,
+          "average" : "17.27333333333333",
+          "largest" : "39.0",
+          "top" : [ {
+            "count" : 20,
+            "item" : "19.0"
+          }, {
+            "count" : 19,
+            "item" : "15.0"
+          }, {
+            "count" : 18,
+            "item" : "11.0"
+          }, {
+            "count" : 17,
+            "item" : "14.0"
+          }, {
+            "count" : 16,
+            "item" : "23.0"
+          }, {
+            "count" : 15,
+            "item" : "31.0"
+          }, {
+            "count" : 14,
+            "item" : "13.0"
+          }, {
+            "count" : 13,
+            "item" : "22.0"
+          }, {
+            "count" : 12,
+            "item" : "18.0"
+          }, {
+            "count" : 11,
+            "item" : "27.0"
+          }, {
+            "count" : 10,
+            "item" : "39.0"
+          }, {
+            "count" : 9,
+            "item" : "26.0"
+          }, {
+            "count" : 8,
+            "item" : "16.0"
+          }, {
+            "count" : 7,
+            "item" : "25.0"
+          }, {
+            "count" : 6,
+            "item" : "35.0"
+          }, {
+            "count" : 5,
+            "item" : "38.0"
+          }, {
+            "count" : 4,
+            "item" : "30.0"
+          }, {
+            "count" : 3,
+            "item" : "17.0"
+          }, {
+            "count" : 2,
+            "item" : "21.0"
+          }, {
+            "count" : 1,
+            "item" : "20.0"
+          } ]
+        },
+        "format" : {
+          "precisionStyle" : "standard",
+          "align" : "right",
+          "noCommas" : "false"
+        }
+      }, {
+        "id" : 102814189,
+        "name" : "Status",
+        "dataTypeName" : "text",
+        "fieldName" : "status",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 12310028,
+        "width" : 128,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "In Service",
+          "null" : 0,
+          "largest" : "In Service",
+          "top" : [ {
+            "count" : 20,
+            "item" : "In Service"
+          } ]
+        },
+        "format" : {
+        }
+      }, {
+        "id" : 102814190,
+        "name" : "Latitude",
+        "dataTypeName" : "number",
+        "fieldName" : "latitude",
+        "position" : 7,
+        "renderTypeName" : "number",
+        "tableColumnId" : 12310029,
+        "width" : 133,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "41.788746",
+          "sum" : "12568.881825507",
+          "null" : 0,
+          "average" : "41.89627275169",
+          "largest" : "41.978353",
+          "top" : [ {
+            "count" : 20,
+            "item" : "41.838198"
+          }, {
+            "count" : 19,
+            "item" : "41.929546"
+          }, {
+            "count" : 18,
+            "item" : "41.866095"
+          }, {
+            "count" : 17,
+            "item" : "41.871262"
+          }, {
+            "count" : 16,
+            "item" : "41.928887"
+          }, {
+            "count" : 15,
+            "item" : "41.968641"
+          }, {
+            "count" : 14,
+            "item" : "41.793242"
+          }, {
+            "count" : 13,
+            "item" : "41.88283"
+          }, {
+            "count" : 12,
+            "item" : "41.950687"
+          }, {
+            "count" : 11,
+            "item" : "41.854016"
+          }, {
+            "count" : 10,
+            "item" : "41.929143"
+          }, {
+            "count" : 9,
+            "item" : "41.895966"
+          }, {
+            "count" : 8,
+            "item" : "41.803038"
+          } ]
+        },
+        "format" : {
+        }
+      }, {
+        "id" : 102814191,
+        "name" : "Longitude",
+        "dataTypeName" : "number",
+        "fieldName" : "longitude",
+        "position" : 8,
+        "renderTypeName" : "number",
+        "tableColumnId" : 12310030,
+        "width" : 149,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : "-87.707857",
+          "sum" : "-26294.462258282",
+          "null" : 0,
+          "average" : "-87.64820752760667",
+          "largest" : "-87.580715",
+          "top" : [ {
+            "count" : 20,
+            "item" : "-87.645143"
+          }, {
+            "count" : 19,
+            "item" : "-87.643118"
+          }, {
+            "count" : 18,
+            "item" : "-87.607267"
+          }, {
+            "count" : 17,
+            "item" : "-87.673688"
+          }, {
+            "count" : 16,
+            "item" : "-87.658971"
+          }, {
+            "count" : 15,
+            "item" : "-87.676335"
+          }, {
+            "count" : 14,
+            "item" : "-87.587782"
+          }, {
+            "count" : 13,
+            "item" : "-87.661206"
+          }, {
+            "count" : 12,
+            "item" : "-87.6687"
+          }, {
+            "count" : 11,
+            "item" : "-87.695445"
+          }, {
+            "count" : 10,
+            "item" : "-87.649077"
+          }, {
+            "count" : 9,
+            "item" : "-87.667747"
+          }, {
+            "count" : 8,
+            "item" : "-87.606615"
+          } ]
+        },
+        "format" : {
+        }
+      }, {
+        "id" : 102814192,
+        "name" : "Location",
+        "dataTypeName" : "location",
+        "fieldName" : "location",
+        "position" : 9,
+        "renderTypeName" : "location",
+        "tableColumnId" : 12310031,
+        "width" : 196,
+        "cachedContents" : {
+          "non_null" : 300,
+          "smallest" : {
+            "longitude" : "-87.6277394859",
+            "latitude" : "41.8739580629"
+          },
+          "null" : 0,
+          "largest" : {
+            "longitude" : "-87.606615",
+            "latitude" : "41.803038"
+          },
+          "top" : [ {
+            "count" : 20,
+            "item" : {
+              "longitude" : "-87.645143",
+              "latitude" : "41.838198"
+            }
+          }, {
+            "count" : 19,
+            "item" : {
+              "longitude" : "-87.643118",
+              "latitude" : "41.929546"
+            }
+          }, {
+            "count" : 18,
+            "item" : {
+              "longitude" : "-87.607267",
+              "latitude" : "41.866095"
+            }
+          }, {
+            "count" : 17,
+            "item" : {
+              "longitude" : "-87.673688",
+              "latitude" : "41.871262"
+            }
+          }, {
+            "count" : 16,
+            "item" : {
+              "longitude" : "-87.658971",
+              "latitude" : "41.928887"
+            }
+          }, {
+            "count" : 15,
+            "item" : {
+              "longitude" : "-87.676335",
+              "latitude" : "41.968641"
+            }
+          }, {
+            "count" : 14,
+            "item" : {
+              "longitude" : "-87.587782",
+              "latitude" : "41.793242"
+            }
+          }, {
+            "count" : 13,
+            "item" : {
+              "longitude" : "-87.661206",
+              "latitude" : "41.88283"
+            }
+          }, {
+            "count" : 12,
+            "item" : {
+              "longitude" : "-87.6687",
+              "latitude" : "41.950687"
+            }
+          }, {
+            "count" : 11,
+            "item" : {
+              "longitude" : "-87.695445",
+              "latitude" : "41.854016"
+            }
+          }, {
+            "count" : 10,
+            "item" : {
+              "longitude" : "-87.649077",
+              "latitude" : "41.929143"
+            }
+          }, {
+            "count" : 9,
+            "item" : {
+              "longitude" : "-87.667747",
+              "latitude" : "41.895966"
+            }
+          }, {
+            "count" : 8,
+            "item" : {
+              "longitude" : "-87.606615",
+              "latitude" : "41.803038"
+            }
+          } ]
+        },
+        "format" : {
+          "view" : "coords",
+          "align" : "left"
+        },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "custom_fields" : {
+          "Metadata" : {
+            "Last Updated Date via Automated Load" : "",
+            "Data Owner" : "City of Chicago",
+            "Time Period" : "Current",
+            "Frequency" : "Daily"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "rdfSubject" : "0",
+        "rowIdentifier" : 102814184
+      },
+      "owner" : {
+        "id" : "vewm-vupz",
+        "displayName" : "Jonathan Levy",
+        "roleName" : "administrator",
+        "screenName" : "Jonathan Levy",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards" ]
+      },
+      "query" : {
+        "orderBys" : [ {
+          "ascending" : true,
+          "expression" : {
+            "columnId" : 102814184,
+            "type" : "column"
+          }
+        } ]
+      },
+      "rights" : [ "read" ],
+      "sortBys" : [ {
+        "id" : 0,
+        "viewColumnId" : 102814184,
+        "flags" : [ "asc" ]
+      } ],
+      "tableAuthor" : {
+        "id" : "vewm-vupz",
+        "displayName" : "Jonathan Levy",
+        "roleName" : "administrator",
+        "screenName" : "Jonathan Levy",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards" ]
+      },
+      "tags" : [ "bicycling", "sustainability", "transportation" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 91501, "0273199D-0DEE-4706-96FF-55EA7AA80CEA", 91501, 1412679649, "878752", 1412679649, "878752", null, "5", "State St & Harrison St", "620 S. State St.", "19", "19.0", "In Service", "41.873958063", "-87.627739486", [ null, "41.8739580629", "-87.6277394859", null, false ] ]
+, [ 91502, "C9B42962-1E48-41C7-B0F7-5C81F79A2C3D", 91502, 1412679649, "878752", 1412679649, "878752", null, "13", "Wilton Ave & Diversey Pkwy", "2790 N.Wilton Ave", "19", "19.0", "In Service", "41.93250008", "-87.65268082", [ null, "41.93250008", "-87.65268082", null, false ] ]
+, [ 91503, "0A22B773-1F8C-4358-BF34-3EA635ADF5C2", 91503, 1412679649, "878752", 1412679649, "878752", null, "14", "Morgan St & 18th St", "962 W. 18th St", "15", "15.0", "In Service", "41.858086", "-87.651073", [ null, "41.858086", "-87.651073", null, false ] ]
+, [ 91504, "EC7596CB-71C5-41E9-A67D-384318106479", 91504, 1412679649, "878752", 1412679649, "878752", null, "15", "Racine Ave & 18th St", "1722 S Racine Ave", "15", "15.0", "In Service", "41.858180607", "-87.656486647", [ null, "41.8581806068", "-87.6564866473", null, false ] ]
+, [ 91505, "730062BB-542A-4871-90EF-05D44063DAF5", 91505, 1412679649, "878752", 1412679649, "878752", null, "16", "Wood St & North Ave", "1553 N Wood St", "11", "11.0", "In Service", "41.910329", "-87.672516", [ null, "41.910329", "-87.672516", null, false ] ]
+, [ 91506, "D8200EBA-59EB-4B3E-AABE-19ECDEC30144", 91506, 1412679649, "878752", 1412679649, "878752", null, "17", "Wood St & Division St", "1802 W. Divison St", "15", "15.0", "In Service", "41.90332", "-87.67273", [ null, "41.90332", "-87.67273", null, false ] ]
+, [ 91507, "317A9567-3690-476F-9268-E3A003B8E155", 91507, 1412679649, "878752", 1412679649, "878752", null, "19", "Loomis St & Taylor St", "Loomis St & Taylor St", "15", "15.0", "In Service", "41.869417", "-87.660996", [ null, "41.869417", "-87.660996", null, false ] ]
+, [ 91508, "3F7E707F-AA80-4779-A1F9-B9B79971E6A7", 91508, 1412679649, "878752", 1412679649, "878752", null, "20", "Sheffield Ave & Kingsbury St", "1009 W. Weed st", "15", "15.0", "In Service", "41.90959193", "-87.65349723", [ null, "41.90959193", "-87.65349723", null, false ] ]
+, [ 91509, "43D54B2B-42DB-453F-B719-D407094629CF", 91509, 1412679649, "878752", 1412679649, "878752", null, "21", "Aberdeen St & Jackson Blvd", "1103 W.Jackson Blvd", "15", "14.0", "In Service", "41.87772613", "-87.65478743", [ null, "41.87772613", "-87.65478743", null, false ] ]
+, [ 91510, "136B5F3F-97DC-47BB-91F3-B142271F58D0", 91510, 1412679649, "878752", 1412679649, "878752", null, "22", "May St & Taylor St", "1134 W. Taylor St", "15", "14.0", "In Service", "41.8694821", "-87.6554864", [ null, "41.8694821", "-87.6554864", null, false ] ]
+, [ 91511, "18DA303F-F544-430C-9225-BA6DED2911F2", 91511, 1412679649, "878752", 1412679649, "878752", null, "23", "Orleans St & Elm St", "350 W. Elm st", "15", "15.0", "In Service", "41.902924", "-87.637715", [ null, "41.902924", "-87.637715", null, false ] ]
+, [ 91512, "D045797B-DB8D-43AA-89A3-60DB4AFAB66F", 91512, 1412679649, "878752", 1412679649, "878752", null, "24", "Fairbanks Ct & Grand Ave", "240 E.Grand Ave.", "15", "15.0", "In Service", "41.89186", "-87.62062", [ null, "41.89186", "-87.62062", null, false ] ]
+, [ 91513, "D0C36893-D53F-4447-87B3-1BE2B93D9D18", 91513, 1412679649, "878752", 1412679649, "878752", null, "25", "Michigan Ave & Pearson St", "150 E.Pearson st", "23", "23.0", "In Service", "41.89766", "-87.62351", [ null, "41.89766", "-87.62351", null, false ] ]
+, [ 91514, "CA90DBD1-3E3E-49E8-9342-6E7A0158F129", 91514, 1412679649, "878752", 1412679649, "878752", null, "26", "McClurg Ct & Illinois St", "McClurg Ct & Illinois St", "31", "31.0", "In Service", "41.89102", "-87.6173", [ null, "41.89102", "-87.6173", null, false ] ]
+, [ 91515, "E5607BB1-61BB-42FB-A2FA-CF7D3B2AEDAE", 91515, 1412679649, "878752", 1412679649, "878752", null, "27", "Larrabee St & North Ave", "1530 N.Larrabee st", "19", "19.0", "In Service", "41.91021", "-87.6435", [ null, "41.91021", "-87.6435", null, false ] ]
+, [ 91516, "021AEC19-7609-41D5-B368-9A16E64C116F", 91516, 1412679649, "878752", 1412679649, "878752", null, "28", "Larrabee St & Menomonee St", "590 W. Menomonee", "15", "15.0", "In Service", "41.91468", "-87.64332", [ null, "41.91468", "-87.64332", null, false ] ]
+, [ 91517, "87591D7D-AE82-4B65-8C9D-AD4689BA67F6", 91517, 1412679649, "878752", 1412679649, "878752", null, "29", "Noble St & Milwaukee Ave", "1016 N. Noble st", "15", "13.0", "In Service", "41.90068", "-87.6626", [ null, "41.90068", "-87.6626", null, false ] ]
+, [ 91518, "CBDD069E-056D-4D01-BF0C-7A562FBB9A68", 91518, 1412679649, "878752", 1412679649, "878752", null, "30", "Ashland Ave & Augusta Blvd", "1611 W. Augusta Blvd", "15", "15.0", "In Service", "41.899643", "-87.6677", [ null, "41.899643", "-87.6677", null, false ] ]
+, [ 91519, "A4C69EE4-3B6E-4573-A7ED-7CD628DC6D02", 91519, 1412679649, "878752", 1412679649, "878752", null, "31", "Franklin St & Chicago Ave", "805 N. Franklin St", "23", "22.0", "In Service", "41.89680204", "-87.63563839", [ null, "41.89680204", "-87.63563839", null, false ] ]
+, [ 91520, "E8B31A16-F904-4F39-B857-482F81A957B0", 91520, 1412679649, "878752", 1412679649, "878752", null, "32", "Racine Ave & Congress Pkwy", "550 S. Racine", "19", "18.0", "In Service", "41.87464", "-87.65703", [ null, "41.87464", "-87.65703", null, false ] ]
+, [ 91521, "DC8BC79B-CD93-40F5-8406-0529605C82D0", 91521, 1412679649, "878752", 1412679649, "878752", null, "33", "State St & Van Buren St", "360 S State St", "27", "27.0", "In Service", "41.877181", "-87.627844", [ null, "41.877181", "-87.627844", null, false ] ]
+, [ 91522, "00A1CBDE-4694-478A-BDB8-98C4B3EF81C3", 91522, 1412679649, "878752", 1412679649, "878752", null, "34", "Cannon Dr & Fullerton Ave", "2432 N. Cannon Dr.", "15", "15.0", "In Service", "41.926755988", "-87.634428785", [ null, "41.9267559875", "-87.6344287848", null, false ] ]
+, [ 91523, "73FCEC0D-2D23-41DB-80DA-4319D8963640", 91523, 1412679649, "878752", 1412679649, "878752", null, "35", "Streeter Dr & Illinois St", "585 E. Illinois st", "39", "39.0", "In Service", "41.891071", "-87.6122", [ null, "41.891071", "-87.6122", null, false ] ]
+, [ 91524, "F0CCF3DB-AB1C-4E8E-A121-1539E4DE6EE2", 91524, 1412679649, "878752", 1412679649, "878752", null, "36", "Franklin St & Jackson Blvd", "340 S. Franklin St", "31", "31.0", "In Service", "41.877707956", "-87.635321141", [ null, "41.8777079559", "-87.6353211408", null, false ] ]
+, [ 91525, "74B0E1D6-1DDE-41AC-9862-CA288962C577", 91525, 1412679649, "878752", 1412679649, "878752", null, "37", "Dearborn St & Adams St", "59 W. Adams St ", "19", "19.0", "In Service", "41.879356359", "-87.629791036", [ null, "41.8793563587", "-87.6297910363", null, false ] ]
+, [ 91526, "13B1965C-E302-42D0-9E67-A731A723C7DD", 91526, 1412679649, "878752", 1412679649, "878752", null, "42", "Wabash Ave & Cermak Rd", "2119 S. Wabash Ave.", "15", "14.0", "In Service", "41.853238758", "-87.62533709", [ null, "41.8532387578", "-87.6253370902", null, false ] ]
+, [ 91527, "939866D8-4DBD-4F3F-AE7C-659DF3FACF43", 91527, 1412679649, "878752", 1412679649, "878752", null, "43", "Michigan Ave & Washington St", "120 N Michigan", "43", "39.0", "In Service", "41.883892766", "-87.624649141", [ null, "41.8838927658", "-87.6246491409", null, false ] ]
+, [ 91528, "56806C3E-8C75-4D3C-977F-27992E064F28", 91528, 1412679649, "878752", 1412679649, "878752", null, "44", "State St & Randolph St", "State St & Randolph St", "27", "26.0", "In Service", "41.884730201", "-87.627733569", [ null, "41.8847302006", "-87.6277335692", null, false ] ]
+, [ 91529, "46B56B44-9AAF-4FA8-B6DD-3533E6F2CA11", 91529, 1412679649, "878752", 1412679649, "878752", null, "45", "Michigan Ave & Congress Pkwy", "420 w. Michigan", "15", "15.0", "In Service", "41.876065599", "-87.624433364", [ null, "41.876065599", "-87.6244333636", null, false ] ]
+, [ 91530, "14B9C975-5A73-42E5-9050-85FA2F516CD5", 91530, 1412679649, "878752", 1412679649, "878752", null, "46", "Wells St & Walton St", "932 N. Wells St.", "19", "16.0", "In Service", "41.89993001", "-87.63443007", [ null, "41.89993001", "-87.63443007", null, false ] ]
+, [ 91531, "A6C82E23-9B0A-4F43-98DC-A5064C60E9BC", 91531, 1412679649, "878752", 1412679649, "878752", null, "47", "State St & Kinzie St", "5 E. Kinzie St.", "19", "19.0", "In Service", "41.88918", "-87.6277", [ null, "41.88918", "-87.6277", null, false ] ]
+, [ 91532, "1C1CF4EE-8E43-4EEC-B5CC-5B83EBFDD887", 91532, 1412679649, "878752", 1412679649, "878752", null, "48", "Larrabee St & Kingsbury St", "840 N. Larrabee St.", "27", "25.0", "In Service", "41.897764", "-87.642884", [ null, "41.897764", "-87.642884", null, false ] ]
+, [ 91533, "3ED6D909-9138-4A12-87DB-E235AE803AC7", 91533, 1412679649, "878752", 1412679649, "878752", null, "49", "Dearborn St & Monroe St", "80 S. Dearborn St.", "27", "26.0", "In Service", "41.881319815", "-87.629520919", [ null, "41.881319815", "-87.6295209193", null, false ] ]
+, [ 91534, "921C64D0-336F-45B1-997A-1087EDFA79CD", 91534, 1412679649, "878752", 1412679649, "878752", null, "50", "Clark St & Congress Pkwy", "Clark St & Congress Pkwy", "27", "27.0", "In Service", "41.875932666", "-87.630584536", [ null, "41.8759326655", "-87.6305845355", null, false ] ]
+, [ 91535, "FF5217E4-ACFE-44B9-B2EB-78CB22479604", 91535, 1412679649, "878752", 1412679649, "878752", null, "51", "Clark St & Randolph St", "120 W. Randolph St.", "31", "31.0", "In Service", "41.884576228", "-87.63188991", [ null, "41.884576228", "-87.63188991", null, false ] ]
+, [ 91536, "8E7EE187-ABBF-4506-8755-70E9E1ACB7F3", 91536, 1412679649, "878752", 1412679649, "878752", null, "52", "Michigan Ave & Lake St", "203 N. Michigan Ave.", "31", "31.0", "In Service", "41.886024", "-87.624117", [ null, "41.886024", "-87.624117", null, false ] ]
+, [ 91537, "EE1D0C51-270A-4B46-89D5-30C5871D47A5", 91537, 1412679649, "878752", 1412679649, "878752", null, "53", "Wells St & Erie St", "Wells St & Erie St", "19", "19.0", "In Service", "41.893832", "-87.634195", [ null, "41.893832", "-87.634195", null, false ] ]
+, [ 91538, "E8BF79B1-0597-4202-834F-D24FF23AC898", 91538, 1412679649, "878752", 1412679649, "878752", null, "54", "Ogden Ave & Chicago Ave", "1040 W. Chicago Ave.", "19", "19.0", "In Service", "41.896362458", "-87.654061273", [ null, "41.896362458", "-87.6540612729", null, false ] ]
+, [ 91539, "CD34EB3F-414D-467A-84F5-2227889DA643", 91539, 1412679649, "878752", 1412679649, "878752", null, "55", "Halsted St & James M Rochford St", "791 W. James M. Rochford St.", "15", "14.0", "In Service", "41.865861", "-87.646611", [ null, "41.865861", "-87.646611", null, false ] ]
+, [ 91540, "521C596B-9B49-48BC-B850-E18624AFA943", 91540, 1412679649, "878752", 1412679649, "878752", null, "56", "Desplaines St & Kinzie St", "368 N. Desplaines St.", "19", "18.0", "In Service", "41.888716036", "-87.644447853", [ null, "41.888716036", "-87.6444478533", null, false ] ]
+, [ 91541, "13F96AEC-AFEE-4130-AD8C-8CE2C9E198B9", 91541, 1412679649, "878752", 1412679649, "878752", null, "57", "Clinton St & Roosevelt Rd", "559 W. Roosevelt Rd.", "15", "15.0", "In Service", "41.867117782", "-87.641087959", [ null, "41.8671177825", "-87.6410879593", null, false ] ]
+, [ 91542, "68F2EFD9-5A05-49A5-A7D7-77D8900E7591", 91542, 1412679649, "878752", 1412679649, "878752", null, "58", "Marshfield Ave & Cortland St", "Marshfield Ave & Cortland St", "19", "19.0", "In Service", "41.916017", "-87.668879", [ null, "41.916017", "-87.668879", null, false ] ]
+, [ 91543, "FBE981B5-5E96-4F24-9841-1AFF89D569B1", 91543, 1412679649, "878752", 1412679649, "878752", null, "59", "Wabash Ave & Roosevelt Rd", "1210 S. Wabash Ave.", "19", "19.0", "In Service", "41.868161", "-87.626267", [ null, "41.868161", "-87.626267", null, false ] ]
+, [ 91544, "863AFC10-CDFF-4E33-BA94-46BE1E7EA80F", 91544, 1412679649, "878752", 1412679649, "878752", null, "60", "Dayton St & North Ave", "1575 N. Dayton St.", "19", "19.0", "In Service", "41.910578035", "-87.649421929", [ null, "41.9105780349", "-87.6494219288", null, false ] ]
+, [ 91545, "1631ECF7-B653-4385-93B6-680DE23C4CDE", 91545, 1412679649, "878752", 1412679649, "878752", null, "61", "Wood St & Milwaukee Ave", "1416 N. Wood", "15", "14.0", "In Service", "41.907655", "-87.672552", [ null, "41.907655", "-87.672552", null, false ] ]
+, [ 91546, "C43571E2-2A56-4B8C-AF68-A9C0FD7AC8A2", 91546, 1412679649, "878752", 1412679649, "878752", null, "62", "McCormick Place", "2253 S. Dr. Martin Luther King Jr Dr.", "27", "27.0", "In Service", "41.851375173", "-87.618834649", [ null, "41.8513751729", "-87.6188346489", null, false ] ]
+, [ 91547, "B8B76FED-293E-4A36-ADF5-3F12F56D121F", 91547, 1412679649, "878752", 1412679649, "878752", null, "66", "Clinton St & Lake St", "202 N. Clinton St.", "19", "18.0", "In Service", "41.885832742", "-87.641382315", [ null, "41.8858327415", "-87.6413823149", null, false ] ]
+, [ 91548, "E81E78E6-2695-4E7C-B6CF-B481F2D608B4", 91548, 1412679649, "878752", 1412679649, "878752", null, "67", "Sheffield Ave & Fullerton Ave", "2410 N. Sheffield Ave.", "15", "15.0", "In Service", "41.925601882", "-87.653708042", [ null, "41.9256018819", "-87.6537080423", null, false ] ]
+, [ 91549, "C34C2677-BAC2-4496-9D65-69ACB9BA0211", 91549, 1412679649, "878752", 1412679649, "878752", null, "68", "Clinton St & Tilden St", "520 W. Tilden", "23", "23.0", "In Service", "41.875885", "-87.640795", [ null, "41.875885", "-87.640795", null, false ] ]
+, [ 91550, "5D3B5161-7420-459F-863B-32E3C127049B", 91550, 1412679649, "878752", 1412679649, "878752", null, "69", "Damen Ave & Pierce Ave", "2002 W. Pierce Ave.", "19", "18.0", "In Service", "41.909396006", "-87.677691929", [ null, "41.9093960065", "-87.6776919292", null, false ] ]
+, [ 91551, "206E7244-FB29-4611-9172-A8BB6FF081D7", 91551, 1412679649, "878752", 1412679649, "878752", null, "71", "Morgan St & Lake St", "1003 W. Lake St.", "15", "15.0", "In Service", "41.885483308", "-87.652304856", [ null, "41.8854833079", "-87.6523048564", null, false ] ]
+, [ 91552, "045B3065-D70A-4E4E-BC30-87402506CD34", 91552, 1412679649, "878752", 1412679649, "878752", null, "72", "State St & 16th St", "1 W. 16th St.", "15", "15.0", "In Service", "41.860121377", "-87.627729185", [ null, "41.8601213774", "-87.6277291853", null, false ] ]
+, [ 91553, "A81836F1-0F9F-44C5-BC69-20D2925EC1A4", 91553, 1412679649, "878752", 1412679649, "878752", null, "73", "Jefferson St & Monroe St", "207 S. Jefferson St.", "19", "19.0", "In Service", "41.880422", "-87.642746", [ null, "41.880422", "-87.642746", null, false ] ]
+, [ 91554, "5958509B-1C29-4E41-8EB0-986D4DF9716A", 91554, 1412679649, "878752", 1412679649, "878752", null, "74", "Kingsbury St & Erie St", "511 W Erie", "23", "22.0", "In Service", "41.89384315", "-87.64185116", [ null, "41.89384315", "-87.64185116", null, false ] ]
+, [ 91555, "7AF21F44-5CF7-46F9-AF97-B61D63D26E6C", 91555, 1412679649, "878752", 1412679649, "878752", null, "75", "Canal St & Jackson Blvd", "510 W. Jackson Blvd.", "35", "35.0", "In Service", "41.878149", "-87.640001", [ null, "41.878149", "-87.640001", null, false ] ]
+, [ 91556, "C45AAEC8-68E9-494B-88C0-DD294069B754", 91556, 1412679649, "878752", 1412679649, "878752", null, "76", "Lake Shore Dr & Monroe St", "402 E. Monroe St.", "39", "38.0", "In Service", "41.880958", "-87.616743", [ null, "41.880958", "-87.616743", null, false ] ]
+, [ 91557, "5DB36870-D682-4A08-A68D-23FE00666854", 91557, 1412679649, "878752", 1412679649, "878752", null, "77", "Clinton St & Madison St", "8 S. Clinton St.", "23", "23.0", "In Service", "41.8815824", "-87.64127743", [ null, "41.8815824", "-87.64127743", null, false ] ]
+, [ 91558, "E27358AB-9CE7-4F5A-972C-9BE6F3ACC7BB", 91558, 1412679649, "878752", 1412679649, "878752", null, "80", "Aberdeen St & Madison St", "1059 W. Madison St.", "19", "19.0", "In Service", "41.881487", "-87.654752", [ null, "41.881487", "-87.654752", null, false ] ]
+, [ 91559, "772FCD25-A6E0-455C-BCCF-7F9798251B50", 91559, 1412679649, "878752", 1412679649, "878752", null, "81", "Daley Center Plaza", "48 W. Washington St.", "39", "39.0", "In Service", "41.884163", "-87.629635", [ null, "41.884163", "-87.629635", null, false ] ]
+, [ 91560, "676C3489-3BBD-4218-A977-90902E580084", 91560, 1412679649, "878752", 1412679649, "878752", null, "84", "Green St & Milwaukee Ave", "820 W. Grand Ave.", "19", "19.0", "In Service", "41.891733", "-87.648727", [ null, "41.891733", "-87.648727", null, false ] ]
+, [ 91561, "04BAEE82-B19E-4767-A485-C7DC8F76B86A", 91561, 1412679649, "878752", 1412679649, "878752", null, "85", "Michigan Ave & Oak St", "140 E. Oak St.", "23", "23.0", "In Service", "41.90096039", "-87.62377664", [ null, "41.90096039", "-87.62377664", null, false ] ]
+, [ 91562, "1C5E1D1D-9B3A-4E66-8EFA-CB39889D838C", 91562, 1412679649, "878752", 1412679649, "878752", null, "86", "Eckhart Park", "811 N. Noble St.", "15", "15.0", "In Service", "41.89637337", "-87.66098386", [ null, "41.89637337", "-87.66098386", null, false ] ]
+, [ 91563, "33C9C1F2-14E4-4CCB-9388-CB4DDAEFFC08", 91563, 1412679649, "878752", 1412679649, "878752", null, "87", "Racine Ave & Fullerton Ave", "2411 N. Racine", "19", "19.0", "In Service", "41.92556258", "-87.65840426", [ null, "41.92556258", "-87.65840426", null, false ] ]
+, [ 91564, "CD06B759-50ED-4885-8453-DFF10849F002", 91564, 1412679649, "878752", 1412679649, "878752", null, "88", "May St & Randolph St", "1213 W. Washington St.", "15", "15.0", "In Service", "41.88397", "-87.655688", [ null, "41.88397", "-87.655688", null, false ] ]
+, [ 91565, "BB5D2E83-AE9B-4BB3-BF2E-7BAC16BEF161", 91565, 1412679649, "878752", 1412679649, "878752", null, "90", "Millennium Park", "33 S. Michigan Ave.", "35", "35.0", "In Service", "41.8810317", "-87.62408432", [ null, "41.8810317", "-87.62408432", null, false ] ]
+, [ 91566, "E7D11F14-4876-4B34-895E-4888E599D924", 91566, 1412679649, "878752", 1412679649, "878752", null, "91", "Clinton St & Washington Blvd", "109 N. Clinton St.", "31", "30.0", "In Service", "41.88338", "-87.64117", [ null, "41.88338", "-87.64117", null, false ] ]
+, [ 91567, "D810FFEE-042F-4CB9-AD19-0DDF447FAF7A", 91567, 1412679649, "878752", 1412679649, "878752", null, "92", "Carpenter St & Huron St", "Carpenter St & Huron St", "19", "19.0", "In Service", "41.894556", "-87.653449", [ null, "41.894556", "-87.653449", null, false ] ]
+, [ 91568, "FBBAEE71-30F8-49F1-A0D7-4C86ACFB3E4B", 91568, 1412679649, "878752", 1412679649, "878752", null, "93", "Sheffield Ave & Willow St", "1740 N. Sheffield Ave.", "15", "15.0", "In Service", "41.913688", "-87.652855", [ null, "41.913688", "-87.652855", null, false ] ]
+, [ 91569, "D3697C37-1CF3-4965-B774-3A5B7CF86A5E", 91569, 1412679649, "878752", 1412679649, "878752", null, "94", "Clark St & Armitage Ave", "1963 N. Lincoln Ave.", "19", "19.0", "In Service", "41.918306", "-87.636282", [ null, "41.918306", "-87.636282", null, false ] ]
+, [ 91570, "CEA7D39B-073A-41AF-B824-9AF12A2E37DC", 91570, 1412679649, "878752", 1412679649, "878752", null, "97", "Museum Campus", "Off Street", "35", "35.0", "In Service", "41.865212", "-87.617759", [ null, "41.865212", "-87.617759", null, false ] ]
+, [ 91571, "12096BC7-5DD3-4A3F-B59F-E6A2697E5178", 91571, 1412679649, "878752", 1412679649, "878752", null, "98", "LaSalle St & Washington St", "LaSalle St & Washington St", "15", "15.0", "In Service", "41.882664", "-87.63253", [ null, "41.882664", "-87.63253", null, false ] ]
+, [ 91572, "EEFF7B0B-84B8-4A50-9C4F-D0DB02F07DD5", 91572, 1412679649, "878752", 1412679649, "878752", null, "99", "Lake Shore Dr & Ohio St", "Lake Shore Dr & Ohio St", "19", "19.0", "In Service", "41.89257", "-87.614492", [ null, "41.89257", "-87.614492", null, false ] ]
+, [ 91573, "96052633-C97D-49D8-A21F-A90F776D18A1", 91573, 1412679649, "878752", 1412679649, "878752", null, "100", "Orleans St & Merchandise Mart Plaza", "333 N Orleans st ", "23", "23.0", "In Service", "41.888243", "-87.63639", [ null, "41.888243", "-87.63639", null, false ] ]
+, [ 91574, "BDD1896C-0F40-4328-A0E2-7B69CCB7F15B", 91574, 1412679649, "878752", 1412679649, "878752", null, "106", "State St & Pearson St", "State St & Pearson St", "27", "27.0", "In Service", "41.897448", "-87.628722", [ null, "41.897448", "-87.628722", null, false ] ]
+, [ 91575, "107CD0CC-B6D0-402B-B672-78A246C22B39", 91575, 1412679649, "878752", 1412679649, "878752", null, "108", "Halsted St & Polk St", "Halsted St & Polk St", "19", "19.0", "In Service", "41.87184", "-87.64664", [ null, "41.87184", "-87.64664", null, false ] ]
+, [ 91576, "A57DF6F2-5DC5-47B3-A1F0-503502EED94A", 91576, 1412679649, "878752", 1412679649, "878752", null, "109", "900 W Harrison", "Halsted St & Harrison St", "19", "19.0", "In Service", "41.874675", "-87.650019", [ null, "41.874675", "-87.650019", null, false ] ]
+, [ 91577, "C708F00B-6882-46B9-BB93-63079D8E818A", 91577, 1412679649, "878752", 1412679649, "878752", null, "110", "State St & Erie St", "State St & Erie St", "23", "23.0", "In Service", "41.893975", "-87.628623", [ null, "41.893975", "-87.628623", null, false ] ]
+, [ 91578, "4BC4EAC4-4D2B-4199-81C6-6AA40E7BDCB8", 91578, 1412679649, "878752", 1412679649, "878752", null, "111", "Sedgwick St & Huron St", "Sedgwick St & Huron St", "19", "19.0", "In Service", "41.894666", "-87.638437", [ null, "41.894666", "-87.638437", null, false ] ]
+, [ 91579, "57847B22-516C-4D6B-9565-F1EE58764384", 91579, 1412679649, "878752", 1412679649, "878752", null, "112", "Green St & Randolph St", "Green St & Randolph St", "15", "15.0", "In Service", "41.884078", "-87.648684", [ null, "41.884078", "-87.648684", null, false ] ]
+, [ 91580, "4B408020-700E-41B3-8B51-9EBEA233A4D3", 91580, 1412679649, "878752", 1412679649, "878752", null, "113", "Bissell St & Armitage Ave", "Bissell St & Armitage Ave", "15", "15.0", "In Service", "41.91844", "-87.65222", [ null, "41.91844", "-87.65222", null, false ] ]
+, [ 91581, "A7A9B990-5141-42C1-92A2-8DE952F9892B", 91581, 1412679649, "878752", 1412679649, "878752", null, "114", "Sheffield Ave & Addison St", "Sheffield Ave & Addison St", "27", "25.0", "In Service", "41.94688", "-87.65445", [ null, "41.94688", "-87.65445", null, false ] ]
+, [ 91582, "8800F440-C4BB-4C17-BE90-45A216FCB04C", 91582, 1412679649, "878752", 1412679649, "878752", null, "115", "Sheffield Ave & Wellington Ave", "Sheffield Ave & Wellington Ave", "23", "23.0", "In Service", "41.936253", "-87.653566", [ null, "41.936253", "-87.653566", null, false ] ]
+, [ 91583, "D49FE29D-6C9B-4899-8DA2-7B589514965D", 91583, 1412679649, "878752", 1412679649, "878752", null, "116", "Western Ave & Winnebago Ave", "Western Ave & Winnebago Ave", "15", "15.0", "In Service", "41.915533", "-87.687051", [ null, "41.915533", "-87.687051", null, false ] ]
+, [ 91584, "10785B6E-93BD-4250-848E-CD18E8E0CC1F", 91584, 1412679649, "878752", 1412679649, "878752", null, "117", "Wilton Ave & Belmont Ave", "Wilton Ave & Belmont Ave", "23", "23.0", "In Service", "41.94018", "-87.65304", [ null, "41.94018", "-87.65304", null, false ] ]
+, [ 91585, "4E6A9F7A-C199-48C5-84B6-1A5FCC52779B", 91585, 1412679649, "878752", 1412679649, "878752", null, "118", "Sedgwick St & North Ave", "Sedgwick St & North Ave", "19", "19.0", "In Service", "41.910579", "-87.638618", [ null, "41.910579", "-87.638618", null, false ] ]
+, [ 91586, "6EB5EB64-74CF-4CAF-AC23-251AEADADC3A", 91586, 1412679649, "878752", 1412679649, "878752", null, "119", "Ashland Ave & Lake St", "Ashland Ave & Lake St", "19", "19.0", "In Service", "41.88541", "-87.66732", [ null, "41.88541", "-87.66732", null, false ] ]
+, [ 91587, "EB46CA94-6F15-417D-A986-57A8A05F444E", 91587, 1412679649, "878752", 1412679649, "878752", null, "120", "Wentworth Ave & Archer Ave", "Wentworth Ave & Archer Ave", "15", "15.0", "In Service", "41.854564", "-87.631937", [ null, "41.854564", "-87.631937", null, false ] ]
+, [ 91588, "0C851707-08D8-42DA-85D2-C9C07B6AA451", 91588, 1412679649, "878752", 1412679649, "878752", null, "121", "Blackstone Ave & Hyde Park Blvd", "Hyde Park", "15", "15.0", "In Service", "41.802562", "-87.590368", [ null, "41.802562", "-87.590368", null, false ] ]
+, [ 91589, "0B52AD1E-0B8D-4593-86EC-642023266AD8", 91589, 1412679649, "878752", 1412679649, "878752", null, "122", "Ogden Ave & Congress Pkwy", "Ogden Ave & Congress Pkwy", "15", "15.0", "In Service", "41.87501", "-87.67328", [ null, "41.87501", "-87.67328", null, false ] ]
+, [ 91590, "63B3C5BD-C9D9-40DC-886B-105D6D1B4D5E", 91590, 1412679649, "878752", 1412679649, "878752", null, "123", "California Ave & Milwaukee Ave", "California Ave & Milwaukee Ave", "15", "15.0", "In Service", "41.922695", "-87.697153", [ null, "41.922695", "-87.697153", null, false ] ]
+, [ 91591, "ADC3A435-1B9F-40BB-99B2-29D58A6CCD4F", 91591, 1412679649, "878752", 1412679649, "878752", null, "124", "Damen Ave & Cullerton St", "Damen Ave & Cullerton St", "15", "15.0", "In Service", "41.855048", "-87.675726", [ null, "41.855048", "-87.675726", null, false ] ]
+, [ 91592, "76D46937-4FCB-447F-AB24-52C8DEDE69FE", 91592, 1412679649, "878752", 1412679649, "878752", null, "126", "Clark St & North Ave", "Clark St & North Ave", "15", "15.0", "In Service", "41.911974", "-87.631942", [ null, "41.911974", "-87.631942", null, false ] ]
+, [ 91593, "83D2032D-2F0B-4301-9F64-721EBE8B79CA", 91593, 1412679649, "878752", 1412679649, "878752", null, "127", "Lincoln Ave & Fullerton Ave", "Lincoln Ave & Fullerton Ave", "15", "15.0", "In Service", "41.925905", "-87.64926", [ null, "41.925905", "-87.64926", null, false ] ]
+, [ 91594, "04945CEE-2B97-40B6-830F-CE1A1901DB73", 91594, 1412679649, "878752", 1412679649, "878752", null, "128", "Damen Ave & Chicago Ave", "Damen Ave & Chicago Ave", "15", "15.0", "In Service", "41.895769", "-87.67722", [ null, "41.895769", "-87.67722", null, false ] ]
+, [ 91595, "C5A40299-3BA3-426F-B5BF-B79042DF7CC1", 91595, 1412679649, "878752", 1412679649, "878752", null, "129", "Blue Island Ave & 18th St", "Blue Island Ave & 18th St", "15", "15.0", "In Service", "41.857556", "-87.661535", [ null, "41.857556", "-87.661535", null, false ] ]
+, [ 91596, "9090FDD9-0119-41AE-8F8E-137954E4BC86", 91596, 1412679649, "878752", 1412679649, "878752", null, "130", "Damen Ave & Division St", "Damen Ave & Division St", "15", "13.0", "In Service", "41.90331", "-87.67695", [ null, "41.90331", "-87.67695", null, false ] ]
+, [ 91597, "83B57788-4EEC-494B-B973-9E085BA91BD0", 91597, 1412679649, "878752", 1412679649, "878752", null, "131", "Lincoln Ave & Belmont Ave", "Lincoln Ave & Belmont Ave", "15", "15.0", "In Service", "41.939365", "-87.668385", [ null, "41.939365", "-87.668385", null, false ] ]
+, [ 91598, "22D510DB-0C8E-43C3-9DCD-7E4079030040", 91598, 1412679649, "878752", 1412679649, "878752", null, "132", "Wentworth Ave & 24th St", "Wentworth Ave & 24th St", "15", "15.0", "In Service", "41.849237", "-87.631715", [ null, "41.849237", "-87.631715", null, false ] ]
+, [ 91599, "CEA943DE-54BD-4458-B3CD-F43B0593D3EB", 91599, 1412679649, "878752", 1412679649, "878752", null, "134", "Peoria St & Jackson Blvd", "Peoria St & Jackson Blvd", "19", "19.0", "In Service", "41.877749", "-87.649633", [ null, "41.877749", "-87.649633", null, false ] ]
+, [ 91600, "46392153-B31D-4836-B94A-6FB856D9B367", 91600, 1412679649, "878752", 1412679649, "878752", null, "135", "Halsted St & 21st St", "Halsted St & 21st St", "11", "11.0", "In Service", "41.85378", "-87.64665", [ null, "41.85378", "-87.64665", null, false ] ]
+, [ 91601, "2F9F01A5-E62C-4EB5-8678-46B98DB42F74", 91601, 1412679649, "878752", 1412679649, "878752", null, "136", "Racine Ave & 13th St", "Racine Ave & 13th St", "15", "15.0", "In Service", "41.865054", "-87.656959", [ null, "41.865054", "-87.656959", null, false ] ]
+, [ 91602, "5FF687B1-8751-4436-82B3-CEC9ADC810CB", 91602, 1412679649, "878752", 1412679649, "878752", null, "137", "Morgan Ave & 14th Pl", "Morgan Ave & 14th Pl", "15", "15.0", "In Service", "41.862378", "-87.651062", [ null, "41.862378", "-87.651062", null, false ] ]
+, [ 91603, "D9094240-E0E6-4030-87A4-7C5695BF01A8", 91603, 1412679649, "878752", 1412679649, "878752", null, "138", "Clybourn Ave & Division St", "Clybourn Ave & Division St", "15", "15.0", "In Service", "41.904509", "-87.6405", [ null, "41.904509", "-87.6405", null, false ] ]
+, [ 91604, "3E89BC03-A876-4B72-8B6B-EEC0E6F58671", 91604, 1412679649, "878752", 1412679649, "878752", null, "140", "Dearborn Pkwy & Delaware Pl", "Dearborn Pkwy & Delaware Pl", "19", "17.0", "In Service", "41.899007", "-87.629928", [ null, "41.899007", "-87.629928", null, false ] ]
+, [ 91605, "7654A773-7E22-44C3-BFE1-54AD681552E5", 91605, 1412679649, "878752", 1412679649, "878752", null, "141", "Clark St & Lincoln Ave", "Clark St & Lincoln Ave", "23", "22.0", "In Service", "41.915689", "-87.6346", [ null, "41.915689", "-87.6346", null, false ] ]
+, [ 91606, "6851882B-12B7-4C13-858B-1411271024ED", 91606, 1412679649, "878752", 1412679649, "878752", null, "143", "Sedgwick St & Webster Ave", "Sedgwick St & Webster Ave", "15", "15.0", "In Service", "41.92197", "-87.63854", [ null, "41.92197", "-87.63854", null, false ] ]
+, [ 91607, "ED317204-D484-484A-935C-17DDECA5840F", 91607, 1412679649, "878752", 1412679649, "878752", null, "144", "Larrabee St & Webster Ave", "Larrabee St & Webster Ave", "15", "15.0", "In Service", "41.92175", "-87.64401", [ null, "41.92175", "-87.64401", null, false ] ]
+, [ 91608, "E9756B02-AC83-4577-9EF7-0F75B00A6F45", 91608, 1412679649, "878752", 1412679649, "878752", null, "146", "Loomis St & Jackson Blvd", "Loomis St & Jackson Blvd", "11", "11.0", "In Service", "41.877945", "-87.662007", [ null, "41.877945", "-87.662007", null, false ] ]
+, [ 91609, "EEE79EEE-2D21-4617-A058-4AC701EF5F1B", 91609, 1412679649, "878752", 1412679649, "878752", null, "147", "Indiana Ave & 26th St", "Indiana Ave & 26th St", "15", "15.0", "In Service", "41.8457", "-87.62248", [ null, "41.8457", "-87.62248", null, false ] ]
+, [ 91610, "9987B9E7-3C7A-4A44-97E4-DF37436749E6", 91610, 1412679649, "878752", 1412679649, "878752", null, "148", "State St & 33rd St", "State St & 33rd St", "11", "11.0", "In Service", "41.834734", "-87.625813", [ null, "41.834734", "-87.625813", null, false ] ]
+, [ 91611, "BF2F997E-E527-4940-9DAA-4A4CD106965A", 91611, 1412679649, "878752", 1412679649, "878752", null, "149", "Calumet Ave & 33rd St", "Calumet Ave & 33rd St", "11", "11.0", "In Service", "41.8349", "-87.61793", [ null, "41.8349", "-87.61793", null, false ] ]
+, [ 91612, "5B99BC3F-60DF-4101-B846-2D86FC6E439C", 91612, 1412679649, "878752", 1412679649, "878752", null, "150", "Fort Dearborn Dr & 31st St", "Fort Dearborn Dr & 31st St", "15", "15.0", "In Service", "41.838556", "-87.608218", [ null, "41.838556", "-87.608218", null, false ] ]
+, [ 91613, "ADBAF448-0731-4E03-8811-195BF76CCFA6", 91613, 1412679649, "878752", 1412679649, "878752", null, "152", "Lincoln Ave & Diversey Pkwy", "Lincoln Ave & Diversey Pkwy", "15", "15.0", "In Service", "41.932225", "-87.658617", [ null, "41.932225", "-87.658617", null, false ] ]
+, [ 91614, "369953D2-AB5D-439E-A929-9D3A7E1333F2", 91614, 1412679649, "878752", 1412679649, "878752", null, "153", "Southport Ave & Wellington Ave", "Southport Ave & Wellington Ave", "19", "19.0", "In Service", "41.935733", "-87.663576", [ null, "41.935733", "-87.663576", null, false ] ]
+, [ 91615, "907FCF43-57C4-4C59-8B6E-AB2F674056F8", 91615, 1412679649, "878752", 1412679649, "878752", null, "154", "Southport Ave & Belmont Ave", "Southport Ave & Belmont Ave", "15", "15.0", "In Service", "41.93949", "-87.66378", [ null, "41.93949", "-87.66378", null, false ] ]
+, [ 91616, "4B83FDA0-71A4-4745-BFAD-9CA6F0B6D3B1", 91616, 1412679649, "878752", 1412679649, "878752", null, "156", "Clark St & Wellington Ave", "Clark St & Wellington Ave", "15", "14.0", "In Service", "41.936496822", "-87.647538658", [ null, "41.9364968219", "-87.6475386582", null, false ] ]
+, [ 91617, "2234BC31-7816-4AC1-84A1-475EDC37DEE1", 91617, 1412679649, "878752", 1412679649, "878752", null, "157", "Lake Shore Dr & Wellington Ave", "Lake Shore Dr & Wellington Ave", "15", "15.0", "In Service", "41.936669", "-87.636794", [ null, "41.936669", "-87.636794", null, false ] ]
+, [ 91618, "3FF7D159-2B07-4E06-ADB4-D8F21BFD65A9", 91618, 1412679649, "878752", 1412679649, "878752", null, "158", "Milwaukee Ave & Wabansia Ave", "Milwaukee Ave & Wabansia Ave", "15", "15.0", "In Service", "41.912616", "-87.681391", [ null, "41.912616", "-87.681391", null, false ] ]
+, [ 91619, "EF0A61CD-03DB-4F8E-AA83-4F5275711FA8", 91619, 1412679649, "878752", 1412679649, "878752", null, "159", "Claremont Ave & Hirsch St", "1451 N Claremont Ave", "11", "11.0", "In Service", "41.907781", "-87.685854", [ null, "41.907781", "-87.685854", null, false ] ]
+, [ 91620, "1E57AA08-473E-4718-8499-4EDFE4A96F84", 91620, 1412679649, "878752", 1412679649, "878752", null, "160", "Campbell Ave & North Ave", "Campbell Ave & North Ave", "15", "14.0", "In Service", "41.910535", "-87.689556", [ null, "41.910535", "-87.689556", null, false ] ]
+, [ 91621, "BF687C10-48F3-47F7-B205-2C0F239F121E", 91621, 1412679649, "878752", 1412679649, "878752", null, "162", "Damen Ave & Wellington Ave", "Damen Ave & Wellington Ave", "15", "15.0", "In Service", "41.93588", "-87.67842", [ null, "41.93588", "-87.67842", null, false ] ]
+, [ 91622, "72C9363B-43A7-48FE-8A56-D8F08B6ECF41", 91622, 1412679649, "878752", 1412679649, "878752", null, "163", "Paulina St & Diversey Pkwy", "Paulina St & Diversey Pkwy", "15", "15.0", "In Service", "41.93186", "-87.67079", [ null, "41.93186", "-87.67079", null, false ] ]
+, [ 91623, "486EFAD4-20B6-430C-BCDF-CEFE0FB344CE", 91623, 1412679649, "878752", 1412679649, "878752", null, "164", "Franklin St & Lake St", "Franklin St & Lake St", "23", "21.0", "In Service", "41.885837", "-87.6355", [ null, "41.885837", "-87.6355", null, false ] ]
+, [ 91624, "59C49646-3F5B-4003-87E4-CAF6EAC4F338", 91624, 1412679649, "878752", 1412679649, "878752", null, "165", "Clark St & Grace St", "Clark St & Grace St", "18", "18.0", "In Service", "41.95078", "-87.659172", [ null, "41.95078", "-87.659172", null, false ] ]
+, [ 91625, "2F4CFEC8-C63A-43C0-980F-64648A55595C", 91625, 1412679649, "878752", 1412679649, "878752", null, "166", "Ashland Ave & Wrightwood Ave", "Ashland Ave & Wrightwood Ave", "15", "15.0", "In Service", "41.92883", "-87.668507", [ null, "41.92883", "-87.668507", null, false ] ]
+, [ 91626, "8C4AA233-FA28-4954-9B54-573A26397344", 91626, 1412679649, "878752", 1412679649, "878752", null, "167", "Damen Ave & Coulter St", "Damen Ave & Coulter St", "11", "11.0", "In Service", "41.8492", "-87.67564", [ null, "41.8492", "-87.67564", null, false ] ]
+, [ 91627, "8B9E37C7-2E3E-4A28-A47E-9AB20F0A38EF", 91627, 1412679649, "878752", 1412679649, "878752", null, "168", "Michigan Ave & 14th St", "Michigan Ave & 14th St", "19", "19.0", "In Service", "41.864059", "-87.623727", [ null, "41.864059", "-87.623727", null, false ] ]
+, [ 91628, "4119AD05-DDD5-4F33-B21A-4F52D623BA52", 91628, 1412679649, "878752", 1412679649, "878752", null, "169", "Canal St & Harrison St", "Canal St & Harrison St", "15", "15.0", "In Service", "41.874337", "-87.639566", [ null, "41.874337", "-87.639566", null, false ] ]
+, [ 91629, "9038A3EB-B0D9-49A3-8F76-87D1B98C0E36", 91629, 1412679649, "878752", 1412679649, "878752", null, "170", "Clinton St & 18th St", "Clinton St & 18th St", "15", "14.0", "In Service", "41.85795", "-87.640826", [ null, "41.85795", "-87.640826", null, false ] ]
+, [ 91630, "0648B3EA-A9B8-4402-ADCD-9EBC83B31174", 91630, 1412679649, "878752", 1412679649, "878752", null, "171", "May St & Cullerton St", "May St & Cullerton St", "11", "11.0", "In Service", "41.855136", "-87.654127", [ null, "41.855136", "-87.654127", null, false ] ]
+, [ 91631, "7FD934D3-6635-4F9E-9E2D-EF3461BC9DF4", 91631, 1412679649, "878752", 1412679649, "878752", null, "173", "Mies van der Rohe Way & Chicago Ave", "Mies van der Rohe Way & Chicago Ave", "15", "15.0", "In Service", "41.89691", "-87.621743", [ null, "41.89691", "-87.621743", null, false ] ]
+, [ 91632, "CFD5CBB4-3CE9-400B-B793-6D10AF153A7B", 91632, 1412679649, "878752", 1412679649, "878752", null, "174", "Canal St & Madison St", "Canal St & Madison St", "23", "20.0", "In Service", "41.882091", "-87.639833", [ null, "41.882091", "-87.639833", null, false ] ]
+, [ 91633, "03895871-CDB3-4873-9A96-11D3A5C952C6", 91633, 1412679649, "878752", 1412679649, "878752", null, "175", "Wells St & Polk St", "Wells St & Polk St", "19", "19.0", "In Service", "41.872373", "-87.633523", [ null, "41.872373", "-87.633523", null, false ] ]
+, [ 91634, "E8DA0CBA-773B-46DE-A0FE-BD522833E6CF", 91634, 1412679649, "878752", 1412679649, "878752", null, "176", "Clark St & Elm St", "Clark St & Elm St", "19", "18.0", "In Service", "41.903233", "-87.631253", [ null, "41.903233", "-87.631253", null, false ] ]
+, [ 91635, "FD0BDBA2-91D2-47CE-9E4C-64B8C7340EAD", 91635, 1412679649, "878752", 1412679649, "878752", null, "177", "Theater on the Lake", "Theater on the Lake", "23", "21.0", "In Service", "41.926277", "-87.630834", [ null, "41.926277", "-87.630834", null, false ] ]
+, [ 91636, "381E2FB0-056A-409A-8361-7F04DFED04D4", 91636, 1412679649, "878752", 1412679649, "878752", null, "178", "State St & 19th St", "State St & 19th St", "15", "15.0", "In Service", "41.856594", "-87.627542", [ null, "41.856594", "-87.627542", null, false ] ]
+, [ 91637, "DE1E2B34-25E1-4ACB-B89C-F295E05AF912", 91637, 1412679649, "878752", 1412679649, "878752", null, "179", "Martin Luther King Dr & Oakwood Blvd", "Off Steet", "15", "15.0", "In Service", "41.82256", "-87.61615", [ null, "41.82256", "-87.61615", null, false ] ]
+, [ 91638, "A173CDF1-2166-46C9-A220-D60BB429ACFD", 91638, 1412679649, "878752", 1412679649, "878752", null, "181", "LaSalle St & Illinois St", "On Street", "31", "31.0", "In Service", "41.890749", "-87.63206", [ null, "41.890749", "-87.63206", null, false ] ]
+, [ 91639, "128E3F2E-7B16-4766-9EFE-0683FE1758C8", 91639, 1412679649, "878752", 1412679649, "878752", null, "183", "Damen Ave & Augusta Blvd", "Damen Ave & Augusta Blvd", "15", "15.0", "In Service", "41.899714", "-87.677234", [ null, "41.899714", "-87.677234", null, false ] ]
+, [ 91640, "6A809EDF-D53B-4BC2-AE7C-AB7EC6D5B64E", 91640, 1412679649, "878752", 1412679649, "878752", null, "184", "State St & 35th St", "State St & 35th St", "19", "19.0", "In Service", "41.83104", "-87.62688", [ null, "41.83104", "-87.62688", null, false ] ]
+, [ 91641, "8955029A-A0B2-47A8-85F3-127E3E4F321B", 91641, 1412679649, "878752", 1412679649, "878752", null, "185", "Stave St & Armitage Ave", "Stave St & Armitage Ave", "11", "11.0", "In Service", "41.917741", "-87.691392", [ null, "41.917741", "-87.691392", null, false ] ]
+, [ 91642, "B0A08BC5-984C-4E7C-9A40-0A3C0C4E2FB9", 91642, 1412679649, "878752", 1412679649, "878752", null, "186", "Ogden Ave & Race Ave", "Ogden Ave & Race Ave", "15", "15.0", "In Service", "41.891795", "-87.658751", [ null, "41.891795", "-87.658751", null, false ] ]
+, [ 91643, "5AE9D65B-5C37-4858-8984-E958A7EBE3E0", 91643, 1412679649, "878752", 1412679649, "878752", null, "188", "Greenview Ave & Fullerton Ave", "Greenview Ave & Fullerton Ave", "15", "15.0", "In Service", "41.92533", "-87.6658", [ null, "41.92533", "-87.6658", null, false ] ]
+, [ 91644, "8B039A74-9DA6-4D03-A460-DB5F22327FC7", 91644, 1412679649, "878752", 1412679649, "878752", null, "190", "Southport Ave & Wrightwood Ave", "Southport Ave & Wrightwood Ave", "15", "15.0", "In Service", "41.92888", "-87.66317", [ null, "41.92888", "-87.66317", null, false ] ]
+, [ 91645, "EC5F27BA-B921-407B-AC2C-B8BB956A7915", 91645, 1412679649, "878752", 1412679649, "878752", null, "191", "Canal St & Monroe St", "Canal St & Monroe St", "23", "23.0", "In Service", "41.8807", "-87.63947", [ null, "41.8807", "-87.63947", null, false ] ]
+, [ 91646, "EE20739D-07FA-4F68-A77F-C35E224E8660", 91646, 1412679649, "878752", 1412679649, "878752", null, "192", "Canal St & Adams St", "Canal St & Adams St", "35", "35.0", "In Service", "41.879255", "-87.639904", [ null, "41.879255", "-87.639904", null, false ] ]
+, [ 91647, "46C12C7B-9116-40C8-BCAF-5EB1425A9890", 91647, 1412679649, "878752", 1412679649, "878752", null, "193", "State St & 29th St", "State St & 29th St", "15", "15.0", "In Service", "41.841707", "-87.626938", [ null, "41.841707", "-87.626938", null, false ] ]
+, [ 91648, "D0E1DAFB-4796-48E0-AC38-9DEF78F29BC5", 91648, 1412679649, "878752", 1412679649, "878752", null, "194", "Wabash Ave & Wacker Pl", "Wabash Ave & Wacker Pl", "19", "19.0", "In Service", "41.886875", "-87.62603", [ null, "41.886875", "-87.62603", null, false ] ]
+, [ 91649, "AA25153E-712A-4C2A-AF35-10D8CD1FCABA", 91649, 1412679649, "878752", 1412679649, "878752", null, "195", "Columbus Dr & Randolph St", "Columbus Dr & Randolph St", "31", "31.0", "In Service", "41.884728", "-87.619521", [ null, "41.884728", "-87.619521", null, false ] ]
+, [ 91650, "EEB6A89F-9C6B-457E-B83F-6845EEB97AE2", 91650, 1412679649, "878752", 1412679649, "878752", null, "196", "Cityfront Plaza & N Water St", "Off Street", "19", "19.0", "In Service", "41.889875", "-87.621994", [ null, "41.889875", "-87.621994", null, false ] ]
+, [ 91651, "A2FD7FE6-08DE-4F57-9B20-BBC2451D168C", 91651, 1412679649, "878752", 1412679649, "878752", null, "197", "Michigan Ave & Madison St", "Michigan Ave & Madison St", "19", "19.0", "In Service", "41.882134", "-87.625125", [ null, "41.882134", "-87.625125", null, false ] ]
+, [ 91652, "D1467B1D-A9A3-4D20-B55B-2B8153066D47", 91652, 1412679649, "878752", 1412679649, "878752", null, "198", "Halsted St & Madison St", "Halsted St & Madison St", "19", "19.0", "In Service", "41.88175", "-87.6478", [ null, "41.88175", "-87.6478", null, false ] ]
+, [ 91653, "B8C2D4B1-5437-474A-80AF-E816B263BDC8", 91653, 1412679649, "878752", 1412679649, "878752", null, "199", "Wabash Ave & Grand Ave", "Wabash Ave & Grand Ave", "15", "14.0", "In Service", "41.891738", "-87.626937", [ null, "41.891738", "-87.626937", null, false ] ]
+, [ 91654, "7CB1ED43-A69E-44A0-86AA-80264D5D9B1F", 91654, 1412679649, "878752", 1412679649, "878752", null, "200", "King Dr & 47th St", "King Dr & 47th St", "11", "11.0", "In Service", "41.809851", "-87.616279", [ null, "41.809851", "-87.616279", null, false ] ]
+, [ 91655, "862A1EAB-8E1E-4E82-B75E-4697ED15F6FE", 91655, 1412679649, "878752", 1412679649, "878752", null, "201", "Indiana Ave & 40th St", "Indiana Ave & 40th St", "15", "15.0", "In Service", "41.82168", "-87.6216", [ null, "41.82168", "-87.6216", null, false ] ]
+, [ 91656, "DBF5CFDC-2160-49E2-8524-0D5787AC5EC6", 91656, 1412679649, "878752", 1412679649, "878752", null, "202", "Halsted St & 18th St", "Halsted St & 18th St", "15", "15.0", "In Service", "41.857499", "-87.646277", [ null, "41.857499", "-87.646277", null, false ] ]
+, [ 91657, "A0439B0F-7DA0-4217-932A-E5F2BCB43760", 91657, 1412679649, "878752", 1412679649, "878752", null, "203", "Western Ave & 21st St", "Western Ave & 21st St", "15", "15.0", "In Service", "41.85394", "-87.685243", [ null, "41.85394", "-87.685243", null, false ] ]
+, [ 91658, "5E4326B2-5DFE-4FFD-9508-F30DA391AC88", 91658, 1412679649, "878752", 1412679649, "878752", null, "204", "Prairie Ave & Garfield Blvd", "Prairie Ave & Garfield Blvd", "15", "15.0", "In Service", "41.794853", "-87.618691", [ null, "41.794853", "-87.618691", null, false ] ]
+, [ 91659, "2F67E54B-632F-491D-AB19-D0B57933D269", 91659, 1412679649, "878752", 1412679649, "878752", null, "205", "Paulina St & 18th St", "Paulina St & 18th St", "15", "15.0", "In Service", "41.857901", "-87.668745", [ null, "41.857901", "-87.668745", null, false ] ]
+, [ 91660, "3CBB175E-5D52-4E4D-9A2C-E2336DE1A106", 91660, 1412679649, "878752", 1412679649, "878752", null, "206", "Halsted St & Archer Ave", "Halsted St & Archer Ave", "15", "15.0", "In Service", "41.847203", "-87.646795", [ null, "41.847203", "-87.646795", null, false ] ]
+, [ 91661, "C57D4F3A-BC9B-4062-9E28-86B50216DBAA", 91661, 1412679649, "878752", 1412679649, "878752", null, "207", "Emerald Ave & 28th St", "Emerald Ave & 28th St", "15", "15.0", "In Service", "41.84358", "-87.645368", [ null, "41.84358", "-87.645368", null, false ] ]
+, [ 91662, "B8C9AA0B-BEAF-40B9-9026-55BDC9540A1C", 91662, 1412679649, "878752", 1412679649, "878752", null, "208", "Ashland Ave & 21st St", "Ashland Ave & 21st St", "15", "15.0", "In Service", "41.85381", "-87.665897", [ null, "41.85381", "-87.665897", null, false ] ]
+, [ 91663, "6E177E15-AD64-4633-9D2F-5C5406EDAC76", 91663, 1412679649, "878752", 1412679649, "878752", null, "209", "Normal Ave & Archer Ave", "Normal Ave & Archer Ave", "11", "11.0", "In Service", "41.849527", "-87.640591", [ null, "41.849527", "-87.640591", null, false ] ]
+, [ 91664, "55A8FCA8-66FC-41FF-93BB-D3E60FB5C478", 91664, 1412679649, "878752", 1412679649, "878752", null, "210", "Ashland Ave & Division St", "Ashland Ave & Division St", "19", "18.0", "In Service", "41.903448", "-87.669313", [ null, "41.903448", "-87.669313", null, false ] ]
+, [ 91665, "5C681711-FB78-40CF-AC67-4D91A2D913DF", 91665, 1412679649, "878752", 1412679649, "878752", null, "211", "St Clair St & Erie St", "St Clair St & Erie St", "19", "19.0", "In Service", "41.894448", "-87.622663", [ null, "41.894448", "-87.622663", null, false ] ]
+, [ 91666, "B0F7050B-A9A4-407B-BAE1-45ACF8E3A020", 91666, 1412679649, "878752", 1412679649, "878752", null, "212", "Wells St & Hubbard St", "Wells St & Hubbard St", "31", "31.0", "In Service", "41.889933", "-87.634262", [ null, "41.889933", "-87.634262", null, false ] ]
+, [ 91667, "011EE6B4-D5CB-4F40-A875-CDF2A0E64F23", 91667, 1412679649, "878752", 1412679649, "878752", null, "213", "Leavitt St & North Ave", "Leavitt St & North Ave", "15", "15.0", "In Service", "41.910153", "-87.68229", [ null, "41.910153", "-87.68229", null, false ] ]
+, [ 91668, "61FFB90A-38E9-48AC-9AAB-FD961201903F", 91668, 1412679649, "878752", 1412679649, "878752", null, "214", "Damen Ave & Grand Ave", "Damen Ave & Grand Ave", "15", "14.0", "In Service", "41.89122", "-87.67686", [ null, "41.89122", "-87.67686", null, false ] ]
+, [ 91669, "1D9CCFED-5569-407B-B64F-B9A43D1AF307", 91669, 1412679649, "878752", 1412679649, "878752", null, "215", "Damen Ave & Madison St", "Damen Ave & Madison St", "15", "14.0", "In Service", "41.88137", "-87.67493", [ null, "41.88137", "-87.67493", null, false ] ]
+, [ 91670, "A2A0725A-C0FC-45C3-95C5-9DC09EA94BEA", 91670, 1412679649, "878752", 1412679649, "878752", null, "216", "California Ave & Division St", "California Ave & Division St", "15", "15.0", "In Service", "41.903029", "-87.697474", [ null, "41.903029", "-87.697474", null, false ] ]
+, [ 91671, "1C00CD63-659D-4A7F-B0F5-43C1DF3A3E31", 91671, 1412679649, "878752", 1412679649, "878752", null, "217", "May St & Fulton St", "May St & Fulton St", "15", "15.0", "In Service", "41.886773", "-87.656001", [ null, "41.886773", "-87.656001", null, false ] ]
+, [ 91672, "5F226005-1273-41EE-8129-D8B5F615DDC4", 91672, 1412679649, "878752", 1412679649, "878752", null, "218", "Wells St & 19th St", "Wells St & 19th St", "11", "11.0", "In Service", "41.856802", "-87.633879", [ null, "41.856802", "-87.633879", null, false ] ]
+, [ 91673, "9D7FD848-60FF-45D1-B354-0A195875C495", 91673, 1412679649, "878752", 1412679649, "878752", null, "219", "Damen Ave & Cortland St", "Damen Ave & Cortland St", "11", "11.0", "In Service", "41.916027", "-87.677411", [ null, "41.916027", "-87.677411", null, false ] ]
+, [ 91674, "A1F5FCCD-5824-4ECF-9689-0451A120B4B6", 91674, 1412679649, "878752", 1412679649, "878752", null, "220", "Hampden Ct & Diversey Pkwy", "Hampden Ct & Diversey Pkwy", "19", "17.0", "In Service", "41.93262", "-87.642385", [ null, "41.93262", "-87.642385", null, false ] ]
+, [ 91675, "AE81C812-137B-4E14-88AA-24C51EB4FDCE", 91675, 1412679649, "878752", 1412679649, "878752", null, "222", "Milwaukee Ave & Rockwell St", "Milwaukee Ave & Rockwell St", "19", "19.0", "In Service", "41.920195", "-87.693033", [ null, "41.920195", "-87.693033", null, false ] ]
+, [ 91676, "91A5C0C2-EE6F-4220-91E2-536F332C70CE", 91676, 1412679649, "878752", 1412679649, "878752", null, "223", "Clifton Ave & Armitage Ave", "Clifton Ave & Armitage Ave", "15", "14.0", "In Service", "41.918216", "-87.656936", [ null, "41.918216", "-87.656936", null, false ] ]
+, [ 91677, "80A71CF7-5D36-4D98-92D6-01ADB8020AA9", 91677, 1412679649, "878752", 1412679649, "878752", null, "224", "Halsted St & Willow St", "Halsted St & Willow St", "19", "19.0", "In Service", "41.913778", "-87.64884", [ null, "41.913778", "-87.64884", null, false ] ]
+, [ 91678, "DC5790F2-3CCF-487A-AE07-316DB5BE798F", 91678, 1412679649, "878752", 1412679649, "878752", null, "225", "Halsted St & Dickens Ave", "Halsted St & Dickens Ave", "15", "14.0", "In Service", "41.919936", "-87.64883", [ null, "41.919936", "-87.64883", null, false ] ]
+, [ 91679, "D11B3C60-BEDB-4AF9-82EB-393143372A03", 91679, 1412679649, "878752", 1412679649, "878752", null, "226", "Racine Ave & Belmont Ave", "Racine Ave & Belmont Ave", "15", "15.0", "In Service", "41.939743", "-87.658865", [ null, "41.939743", "-87.658865", null, false ] ]
+, [ 91680, "494644F2-FC8E-4988-B0F0-55C193B21CA9", 91680, 1412679649, "878752", 1412679649, "878752", null, "227", "Southport Ave & Waveland Ave", "Southport Ave & Waveland Ave", "15", "15.0", "In Service", "41.94815", "-87.66394", [ null, "41.94815", "-87.66394", null, false ] ]
+, [ 91681, "20640433-6B86-4987-86C9-905FC164B0BC", 91681, 1412679649, "878752", 1412679649, "878752", null, "228", "Damen Ave & Melrose Ave", "Damen Ave & Melrose Ave", "11", "11.0", "In Service", "41.9406", "-87.6785", [ null, "41.9406", "-87.6785", null, false ] ]
+, [ 91682, "52A031D3-AD8C-43FE-88F1-565F051EB529", 91682, 1412679649, "878752", 1412679649, "878752", null, "229", "Southport Ave & Roscoe St", "Southport Ave & Roscoe St", "19", "19.0", "In Service", "41.943739", "-87.66402", [ null, "41.943739", "-87.66402", null, false ] ]
+, [ 91683, "DA49BBC2-A5EB-4884-8028-4C2695BA556A", 91683, 1412679649, "878752", 1412679649, "878752", null, "230", "Lincoln Ave & Roscoe St", "Lincoln Ave & Roscoe St", "19", "19.0", "In Service", "41.94334", "-87.67097", [ null, "41.94334", "-87.67097", null, false ] ]
+, [ 91684, "32BBCAB8-603D-4DB6-AE3E-DC40BC90C15E", 91684, 1412679649, "878752", 1412679649, "878752", null, "231", "Sheridan Rd & Montrose Ave", "Sheridan Rd & Montrose Ave", "15", "14.0", "In Service", "41.96167", "-87.65464", [ null, "41.96167", "-87.65464", null, false ] ]
+, [ 91685, "D122466A-9634-44A7-BA90-5FCBCAE3726C", 91685, 1412679649, "878752", 1412679649, "878752", null, "232", "Pine Grove Ave & Waveland Ave", "Pine Grove Ave & Waveland Ave", "23", "23.0", "In Service", "41.949275", "-87.646303", [ null, "41.949275", "-87.646303", null, false ] ]
+, [ 91686, "66D6EE49-8584-443A-A9F0-7AF784B70954", 91686, 1412679649, "878752", 1412679649, "878752", null, "233", "Sangamon St & Washington Blvd", "Sangamon St & Washington Blvd", "15", "15.0", "In Service", "41.883004", "-87.651148", [ null, "41.883004", "-87.651148", null, false ] ]
+, [ 91687, "80205BFD-78BF-4E04-8ADE-B5538C77456F", 91687, 1412679649, "878752", 1412679649, "878752", null, "234", "Clark St & Montrose Ave", "Clark St & Montrose Ave", "19", "18.0", "In Service", "41.961588", "-87.666036", [ null, "41.961588", "-87.666036", null, false ] ]
+, [ 91688, "58844CF7-D777-4264-9168-718C4B7929EA", 91688, 1412679649, "878752", 1412679649, "878752", null, "236", "Sedgwick St & Schiller St", "Sedgwick St & Schiller St", "15", "14.0", "In Service", "41.907576", "-87.638517", [ null, "41.907576", "-87.638517", null, false ] ]
+, [ 91689, "A0446DBB-C099-4D91-BD37-B86EE4C63449", 91689, 1412679649, "878752", 1412679649, "878752", null, "237", "Martin Luther King Dr & 29th St", "MLK Jr Dr & 29th St", "15", "15.0", "In Service", "41.842052", "-87.617", [ null, "41.842052", "-87.617", null, false ] ]
+, [ 91690, "E1FC726C-6CF0-45D5-A724-76CDA775DD72", 91690, 1412679649, "878752", 1412679649, "878752", null, "238", "Ravenswood Ave & Montrose Ave", "Ravenswood Ave & Montrose Ave", "15", "15.0", "In Service", "41.961615", "-87.674365", [ null, "41.961615", "-87.674365", null, false ] ]
+, [ 91691, "8081B600-D85B-493A-8153-564B74022AF0", 91691, 1412679649, "878752", 1412679649, "878752", null, "239", "Western Ave & Leland Ave", "Western Ave & Leland Ave", "15", "15.0", "In Service", "41.966555", "-87.688487", [ null, "41.966555", "-87.688487", null, false ] ]
+, [ 91692, "B6C04987-4744-4092-B1EF-F06E653041D2", 91692, 1412679649, "878752", 1412679649, "878752", null, "240", "Sheridan Rd & Irving Park Rd", "Sheridan Rd & Irving Park Rd", "23", "23.0", "In Service", "41.954245", "-87.654406", [ null, "41.954245", "-87.654406", null, false ] ]
+, [ 91693, "419CAE2C-49B4-4EF5-97F1-B24BB6C437B8", 91693, 1412679649, "878752", 1412679649, "878752", null, "241", "Morgan St & Polk St", "Morgan St & Polk St", "15", "15.0", "In Service", "41.871737", "-87.65103", [ null, "41.871737", "-87.65103", null, false ] ]
+, [ 91694, "B8DAEE58-878E-4CD0-80D7-B3C410D7FD8A", 91694, 1412679649, "878752", 1412679649, "878752", null, "242", "Damen Ave & Leland Ave", "Damen Ave & Leland Ave", "15", "15.0", "In Service", "41.967094", "-87.679028", [ null, "41.967094", "-87.679028", null, false ] ]
+, [ 91695, "46468CC8-DEB7-4B4B-B692-A7B30EF820ED", 91695, 1412679649, "878752", 1412679649, "878752", null, "243", "Lincoln Ave & Leavitt St", "Lincoln Ave & Leavitt St", "15", "15.0", "In Service", "41.962391", "-87.684146", [ null, "41.962391", "-87.684146", null, false ] ]
+, [ 91696, "7CF24112-72B6-4F09-A7A8-5D5CD622B036", 91696, 1412679649, "878752", 1412679649, "878752", null, "244", "Ravenswood Ave & Irving Park Rd", "Ravenswood Ave & Irving Park Rd", "19", "19.0", "In Service", "41.95469", "-87.67393", [ null, "41.95469", "-87.67393", null, false ] ]
+, [ 91697, "581D70CB-FF1E-421E-B88D-2BF08D8BF5E5", 91697, 1412679649, "878752", 1412679649, "878752", null, "245", "Clarendon Ave & Junior Ter", "Clarendon Ave & Junior Ter", "15", "15.0", "In Service", "41.961004", "-87.649603", [ null, "41.961004", "-87.649603", null, false ] ]
+, [ 91698, "CC7D57D4-B496-4F15-9173-1FB0B069DEFD", 91698, 1412679649, "878752", 1412679649, "878752", null, "246", "Ashland Ave & Belle Plaine Ave", "Ashland Ave & Belle Plaine Ave", "11", "11.0", "In Service", "41.956061", "-87.668869", [ null, "41.956061", "-87.668869", null, false ] ]
+, [ 91699, "D5BDA7EF-F0A2-484C-B99F-5306BB2BA913", 91699, 1412679649, "878752", 1412679649, "878752", null, "247", "Shore Drive & 55th St", "Shore Drive & 55th St", "15", "12.0", "In Service", "41.795212", "-87.580715", [ null, "41.795212", "-87.580715", null, false ] ]
+, [ 91700, "A5888985-92A5-411F-9080-E71BEFE55374", 91700, 1412679649, "878752", 1412679649, "878752", null, "248", "Woodlawn Ave & 55th St", "Woodlawn Ave & 55th St", "15", "15.0", "In Service", "41.795264", "-87.596471", [ null, "41.795264", "-87.596471", null, false ] ]
+, [ 91701, "35D24E62-DC6F-4491-A194-518BE749608E", 91701, 1412679649, "878752", 1412679649, "878752", null, "249", "Montrose Harbor", "Montrose Harbor", "15", "15.0", "In Service", "41.963982", "-87.638181", [ null, "41.963982", "-87.638181", null, false ] ]
+, [ 91702, "73D82595-6836-4EFA-9FD2-F0C06870E501", 91702, 1412679649, "878752", 1412679649, "878752", null, "250", "Ashland Ave & Wellington Ave", "Ashland Ave & Wellington Ave", "19", "19.0", "In Service", "41.936083", "-87.669807", [ null, "41.936083", "-87.669807", null, false ] ]
+, [ 91703, "9CF8BF4D-CBE7-416B-9140-048265A83789", 91703, 1412679649, "878752", 1412679649, "878752", null, "251", "Clarendon Ave & Leland Ave", "Clarendon Ave & Leland Ave", "15", "15.0", "In Service", "41.967968", "-87.650001", [ null, "41.967968", "-87.650001", null, false ] ]
+, [ 91704, "AEA812D8-A0BB-410F-AAD7-60067CC62C87", 91704, 1412679649, "878752", 1412679649, "878752", null, "252", "Greenwood Ave & 47th St", "Greenwood Ave & 47th St", "15", "15.0", "In Service", "41.809835", "-87.599383", [ null, "41.809835", "-87.599383", null, false ] ]
+, [ 91705, "A4C586D0-D5E7-4F42-9867-146A90D6B999", 91705, 1412679649, "878752", 1412679649, "878752", null, "253", "Clifton Ave & Lawrence Ave", "Clifton Ave & Lawrence Ave", "15", "15.0", "In Service", "41.968873", "-87.658857", [ null, "41.968873", "-87.658857", null, false ] ]
+, [ 91706, "F093C395-22FE-4E02-8672-DC588E4C88B1", 91706, 1412679649, "878752", 1412679649, "878752", null, "254", "Pine Grove Ave & Irving Park Rd", "Pine Grove Ave & Irving Park Rd", "15", "15.0", "In Service", "41.954383", "-87.648043", [ null, "41.954383", "-87.648043", null, false ] ]
+, [ 91707, "4CC43F67-C03A-4A6F-B5D9-7C5B359F4244", 91707, 1412679649, "878752", 1412679649, "878752", null, "255", "Indiana Ave & Roosevelt Rd", "Indiana Ave & Roosevelt Rd", "31", "31.0", "In Service", "41.867888", "-87.623041", [ null, "41.867888", "-87.623041", null, false ] ]
+, [ 91708, "8478C186-55FE-4A38-8320-AB68DE403B0E", 91708, 1412679649, "878752", 1412679649, "878752", null, "256", "Broadway & Sheridan Rd", "Broadway & Sheridan Rd", "15", "15.0", "In Service", "41.952833", "-87.649993", [ null, "41.952833", "-87.649993", null, false ] ]
+, [ 91709, "0BDB1B61-CE1F-4C52-A5BD-C4A252551BD3", 91709, 1412679649, "878752", 1412679649, "878752", null, "257", "Lincoln Ave & Waveland Ave", "Lincoln Ave & Waveland Ave", "15", "15.0", "In Service", "41.94911", "-87.675112", [ null, "41.94911", "-87.675112", null, false ] ]
+, [ 91710, "E851A635-A9C0-49ED-A82E-CF5160D9EACE", 91710, 1412679649, "878752", 1412679649, "878752", null, "258", "Logan Blvd & Elston Ave", "Logan Blvd & Elston Ave", "19", "16.0", "In Service", "41.930584", "-87.685126", [ null, "41.930584", "-87.685126", null, false ] ]
+, [ 91711, "A32CBCFE-2F35-434B-89BC-C3584C28D1D5", 91711, 1412679649, "878752", 1412679649, "878752", null, "259", "California Ave & Francis Pl", "California Ave & Francis Pl", "15", "15.0", "In Service", "41.91855", "-87.69723", [ null, "41.91855", "-87.69723", null, false ] ]
+, [ 91712, "76490702-159F-451E-8BDD-3E7C3212A458", 91712, 1412679649, "878752", 1412679649, "878752", null, "260", "Kedzie Ave & Milwaukee Ave", "Kedzie Ave & Milwaukee Ave", "19", "19.0", "In Service", "41.929567", "-87.707857", [ null, "41.929567", "-87.707857", null, false ] ]
+, [ 91713, "B8EA4341-EC7F-4C7E-B498-B6C48AE1F5CF", 91713, 1412679649, "878752", 1412679649, "878752", null, "261", "Hermitage Ave & Polk St", "Hermitage Ave & Polk St", "15", "15.0", "In Service", "41.871514", "-87.669886", [ null, "41.871514", "-87.669886", null, false ] ]
+, [ 91714, "54993D86-58A1-4DE8-811D-51976D561036", 91714, 1412679649, "878752", 1412679649, "878752", null, "262", "Halsted St & 37th St", "On Street", "11", "11.0", "In Service", "41.827071", "-87.645801", [ null, "41.827071", "-87.645801", null, false ] ]
+, [ 91715, "B110924C-6112-4E97-8A2B-2A9C38A2A883", 91715, 1412679649, "878752", 1412679649, "878752", null, "263", "Rhodes Ave & 32nd St", "Rhodes Ave & 32nd St", "11", "11.0", "In Service", "41.836208", "-87.613533", [ null, "41.836208", "-87.613533", null, false ] ]
+, [ 91716, "7AE03B38-2D7A-4A89-981F-BFAF06BBB1DB", 91716, 1412679649, "878752", 1412679649, "878752", null, "264", "Stetson Ave & South Water St", "Stetson Ave & South Water St", "19", "19.0", "In Service", "41.886835", "-87.62232", [ null, "41.886835", "-87.62232", null, false ] ]
+, [ 91717, "7E5F976D-196A-4C3D-A590-180897722C25", 91717, 1412679649, "878752", 1412679649, "878752", null, "265", "Cottage Grove Ave & Oakwood Blvd", "Cottage Grove Ave & Oakwood Blvd", "15", "15.0", "In Service", "41.822985", "-87.6071", [ null, "41.822985", "-87.6071", null, false ] ]
+, [ 91718, "F185A350-E7D0-4D3F-B453-D44270025A14", 91718, 1412679649, "878752", 1412679649, "878752", null, "267", "Lake Park Ave & 47th St", "Lake Park Ave & 47th St", "15", "15.0", "In Service", "41.809443", "-87.591875", [ null, "41.809443", "-87.591875", null, false ] ]
+, [ 91719, "A3B1D8E7-D0EF-44EB-85F6-FCBDF7A1953E", 91719, 1412679649, "878752", 1412679649, "878752", null, "268", "Lake Shore Dr & North Blvd", "Lake Shore Dr & North Blvd", "15", "15.0", "In Service", "41.911722", "-87.626804", [ null, "41.911722", "-87.626804", null, false ] ]
+, [ 91720, "853469D3-3F87-4AA6-93ED-2EA7DF59169D", 91720, 1412679650, "878752", 1412679650, "878752", null, "271", "Cottage Grove Ave & 43rd St", "Cottage Grove Ave & 43rd St", "11", "11.0", "In Service", "41.816499", "-87.606582", [ null, "41.816499", "-87.606582", null, false ] ]
+, [ 91721, "5D1F04A0-B3D1-4E78-9478-155D32CAC189", 91721, 1412679650, "878752", 1412679650, "878752", null, "272", "Indiana Ave & 31st St", "Indiana Ave & 31st St", "11", "11.0", "In Service", "41.838842", "-87.621857", [ null, "41.838842", "-87.621857", null, false ] ]
+, [ 91722, "2EAB0663-5AAD-4404-B984-5F242FEC1C7E", 91722, 1412679650, "878752", 1412679650, "878752", null, "273", "Michigan Ave & 18th St", "Michigan Ave & 18th St", "15", "15.0", "In Service", "41.857937", "-87.623633", [ null, "41.857937", "-87.623633", null, false ] ]
+, [ 91723, "F9F7E202-8F69-4271-9D33-3DA1BE6784BE", 91723, 1412679650, "878752", 1412679650, "878752", null, "274", "Racine Ave & 15th St", "Racine Ave & 15th St", "15", "15.0", "In Service", "41.861267", "-87.656625", [ null, "41.861267", "-87.656625", null, false ] ]
+, [ 91724, "A2CC6807-CB8C-4DA2-AF97-5EB7213F45D5", 91724, 1412679650, "878752", 1412679650, "878752", null, "275", "Ashland Ave & 13th St", "Ashland Ave & 13th St", "15", "15.0", "In Service", "41.865234", "-87.666507", [ null, "41.865234", "-87.666507", null, false ] ]
+, [ 91725, "0D0FB739-1BB5-429B-9D7D-28E23393A0AD", 91725, 1412679650, "878752", 1412679650, "878752", null, "276", "California Ave & North Ave", "California Ave & North Ave", "11", "11.0", "In Service", "41.91044", "-87.6972", [ null, "41.91044", "-87.6972", null, false ] ]
+, [ 91726, "7C3469CC-C86E-497E-903F-0941EFA205EB", 91726, 1412679650, "878752", 1412679650, "878752", null, "277", "Ashland Ave & Grand Ave", "Off Street", "15", "15.0", "In Service", "41.891072", "-87.666611", [ null, "41.891072", "-87.666611", null, false ] ]
+, [ 91727, "DBD4DF7D-CDDC-4ECA-AFE2-67ECE6D3C9E9", 91727, 1412679650, "878752", 1412679650, "878752", null, "278", "Wallace Ave & 35th St", "On Street", "15", "15.0", "In Service", "41.830629", "-87.64129", [ null, "41.830629", "-87.64129", null, false ] ]
+, [ 91728, "8FF19503-768A-45CC-B5E0-C19675123CC2", 91728, 1412679650, "878752", 1412679650, "878752", null, "279", "Halsted St & 35th St", "Halsted St & 35th St", "15", "15.0", "In Service", "41.830661", "-87.647172", [ null, "41.830661", "-87.647172", null, false ] ]
+, [ 91729, "A244AA12-6348-4457-9BE8-088AA641BA8D", 91729, 1412679650, "878752", 1412679650, "878752", null, "280", "Morgan St & 31st St", "Morgan St & 31st St", "11", "11.0", "In Service", "41.8378", "-87.65114", [ null, "41.8378", "-87.65114", null, false ] ]
+, [ 91730, "C6E552F9-B499-48BD-B046-027CE55A21BB", 91730, 1412679650, "878752", 1412679650, "878752", null, "281", "Western Ave & 24th St", "Western Ave & 24th St", "15", "15.0", "In Service", "41.84847", "-87.685109", [ null, "41.84847", "-87.685109", null, false ] ]
+, [ 91731, "4891E8CE-85AF-424F-9380-AC713ED601DC", 91731, 1412679650, "878752", 1412679650, "878752", null, "282", "Halsted St & Maxwell St", "Halsted St & Maxwell St", "15", "15.0", "In Service", "41.86458", "-87.64693", [ null, "41.86458", "-87.64693", null, false ] ]
+, [ 91732, "2B4382E4-202E-44E0-9ED2-E70F2A39B8AA", 91732, 1412679650, "878752", 1412679650, "878752", null, "283", "LaSalle St & Jackson Blvd", "LaSalle St & Jackson Blvd", "31", "30.0", "In Service", "41.87817", "-87.631985", [ null, "41.87817", "-87.631985", null, false ] ]
+, [ 91733, "42D64161-5F3F-48E4-9AEF-A2C9CA083AD5", 91733, 1412679650, "878752", 1412679650, "878752", null, "284", "Michigan Ave & Jackson Blvd", "Michigan Ave & Jackson Blvd", "23", "23.0", "In Service", "41.87785", "-87.62408", [ null, "41.87785", "-87.62408", null, false ] ]
+, [ 91734, "BC8AE35C-A8D4-4329-BDED-02257FF93850", 91734, 1412679650, "878752", 1412679650, "878752", null, "285", "Wood St & Grand Ave", "On Street", "15", "15.0", "In Service", "41.89113", "-87.67203", [ null, "41.89113", "-87.67203", null, false ] ]
+, [ 91735, "48FB13BC-2E10-4337-B9B2-56829A0A49F4", 91735, 1412679650, "878752", 1412679650, "878752", null, "286", "Franklin St & Quincy St", "Franklin St & Quincy St", "21", "20.0", "In Service", "41.878724", "-87.634793", [ null, "41.878724", "-87.634793", null, false ] ]
+, [ 91736, "7DB43872-E57D-44DD-86AD-A7A2CF58974A", 91736, 1412679650, "878752", 1412679650, "878752", null, "287", "Franklin St & Arcade Pl", "Franklin St & Arcade Pl", "27", "27.0", "In Service", "41.881469", "-87.635177", [ null, "41.881469", "-87.635177", null, false ] ]
+, [ 91737, "5CA13437-2418-4F79-BE73-168796F5F4FA", 91737, 1412679650, "878752", 1412679650, "878752", null, "288", "Larrabee St & Armitage Ave", "Larrabee St & Armitage Ave", "11", "10.0", "In Service", "41.91797", "-87.64368", [ null, "41.91797", "-87.64368", null, false ] ]
+, [ 91738, "F74A73EA-8F59-4872-AD09-AF152EF438BE", 91738, 1412679650, "878752", 1412679650, "878752", null, "289", "Wells St & Concord Ln", "Wells St & Concord Ln", "19", "19.0", "In Service", "41.912202", "-87.634664", [ null, "41.912202", "-87.634664", null, false ] ]
+, [ 91739, "FCB53FE0-32CF-4DA4-99C8-02B0EA9B14ED", 91739, 1412679650, "878752", 1412679650, "878752", null, "290", "Kedzie Ave & Palmer Ct", "Kedzie Ave & Palmer Ct", "15", "15.0", "In Service", "41.921525", "-87.707322", [ null, "41.921525", "-87.707322", null, false ] ]
+, [ 91740, "BA98FD45-E906-49D6-80EF-4AFF703101F8", 91740, 1412679650, "878752", 1412679650, "878752", null, "291", "Wells St & Evergreen Ave", "Wells St & Evergreen Ave", "19", "19.0", "In Service", "41.906724", "-87.63483", [ null, "41.906724", "-87.63483", null, false ] ]
+, [ 91741, "0790A330-26B1-40B1-944D-BAE703AF8C4D", 91741, 1412679650, "878752", 1412679650, "878752", null, "292", "Southport Ave & Clark St", "Southport Ave & Clark St", "11", "11.0", "In Service", "41.957081", "-87.664199", [ null, "41.957081", "-87.664199", null, false ] ]
+, [ 91742, "139E8C77-4EA0-4367-AE58-40F7092A3CD3", 91742, 1412679650, "878752", 1412679650, "878752", null, "293", "Broadway & Wilson Ave", "Broadway & Wilson Ave", "19", "19.0", "In Service", "41.965485", "-87.657238", [ null, "41.965485", "-87.657238", null, false ] ]
+, [ 91743, "4FB8FD2E-42B0-4D35-96A1-CC38ABF3A814", 91743, 1412679650, "878752", 1412679650, "878752", null, "294", "Broadway & Berwyn Ave", "Broadway & Berwyn Ave", "15", "15.0", "In Service", "41.978353", "-87.659753", [ null, "41.978353", "-87.659753", null, false ] ]
+, [ 91744, "24611A2C-3229-4F9C-A920-A835D7B17A21", 91744, 1412679650, "878752", 1412679650, "878752", null, "295", "Broadway & Argyle St", "Broadway & Argyle St", "15", "15.0", "In Service", "41.972972", "-87.659637", [ null, "41.972972", "-87.659637", null, false ] ]
+, [ 91745, "5C759103-D028-4B27-A808-094B7322E4C8", 91745, 1412679650, "878752", 1412679650, "878752", null, "296", "Broadway & Belmont Ave", "Broadway & Belmont Ave", "15", "15.0", "In Service", "41.940106", "-87.645451", [ null, "41.940106", "-87.645451", null, false ] ]
+, [ 91746, "58833E11-CC1F-4813-886A-032490B98EF0", 91746, 1412679650, "878752", 1412679650, "878752", null, "297", "Paulina St & Montrose Ave", "Paulina St & Montrose Ave", "15", "15.0", "In Service", "41.961507", "-87.671387", [ null, "41.961507", "-87.671387", null, false ] ]
+, [ 91747, "D7371001-64E1-4F12-9A0E-5553B2C2AD5C", 91747, 1412679650, "878752", 1412679650, "878752", null, "298", "Lincoln Ave & Belle Plaine Ave", "Lincoln Ave & Belle Plaine Ave", "15", "15.0", "In Service", "41.955927", "-87.679259", [ null, "41.955927", "-87.679259", null, false ] ]
+, [ 91748, "CA182963-2D81-4A60-AFC2-1948EB88D647", 91748, 1412679650, "878752", 1412679650, "878752", null, "299", "Halsted St & Roscoe St", "Halsted St & Roscoe St", "15", "15.0", "In Service", "41.94367", "-87.64895", [ null, "41.94367", "-87.64895", null, false ] ]
+, [ 91749, "3EA18EEB-7EF7-476D-B7F4-058FBC9291CF", 91749, 1412679650, "878752", 1412679650, "878752", null, "300", "Broadway & Barry Ave", "Broadway & Barry Ave", "19", "19.0", "In Service", "41.937725", "-87.644095", [ null, "41.937725", "-87.644095", null, false ] ]
+, [ 91750, "929BE70C-5302-4EF0-A1FC-AC63A8520C62", 91750, 1412679650, "878752", 1412679650, "878752", null, "301", "Clark St & Schiller St", "Clark St & Schiller St", "19", "19.0", "In Service", "41.907993", "-87.631501", [ null, "41.907993", "-87.631501", null, false ] ]
+, [ 91751, "9F1D4B23-D6A0-483D-AB7A-47B4DFFD1188", 91751, 1412679650, "878752", 1412679650, "878752", null, "302", "Sheffield Ave & Wrightwood Ave", "Sheffield Ave & Wrightwood Ave", "19", "19.0", "In Service", "41.928712", "-87.653833", [ null, "41.928712", "-87.653833", null, false ] ]
+, [ 91752, "610B1258-D42A-48E9-A4F7-B1C016BC3916", 91752, 1412679650, "878752", 1412679650, "878752", null, "303", "Broadway & Cornelia Ave", "Broadway & Cornelia Ave", "15", "15.0", "In Service", "41.945512", "-87.64598", [ null, "41.945512", "-87.64598", null, false ] ]
+, [ 91753, "95B68027-6163-4DED-A458-6C55E897F514", 91753, 1412679650, "878752", 1412679650, "878752", null, "304", "Halsted St & Waveland Ave", "Halsted St & Waveland Ave", "15", "15.0", "In Service", "41.949375", "-87.649626", [ null, "41.949375", "-87.649626", null, false ] ]
+, [ 91754, "2DE3773B-BE58-4549-9021-5826BD1D1BCE", 91754, 1412679650, "878752", 1412679650, "878752", null, "305", "Western Ave & Division St", "Western Ave & Division St", "15", "15.0", "In Service", "41.902893", "-87.687275", [ null, "41.902893", "-87.687275", null, false ] ]
+, [ 91755, "31012F2A-D6EF-40BE-968E-1E818A1F76CA", 91755, 1412679650, "878752", 1412679650, "878752", null, "306", "Sheridan Rd & Buena Ave", "Sheridan Rd & Buena Ave", "15", "15.0", "In Service", "41.9584", "-87.65423", [ null, "41.9584", "-87.65423", null, false ] ]
+, [ 91756, "A2B5DF2B-2C09-4CAE-ADE0-65729C053382", 91756, 1412679650, "878752", 1412679650, "878752", null, "307", "Southport Ave & Clybourn Ave", "Southport Ave & Clybourn Ave", "15", "15.0", "In Service", "41.921004", "-87.663257", [ null, "41.921004", "-87.663257", null, false ] ]
+, [ 91757, "13D7C2F9-56B9-4728-83BA-78393D6FD26B", 91757, 1412679650, "878752", 1412679650, "878752", null, "308", "Seeley Ave & Roscoe St", "Seeley Ave & Roscoe St", "11", "11.0", "In Service", "41.943403", "-87.679618", [ null, "41.943403", "-87.679618", null, false ] ]
+, [ 91758, "88D9D29D-762C-4B48-9039-E56A679336E8", 91758, 1412679650, "878752", 1412679650, "878752", null, "309", "Leavitt St & Armitage Ave", "Leavitt St & Armitage Ave", "11", "11.0", "In Service", "41.917805", "-87.682437", [ null, "41.917805", "-87.682437", null, false ] ]
+, [ 91759, "C46467EB-450B-4EBE-82EB-8F0525275BC2", 91759, 1412679650, "878752", 1412679650, "878752", null, "310", "Damen Ave & Charleston St", "Damen Ave & Charleston St", "11", "11.0", "In Service", "41.920082", "-87.677855", [ null, "41.920082", "-87.677855", null, false ] ]
+, [ 91760, "2C517C54-558A-4A9A-81D5-A653260A9378", 91760, 1412679650, "878752", 1412679650, "878752", null, "311", "Lincoln Ave & Eastwood Ave", "Lincoln Ave & Eastwood Ave", "15", "15.0", "In Service", "41.96583", "-87.68651", [ null, "41.96583", "-87.68651", null, false ] ]
+, [ 91761, "A5216A7D-A070-412E-BC56-8078D677DCE9", 91761, 1412679650, "878752", 1412679650, "878752", null, "312", "Clarendon Ave & Gordon Ter", "Clarendon Ave & Gordon Ter", "15", "15.0", "In Service", "41.957879", "-87.649519", [ null, "41.957879", "-87.649519", null, false ] ]
+, [ 91762, "BF74E20A-55DA-411D-8931-4742E22424F0", 91762, 1412679650, "878752", 1412679650, "878752", null, "313", "Lakeview Ave & Fullerton Pkwy", "Lakeview Ave & Fullerton Pkwy", "19", "19.0", "In Service", "41.925858", "-87.638973", [ null, "41.925858", "-87.638973", null, false ] ]
+, [ 91763, "5F559623-A286-4BCF-88C5-3D530112BB20", 91763, 1412679650, "878752", 1412679650, "878752", null, "314", "Ravenswood Ave & Berteau Ave", "Ravenswood Ave & Berteau Ave", "15", "15.0", "In Service", "41.957921", "-87.673567", [ null, "41.957921", "-87.673567", null, false ] ]
+, [ 91764, "4289FC74-CA42-4891-85FF-8008AC7173D0", 91764, 1412679650, "878752", 1412679650, "878752", null, "315", "Leavitt St & Hirsch St", "Leavitt St & Hirsch St", "11", "11.0", "In Service", "41.906717", "-87.682779", [ null, "41.906717", "-87.682779", null, false ] ]
+, [ 91765, "577D0487-97C4-4F35-B62C-654483B0B9C2", 91765, 1412679650, "878752", 1412679650, "878752", null, "316", "Damen Ave & Sunnyside Ave", "Damen Ave & Sunnyside Ave", "19", "19.0", "In Service", "41.96325", "-87.679258", [ null, "41.96325", "-87.679258", null, false ] ]
+, [ 91766, "C5FA25E0-7A93-49C2-933A-9074C7500055", 91766, 1412679650, "878752", 1412679650, "878752", null, "317", "Wood St & Taylor St", "Wood St & Taylor St", "15", "15.0", "In Service", "41.869154", "-87.671045", [ null, "41.869154", "-87.671045", null, false ] ]
+, [ 91767, "0B1AB438-1527-4BDF-95E6-1BB8D59EFC7D", 91767, 1412679650, "878752", 1412679650, "878752", null, "318", "Southport Ave & Irving Park Rd", "Southport Ave & Irving Park Rd", "15", "15.0", "In Service", "41.954177", "-87.664358", [ null, "41.954177", "-87.664358", null, false ] ]
+, [ 91768, "4664D1D0-A4B9-424E-A35D-3C266F398709", 91768, 1412679650, "878752", 1412679650, "878752", null, "319", "Greenview Ave & Diversey Pkwy", "Greenview Ave & Diversey Pkwy", "15", "15.0", "In Service", "41.932595", "-87.665939", [ null, "41.932595", "-87.665939", null, false ] ]
+, [ 91769, "F8AFFED1-C254-4EDF-8223-A42C5BA75989", 91769, 1412679650, "878752", 1412679650, "878752", null, "320", "Loomis St & Lexington St", "Loomis St & Lexington St", "15", "15.0", "In Service", "41.872187", "-87.661501", [ null, "41.872187", "-87.661501", null, false ] ]
+, [ 91770, "C1C82C89-1A65-4065-AEF5-8932140C884A", 91770, 1412679650, "878752", 1412679650, "878752", null, "321", "Wabash Ave & 8th St", "Wabash Ave & 8th St", "19", "19.0", "In Service", "41.871962", "-87.626106", [ null, "41.871962", "-87.626106", null, false ] ]
+, [ 91771, "D9D99B3F-91E0-4CB0-A28F-02E2DCCD6D5E", 91771, 1412679650, "878752", 1412679650, "878752", null, "322", "Kimbark Ave & 53rd St", "Kimbark Ave & 53rd St", "15", "15.0", "In Service", "41.799568", "-87.594747", [ null, "41.799568", "-87.594747", null, false ] ]
+, [ 91772, "696369D1-7631-4623-B051-4677F64BD0A0", 91772, 1412679650, "878752", 1412679650, "878752", null, "323", "Sheridan Rd & Lawrence Ave", "Sheridan Rd & Lawrence Ave", "15", "15.0", "In Service", "41.969517", "-87.654691", [ null, "41.969517", "-87.654691", null, false ] ]
+, [ 91773, "2204623D-6865-48E6-A024-73BD1A2373FA", 91773, 1412679650, "878752", 1412679650, "878752", null, "324", "Stockton Dr & Wrightwood Ave", "Stockton Dr & Wrightwood Ave", "15", "15.0", "In Service", "41.93132", "-87.638742", [ null, "41.93132", "-87.638742", null, false ] ]
+, [ 91774, "4DAC6297-85E7-48BD-A222-8527FD153BA4", 91774, 1412679650, "878752", 1412679650, "878752", null, "325", "Clark St & Winnemac Ave", "Clark St & Winnemac Ave", "15", "15.0", "In Service", "41.973385", "-87.668365", [ null, "41.973385", "-87.668365", null, false ] ]
+, [ 91775, "21893E9E-2A73-4236-8846-61BC7F5F8A60", 91775, 1412679650, "878752", 1412679650, "878752", null, "326", "Clark St & Leland Ave", "Clark St & Leland Ave", "11", "11.0", "In Service", "41.967096", "-87.667429", [ null, "41.967096", "-87.667429", null, false ] ]
+, [ 91776, "F9C693C9-E123-402B-BC4D-CE0059411C29", 91776, 1412679650, "878752", 1412679650, "878752", null, "327", "Sheffield Ave & Webster Ave", "Sheffield Ave & Webster Ave", "19", "19.0", "In Service", "41.921687", "-87.653714", [ null, "41.921687", "-87.653714", null, false ] ]
+, [ 91777, "56C138C1-8E36-4979-9312-CE1BDF6A03FF", 91777, 1412679650, "878752", 1412679650, "878752", null, "328", "Ellis Ave & 58th St", "Ellis Ave & 58th St", "15", "14.0", "In Service", "41.788746", "-87.601334", [ null, "41.788746", "-87.601334", null, false ] ]
+, [ 91778, "0DCF950F-76FB-4853-819F-2290925A6714", 91778, 1412679650, "878752", 1412679650, "878752", null, "329", "Lake Shore Dr & Diversey Pkwy", "Lake Shore Dr & Diversey Pkwy", "15", "15.0", "In Service", "41.932684", "-87.63625", [ null, "41.932684", "-87.63625", null, false ] ]
+, [ 91779, "9AF41E44-2B58-4ED1-94A9-CB18A4446D23", 91779, 1412679650, "878752", 1412679650, "878752", null, "330", "Lincoln Ave & Addison St", "Lincoln Ave & Addison St", "19", "19.0", "In Service", "41.946176", "-87.673308", [ null, "41.946176", "-87.673308", null, false ] ]
+, [ 91780, "B7CACB39-CC31-4250-9B88-37E01BC0A36C", 91780, 1412679650, "878752", 1412679650, "878752", null, "331", "Halsted St & Blackhawk St", "Halsted St & Blackhawk St", "19", "19.0", "In Service", "41.90854", "-87.648568", [ null, "41.90854", "-87.648568", null, false ] ]
+, [ 91781, "6D9D04A7-58C1-4293-A02B-A7F5AEAEA20A", 91781, 1412679650, "878752", 1412679650, "878752", null, "332", "Halsted St & Diversey Pkwy", "Halsted St & Diversey Pkwy", "15", "15.0", "In Service", "41.933341", "-87.648747", [ null, "41.933341", "-87.648747", null, false ] ]
+, [ 91782, "A0F472FB-A862-402A-9516-36B37CD43006", 91782, 1412679650, "878752", 1412679650, "878752", null, "333", "Ashland Ave & Blackhawk St", "Ashland Ave & Blackhawk St", "15", "14.0", "In Service", "41.907066", "-87.667252", [ null, "41.907066", "-87.667252", null, false ] ]
+, [ 91783, "E00D89D4-CF60-4367-B808-9B0E1EEF5E96", 91783, 1412679650, "878752", 1412679650, "878752", null, "334", "Lake Shore Dr & Belmont Ave", "Lake Shore Dr & Belmont Ave", "19", "19.0", "In Service", "41.940775", "-87.639192", [ null, "41.940775", "-87.639192", null, false ] ]
+, [ 91784, "3D5A6C29-6790-4E86-828E-0DE589E15C74", 91784, 1412679650, "878752", 1412679650, "878752", null, "335", "Calumet Ave & 35th St", "Calumet Ave & 35th St", "15", "15.0", "In Service", "41.831379", "-87.618034", [ null, "41.831379", "-87.618034", null, false ] ]
+, [ 91785, "55F5405C-7B95-487B-B427-54C20E073C2A", 91785, 1412679650, "878752", 1412679650, "878752", null, "336", "Cottage Grove Ave & 47th St", "Off Street", "15", "15.0", "In Service", "41.809855", "-87.606755", [ null, "41.809855", "-87.606755", null, false ] ]
+, [ 91786, "7FD3E89A-87D2-4A8A-A6B5-82E551F6BF2E", 91786, 1412679650, "878752", 1412679650, "878752", null, "337", "Clark St & Chicago Ave", "Clark St & Chicago Ave", "19", "19.0", "In Service", "41.896544", "-87.630931", [ null, "41.896544", "-87.630931", null, false ] ]
+, [ 91787, "21499689-97EF-4989-8050-30720CAAE73F", 91787, 1412679650, "878752", 1412679650, "878752", null, "338", "Calumet Ave & 18th St", "Calumet Ave & 18th St", "15", "15.0", "In Service", "41.857611", "-87.619407", [ null, "41.857611", "-87.619407", null, false ] ]
+, [ 91788, "65CD1845-D36E-48C2-A57A-A4FE11FF3506", 91788, 1412679650, "878752", 1412679650, "878752", null, "339", "Emerald Ave & 31st St", "Emerald Ave & 31st St", "11", "11.0", "In Service", "41.838198", "-87.645143", [ null, "41.838198", "-87.645143", null, false ] ]
+, [ 91789, "42C6D52A-97DE-44CC-BF37-4F2193ED920F", 91789, 1412679650, "878752", 1412679650, "878752", null, "340", "Clark St & Wrightwood Ave", "Clark St & Wrightwood Ave", "15", "15.0", "In Service", "41.929546", "-87.643118", [ null, "41.929546", "-87.643118", null, false ] ]
+, [ 91790, "1F93C13D-E705-4BFA-9FE9-0E137C4293C7", 91790, 1412679650, "878752", 1412679650, "878752", null, "341", "Adler Planetarium", "Off Street", "19", "19.0", "In Service", "41.866095", "-87.607267", [ null, "41.866095", "-87.607267", null, false ] ]
+, [ 91791, "BE9F1D09-1F85-4D8E-9922-B55D373C436D", 91791, 1412679650, "878752", 1412679650, "878752", null, "342", "Wolcott Ave & Polk St", "Wolcott Ave & Polk St", "15", "15.0", "In Service", "41.871262", "-87.673688", [ null, "41.871262", "-87.673688", null, false ] ]
+, [ 91792, "E4B8EDCA-21D8-44DB-B514-85E04A51F766", 91792, 1412679650, "878752", 1412679650, "878752", null, "343", "Racine Ave & Wrightwood Ave", "Racine Ave & Wrightwood Ave", "15", "15.0", "In Service", "41.928887", "-87.658971", [ null, "41.928887", "-87.658971", null, false ] ]
+, [ 91793, "AD5E4A68-2E65-4AF6-B334-F8170DE61AC4", 91793, 1412679650, "878752", 1412679650, "878752", null, "344", "Wolcott Ave & Lawrence Ave", "Wolcott Ave & Lawrence Ave", "15", "15.0", "In Service", "41.968641", "-87.676335", [ null, "41.968641", "-87.676335", null, false ] ]
+, [ 91794, "4BF4ABA4-D7B6-43E5-87DD-AD41B0EFC350", 91794, 1412679650, "878752", 1412679650, "878752", null, "345", "Lake Park Ave & 56th St", "Lake Park Ave & 56th St", "15", "15.0", "In Service", "41.793242", "-87.587782", [ null, "41.793242", "-87.587782", null, false ] ]
+, [ 91795, "5C4E98B7-F2D6-4488-98F5-95F5A2418648", 91795, 1412679650, "878752", 1412679650, "878752", null, "346", "Ada St & Washington Blvd", "Ada St & Washington Blvd", "15", "15.0", "In Service", "41.88283", "-87.661206", [ null, "41.88283", "-87.661206", null, false ] ]
+, [ 91796, "1BDE91CE-B71D-480E-9F0C-040C728D3600", 91796, 1412679650, "878752", 1412679650, "878752", null, "347", "Ashland Ave & Grace St", "Ashland Ave & Grace St", "15", "15.0", "In Service", "41.950687", "-87.6687", [ null, "41.950687", "-87.6687", null, false ] ]
+, [ 91797, "212D6CA4-CB6B-4C77-9F90-F9462D403A1A", 91797, 1412679650, "878752", 1412679650, "878752", null, "348", "California Ave & 21st St", "California Ave & 21st St", "15", "15.0", "In Service", "41.854016", "-87.695445", [ null, "41.854016", "-87.695445", null, false ] ]
+, [ 91798, "9BC8B22A-DB3E-418B-8E61-AE1480A4CF7A", 91798, 1412679650, "878752", 1412679650, "878752", null, "349", "Halsted St & Wrightwood Ave", "Halsted St & Wrightwood Ave", "15", "15.0", "In Service", "41.929143", "-87.649077", [ null, "41.929143", "-87.649077", null, false ] ]
+, [ 91799, "6263447D-226E-4FA4-A978-BAC3ED2B4D4F", 91799, 1412679650, "878752", 1412679650, "878752", null, "350", "Ashland Ave & Chicago Ave", "Ashland Ave & Chicago Ave", "15", "15.0", "In Service", "41.895966", "-87.667747", [ null, "41.895966", "-87.667747", null, false ] ]
+, [ 91800, "14B7EAE3-3FA3-4598-A520-D081870FE589", 91800, 1412679650, "878752", 1412679650, "878752", null, "351", "Cottage Grove Ave & 51st St, T", "Off Street", "15", "14.0", "In Service", "41.803038", "-87.606615", [ null, "41.803038", "-87.606615", null, false ] ]
+ ]
+}
