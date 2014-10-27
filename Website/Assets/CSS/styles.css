@@ -12,9 +12,14 @@
     font-style: normal;
 
 }
+body {
+	background-image: none;
+	background-color: rgb(215,235,245);
+	font-family: asapregular !important;
+	
+}
 /***** Navigation Styles *****/
 .navbar {
-	font-family: asapregular !important;
 	font-size: 18px;
 	background-image: none;
 	background-color: rgb(65, 185, 245);
@@ -42,7 +47,20 @@
 
 
 /********** Home Page Styles **********/
+.home-main {
+	color: black;
+}
+.home-row {
+
+}
+.home-left {
+
+}
+.home-right{
+	
+}
 #home-img {
+	float: left;
 	/* round corners */
 	border:1px solid #;
 	-webkit-border-radius: 20px;
@@ -59,8 +77,6 @@
 	height: 800px;
 	width: 97%; 
 }
-
-
 /***** info *****/
 .info {
 	padding: 6px 8px;
@@ -74,11 +90,15 @@
 	margin: 0 0 5px;
 	color: #777;
 }
+.app-main {
+
+}
+.data-cells {
+	border-style: solid;
+}
 
 h1, h2, h3, h4, h5, h6, p {
-	color: red;
-	border-style: solid;
-	padding: 5px;
+	
 }
 
 /*********** Information Styles **********/
