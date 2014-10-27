@@ -1,0 +1,86 @@
+/************ Shared Styles ***********/
+/***** Fonts *****/
+@font-face {
+    font-family: "asapregular";
+    src: url("../Fonts/asap-regular-webfont.eot");
+    src: url("../Fonts/asap-regular-webfont.eot?#iefix") format("embedded-opentype"),
+         url("../Fonts/asap-regular-webfont.woff2") format("woff2"),
+         url("../Fonts/asap-regular-webfont.woff") format("woff"),
+         url("../Fonts/asap-regular-webfont.ttf") format("truetype"),
+         url("../Fonts/asap-regular-webfont.svg#asapregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+
+}
+/***** Navigation Styles *****/
+.navbar {
+	font-family: asapregular !important;
+	font-size: 18px;
+	background-image: none;
+	background-color: rgb(65, 185, 245);
+}
+
+.navbar .navbar-header .navbar-brand {
+	color: black;
+}
+
+.navbar .nav > li > a {
+	color: black;
+}
+
+.navbar .nav > li > a:hover {
+	background-color: rgb(215, 215, 215);
+	color: black;
+}
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover {
+	background-color: rgb(215, 215, 215);
+	color: black;
+}
+
+
+
+/********** Home Page Styles **********/
+#home-img {
+	/* round corners */
+	border:1px solid #;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px; 
+}
+
+
+
+/********** Application Styles **********/
+/***** map *****/
+#map {
+	position: absolute;
+	height: 800px;
+	width: 97%; 
+}
+
+
+/***** info *****/
+.info {
+	padding: 6px 8px;
+	font: 14px/16px Arial, Helvetica, sans-serif;
+	background: white;
+	background: rgba(255, 255,255, 0, 0);
+	border-radius: 5px;
+}
+
+.info h4 {
+	margin: 0 0 5px;
+	color: #777;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	color: red;
+	border-style: solid;
+	padding: 5px;
+}
+
+/*********** Information Styles **********/
+
+/*********** Screenshots and Videos Styles ***********/
