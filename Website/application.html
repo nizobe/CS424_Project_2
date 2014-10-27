@@ -265,13 +265,13 @@
 								          .sort(null)
 								          .value(function(d) { return d.Count; });
 
-								      var svg = d3.select("body").append("svg")
-								          .attr("width", width)
-								          .attr("height", height)
+								      var svg = d3.select("#dashboard").append("svg")
+								      	.attr("viewBox", "0 0 960 500")
+								      	.attr("preserveAspectRatio", "xMidYMid meet")
 								          .append("g")
 								          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-								      d3.csv("num_day_week.csv", function(error, data) {
+								      d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
 								          data.forEach(function(d) {
 								              d.Count = +d.Count;
 								          });
