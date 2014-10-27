@@ -14,10 +14,11 @@
 }
 body {
 	background-image: none;
-	background-color: rgb(215,235,245);
+	background-color: rgb(200,230,245);
 	font-family: asapregular !important;
 	
 }
+
 /***** Navigation Styles *****/
 .navbar {
 	font-size: 18px;
@@ -95,10 +96,6 @@ body {
 }
 .data-cells {
 	border-style: solid;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-	
 }
 
 /*********** Information Styles **********/
