@@ -31,15 +31,16 @@ print type(date_list[0])
 '''
 
 '''
-WIP bullshit atm
-hours = [(dt.time(i).strftime('%H')) for i in range(24)]
+still WIP bullshit atm
+hours = [(dt.datetime.strptime(str(i),'%H')) for i in range(24)]
 
-for hour in hours:
-	hours[hour] = dt.time(hours[hour].strftime('%H'))
+for hour in range(24):
+	hours[hour] = dt.time(hours[hour].strptime('%H'))
+#hours[0] = dt.time
 
 print hours
 
-print type(hours)
+print type(hours[0])
 '''
 
 #count for num bikes out in a given hour
