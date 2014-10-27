@@ -264,7 +264,7 @@
 								          .sort(null)
 								          .value(function(d) { return d.Count; });
 
-								      var svg = d3.select("#top-left").append("svg")
+								      var dayOfWeekGraph = d3.select("#top-left").append("svg")
 								      	.attr("viewBox", "0 0 960 500")
 								      	.attr("preserveAspectRatio", "xMidYMid meet")
 								        .append("g")
@@ -275,7 +275,7 @@
 								              d.Count = +d.Count;
 								          });
 
-								          var g = svg.selectAll(".arc")
+								          var g = dayOfWeekGraph.selectAll(".arc")
 								                .data(pie(data))
 								                .enter().append("g")
 								                .attr("class", "arc");
@@ -297,39 +297,41 @@
 							<h4 style="text-align: center;">Gender</h4>
 								<!--SCRIPT TO GENERATE GRAPHS-->
 									<script>
-										var width1 = 960,
+										/*this stuff is actually generic and can be re-used from above but i'm leaving it
+										in, just in case*/
+										var width = 960,
 								         	height1 = 500,
-								         	radius1 = Math.min(width1, height1) / 2;
+								         	radius1 = Math.min(width, height1) / 2;
 
 								      	var color1 = d3.scale.category20();
 
 								     	 var arc1 = d3.svg.arc()
 								         	.outerRadius(radius1 - 20)
 								         	.innerRadius(radius1 - 100);
-										
-										var pie1 = d3.layout.pie()
-											.sort(null)
-											.value(function(d) { return d.CountG; });
 
-										var svg1 = d3.select('#top-right').append("svg1")
+										var pie = d3.layout.pie()
+											.sort(null)
+											.value(function(d) { return d.Count; });
+
+										var genderGraph = d3.select('#top-right').append("svg")
 											.attr("viewBox", "0 0 960 500")
 											.attr("preserveAspectRatio", "xMidYMid meet")
 											.append("g")
-											.attr("transform", "translate(" + width1 / 2 + "," + height1 / 2 + ")");
+											.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
 										d3.csv("Assets/CSV/demo.csv", function(error, data) {
 											data.forEach(function(d){
-												d.CountG = +d.CountG;
+												d.Count = +d.Count;
 											});
 
-										var g = svg1.selectAll(".arc")
-												.data(pie(data1))
+										var g = genderGraph.selectAll(".arc")
+												.data(pie(data))
 												.enter().append("g")
-												.attr("class", "arc1")
+												.attr("class", "arc")
 
 										g.append("path")
-											.attr("d", arc1)
-											.style("fill", function(d) { return color1(d.data.Gender); });
+											.attr("d", arc)
+											.style("fill", function(d) { return color(d.data.Gender); });
 
 										g.append("text")
 											.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
