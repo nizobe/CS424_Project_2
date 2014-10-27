@@ -9,17 +9,16 @@
 		<title>Bike Race</title>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<script src="./community_areas.geojson"></script>
+		<script src="jquery-2.1.1.min.js"></script>
 		<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 		<style type="text/css">
-			body { margin: 0; padding: 0; }
-			#map { position: absolute; top: 0; bottom: 0; }
-
 			#map {
-				/*z-index: 1;*/
-				/*height: 100%;*/
-				width: 100%;
-			}
+				position: absolute;
+				height: 600px;
+				width: 100%; 
+				}
+
 
 			.info {
 				padding: 6px 8px;
@@ -89,15 +88,10 @@
 			}
 		</style>
 	</head>
-
-
 	<body>
-		<header>
-		</header>
-
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-6"><!-- div to hold map-->
+				<div class="col-sm-6">
 					<div id="map"><!--div to hold map-->
 						<script>
 							//necessary to avoid scoping issues with community areas layer
@@ -268,10 +262,10 @@
 							//adds info panel with name of community area to map
 							info.addTo(map);
 						</script>
-					</div> <!-- End Map -->
-				</div><!-- End Map Column -->
+					</div>
+				</div><!--End Map Column -->
 
-				<!-- Data Column -->
+				<!-- Data Columns -->
 				<div class="col-sm-6" style="background-color: red;">
 
 					<h3>Grid Size 6</h3>
@@ -322,12 +316,8 @@
 						</div>
 					</div>
 				</div>
-
-			</div><!-- End Main Row -->
-		</div><!--End Main Container -->
-
-		<footer>
-		</footer>
+			</div><!--End Main Row -->
+		</div><!--End Fluid Container -->
 
 		<!-- Bootstrap JS & jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
