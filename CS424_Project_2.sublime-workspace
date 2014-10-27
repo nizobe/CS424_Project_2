@@ -4,14 +4,6 @@
 		"selected_items":
 		[
 			[
-				"text",
-				"text-align"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
 				"info",
 				"infoControlOptions"
 			],
@@ -56,42 +48,35 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"contents": "<!DOCTYPE HTML>\n<html>\n	<script src=\"http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js\"></script>\n	<script src=\"http://d3js.org/d3.v3.min.js\"></script>\n	<script type=\"leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js\"></script>\n	<script src=\"http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js\"></script>\n	<link rel=\"stylesheet\" href=\"http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css\">\n	<!--<link rel=\"stylesheet\" href=\"http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css\"/>-->\n	<!--<script src=\"http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js\"></script>-->\n	<head>\n		<title>Bike Race</title>\n		<script src=\"./community_areas.geojson\"></script>\n		<script src=\"jquery-2.1.1.min.js\"></script>\n		<script src=\"http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js\"></script>\n		<!--<link rel=\"stylesheet\" type=\"text/css\" href=\"./tabs-accordion.css\">-->\n		<link rel=\"stylesheet\" href=\"http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css\" />\n		<style type=\"text/css\">\n			body { margin: 0; padding: 0; }\n			#map { position: absolute; top: 0; bottom: 0; width: 100%; }\n\n			#map {\n				z-index: 1;\n			}\n\n			.info {\n				padding: 6px 8px;\n				font: 14px/16px Arial, Helvetica, sans-serif;\n				background: white;\n				background: rgba(255, 255,255, 0, 0);\n				border-radius: 5px;\n			}\n\n			.info h4 {\n				margin: 0 0 5px;\n				color: #777;\n			}\n\n			#accordion {\n			    background:#333;\n			    width: 300px;\n			    border:1px solid #333;\n			    -background:#666;\n			    margin: 0 auto;\n			    z-index: 100;\n			    position: absolute;\n			    bottom: 2%;\n			    right: 1%;\n			    \n			    width: 15%;\n			    padding-left: 1%;\n			    padding-right: 1%;\n			}\n\n			/* accordion header */\n			#accordion h2 {\n			    background:#ccc;\n			    line-height: 14px;\n			    margin:0;\n			    padding:5px 15px;\n			    font-size:14px;\n			    font-weight:normal;\n			    border:1px solid #fff;\n			    border-bottom:1px solid #ddd;\n			    cursor:pointer;\n			}\n\n			/* currently active header */\n			#accordion h2.current {\n			    cursor:default;\n			    background-color:#fff;\n			}\n\n			/* accordion pane */\n			#accordion .pane {\n			    border:1px solid #fff;\n			    border-width:0 2px;\n			    display:none;\n			    height:180px;\n			    padding:15px;\n			    color:#fff;\n			    font-size:12px;\n			}\n\n			/* a title inside pane */\n			#accordion .pane h3 {\n			    font-weight:normal;\n			    margin:0;\n			    font-size:16px;\n			    color:#999;\n			}\n		</style>\n	</head>\n	<body>\n		<div id=\"map\"><!--div to hold map-->\n			<script>\n				//necessary to avoid scoping issues with community areas layer\n				var geojson;\n\n				//defines how community areas look when left alone\n				function style(feature) {\n					return {\n						fillColor: '#08519c',\n						weight: 3,//outline thickness\n						opacity: 1,//outline opacity\n						color: '#6baed6',//outline color\n						dashArray: '3',//dashed outline value\n						fillOpacity: 0.2\n					};\n				}//end function style(feature)\n\n				//function to highlight a community area on mouseover, similar fields to above function\n				function highlightFeature(e) {\n					var layer = e.target;\n\n					layer.setStyle({\n						weight: 4,\n						color: '#08306b',\n						dashArray: '',\n						fillOpacity: 0.5\n					});\n					//resolves issues with IE and Opera\n					if(!L.Browser.ie && !L.Browser.opera) {\n						layer.bringToFront();\n					}\n					//update info panel with name of community area on mouseover\n					info.update(layer.feature.properties);\n				}//end highlight community area on mouseover function\n\n				//function to reset highlighting of community area on mouseout\n				function resetHighlight(e) {\n					geojson.resetStyle(e.target);\n					info.update();\n				}\n\n				//zoom to community area on click\n				function zoomToFeature(e) {\n					map.fitBounds(e.target.getBounds());\n				}\n\n				//do all \"this stuff\" for each community area\n				function onEachFeature(feature, layer) {\n					layer.on({\n						mouseover: highlightFeature,\n						mouseout: resetHighlight,\n						click: zoomToFeature\n					});\n				}//end function onEachFeature\n\n				//actually load in the community areas geojson file\n				geojson = L.geoJson(community_areas, {\n					style: style,\n					onEachFeature:onEachFeature\n				});\n\n				//options for info panel control\n				var infoControlOptions = {\n					position: 'topleft'\n				}\n\n				//control that shows community area info on hover\n				var info = L.control(infoControlOptions);\n\n				//creates info control\n				info.onAdd = function(map) {\n					this._div = L.DomUtil.create('div', 'info');\n					this.update();\n					return this._div;\n				};\n\n				info.update = function(props) {\n					this._div.innerHTML = '<h4>Community Area:</h4>' + (props ?\n						'<b>' + props.name + '</b><br />'\n						: 'Hover over a community area.');\n				};\n\n				//mapbox street tiles with proper attribution and max zoom level.\n				//max zoom set to 18 because it's the greatest zoom level where everything shows\n				var street_map = L.tileLayer('http://{s}.tiles.mapbox.com/v3/nizobe.jn4og4o6/{z}/{x}/{y}.png', {\n				    attribution: 'Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>',\n				    maxZoom: 18\n				});//.addTo(map);\n\n				//satellite imagery tile layer\n				var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {\n					attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'\n				});//end satellite imagery tile layer\n\n				//street and road labels overlay\n				var Hydda_RoadsAndLabels = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {\n			    	minZoom: 0,\n			    	maxZoom: 18,\n			    	attribution: 'Tiles courtesy of <a href=\"http://openstreetmap.se/\" target=\"_blank\">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>'\n				});//end street and road labels overlay\n\n				/*\n				//geoJSON layer to hold community areas\n				//var communities = new L.LayerGroup();\n				var communitiesLayer = new L.LayerGroup();\n				var communities = L.geoJson(community_areas, {\n					onEachFeature: onEachFeature\n				}).addTo(communitiesLayer);\n				//add geoJSON data to communities layer\n				//L.geoJson(community_areas).addTo(communities);\n				*/\n\n				//leaflet layerGroup to hold divvy station markers\n				var stations = L.layerGroup();\n\n				//markercluster to hold divvy stations\n				var markers = new L.MarkerClusterGroup({\n					spiderfyOnMaxZoom: true,\n					showCoverageOnHover: true,\n					zoomToBoundsOnClick: true,\n				});\n\n				//loop through .csv and add divvy stations to the statiosn layerGroup\n				d3.csv(\"Divvy_Bicycle_Stations.csv\", function(station_list) {\n					for(var i = 0; i < station_list.length; i++)\n					{\n						var station_name = station_list[i].StationName;\n						var station_lat = station_list[i].Latitude;\n						var station_lon = station_list[i].Longitude;\n\n						//add to the layerGroup\n						//marker = new L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup().addTo()\n						stations.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());\n\n						//add to the markerClusterGroup\n						markers.addLayer(L.marker([station_lat, station_lon]).bindPopup(station_name).openPopup());\n					}//end for loop through .csv file of divvy station locations\n				});//end D3 import of divvy station .csv file\n\n				/*\n				var community_areas = new L.tileLayer.GeoJSON(\"community_areas.json\");\n				community_areas.setGeoJSONOptions({\n				        /* style of GeoJSON feature /\n				        style: {\n				            \"color\": \"#1B1\",\n				            \"fillColor\": \"#1B1\",\n				            \"weight\": 0.7,\n				            \"opacity\": 0.3,\n				            \"fillOpacity\": 0.1\n				        },\n				        /* style of GeoJSON feature when hovered /\n				        hoverStyle: {\n				            \"fillOpacity\": 0.4\n				        },\n				        hoverOffset: new L.Point(30,-16)\n				});\n				*/\n\n				//make a map with anchor lat,lon and zoom level\n				var map = L.map('map', {\n					center: [41.86968865729827, -87.64699459075926],\n					zoom: 11,\n					layers: [street_map, Esri_WorldImagery]\n				});//.setView([41.86968865729827, -87.64699459075926], 13);\n\n				/*mutually exclusive base map layers\n				it seems that the last layer in the list is the default layer\n				caveat: satellite (second option on control widget) is checked by default,\n				even though the street maps layer is displaed by default */\n				var baseMaps = {\n					//\"Street Map\": street_map,\n					\"Satellite\": Esri_WorldImagery,\n					\"Street Map\": street_map\n				};\n\n				//toggle-able overlays. visible name : variable name\n				var overlayMaps = {\n					\"Divvy Stations\": stations,\n					\"Streets (for use with satellite map)\": Hydda_RoadsAndLabels,\n					\"Community Areas\": geojson\n					//\"MARKER CLUSTER\": markers\n					//\"CA Info\": info\n					//\"Community Areas\": communitiesLayer\n					//\"Community Areas\": community_areas\n				};\n\n				//option(s) for layer control widget\n				var layerControlOptions = {\n					position: 'topleft'\n				}\n\n				//adds layer toggle control to the map in top right\n				L.control.layers(baseMaps, overlayMaps, layerControlOptions).addTo(map);\n\n				//adds a scale meter to map; defaults to bottom left\n				L.control.scale().addTo(map);\n\n				//adds info panel with name of community area to map\n				info.addTo(map);\n\n				/*commented out because initial tests showed it's probably not useful\n				//OSMGeocoder search control\n				var osmGeocoder = new L.Control.OSMGeocoder();\n				//add the Geocoder control to the map\n				osmGeocoder.addTo(map);\n				*/\n\n				/*\n				//style for JSON overlay of community areas\n				var style = {\n					\"clickable\": true,\n					\"color\": \"#00D\",\n					\"fillColor\": \"#00D\",\n					\"weight\": 1.0,\n					\"opacity\": 0.3,\n					\"fillOpacity\": 0.2\n				};\n				var hoverStyle = {\n					\"fillOpacity\": 0.5\n				}\n				*/\n				\n				/*\n				var communityAreaLayer = new L.tileLayer.GeoJSON(\"community_areas.json\"), {\n					clipTiles: true,\n					unique: function (feature) {\n						return feature.id;\n					}, {\n						style: style,\n						onEachFeature: function (feature, layer) {\n							if (feature.properties) {\n								var popupString = '<div class=\"popup\">';\n							}\n						}\n					}\n				};//end generation of community areas layer from .json\n				*/\n			</script>\n		</div>\n		<div id=\"accordion\">\n			<h2 class=\"current\">First Pane</h2>\n			<div class=\"pane\" style=\"display:block\">...pane content...</div>\n			<h2>Second Pane</h2>\n			<div class=\"pane\">...pane content...</div>\n			<h2>Third Pane</h2>\n			<div class=\"pane\">...pane content...</div>\n		</div>\n		<script>\n			$(function() {\n				$(\"#accordion\").tabs(\n					\"#accordion div.pane\",\n					{tabs: 'h2', effect: 'slide', initialIndex: null}\n				);\n			});\n		</script>\n	</body>\n</html>",
+			"file": "LeafletEmbed/index.html",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 11600,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "d3_testing/d3_bar_chart.html",
-			"settings":
-			{
-				"buffer_size": 697,
+				"buffer_size": 11122,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "d3_testing/gender_tesst.html",
+			"contents": "",
+			"file": "LeafletEmbed/index1.html",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 229,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "d3_testing/bar_chart_ii.html",
+			"contents": "",
+			"file": "LeafletEmbed/leaflet_embed.js",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 1131,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "d3_testing/data.tsv",
-			"settings":
-			{
-				"buffer_size": 64,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		}
@@ -144,19 +129,26 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Niko/Documents/GitHub/CS424_Project_2"
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/d3_testing"
 	],
 	"file_history":
 	[
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/d3_testing/parsing.py",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/fw_tabs.html",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/d3_testing/day_of_week.py",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/FurtherTabsTesting/scrolling_background.html",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/index.html",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/Divvy_Bicycle_Stations.csv",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/FurtherTabsTesting/tooltip_menu.html",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/tabs.html",
 		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/tabs2.html",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/FurtherTabsTesting/demo.html",
 		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/FurtherTabsTesting/codepen.html",
 		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/FurtherTabsTesting/codepen2.html",
-		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/tabs_test.html",
 		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/tabs_test2.html",
+		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/tabs_test.html",
 		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/divvy_trips_distances__2-22-14_15-47 .csv",
-		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/FurtherTabsTesting/demo.html",
-		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/tabs.html",
-		"/C/Users/Niko/Documents/GitHub/CS424_Project_2/Divvy_Bicycle_Stations.csv",
 		"/C/Users/Niko/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
 		"/C/Users/Niko/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/Niko/AppData/Roaming/Sublime Text 3/Packages/Table Editor/README.md",
@@ -226,6 +218,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"background",
 			">\n",
 			"jQuery",
 			"”",
@@ -256,24 +249,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "LeafletEmbed/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11600,
+						"buffer_size": 11122,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7452,
-								7454
+								439,
+								439
 							]
 						],
 						"settings":
@@ -281,16 +274,31 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -306,31 +314,16 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -345,24 +338,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "d3_testing/d3_bar_chart.html",
+					"file": "LeafletEmbed/index1.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 697,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								33,
-								102
+								0,
+								0
 							]
 						],
 						"settings":
@@ -370,16 +363,31 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -395,124 +403,23 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content"
 							],
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "d3_testing/gender_tesst.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 229,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								229,
-								229
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
+							"is_xml": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -521,40 +428,60 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 3,
-					"file": "d3_testing/bar_chart_ii.html",
+					"buffer": 2,
+					"file": "LeafletEmbed/leaflet_embed.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1131,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1131,
-								1131
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
-							"auto_name": "",
 							"bh_regions":
 							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -570,71 +497,6 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 88.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "d3_testing/data.tsv",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 64,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								64,
-								64
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"auto_name": "",
-							"bh_regions":
-							[
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -645,59 +507,19 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content"
 							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -720,11 +542,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.482291666667,
 			1.0
 		],
 		"rows":
