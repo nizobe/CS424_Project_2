@@ -4,6 +4,7 @@ trip_id,starttime,startdate,stoptime,enddate,startDay,endDay
 #from datetime import date, timedelta, datetime, time
 import datetime as dt
 from dateutil import relativedelta
+import csv
 
 dataStart = dt.date(2013,6,27)
 dataEnd = dt.date(2013,12,31)
@@ -133,3 +134,14 @@ print "Wednesday Count:" , wedCount
 print "Thursday Count:" , thuCount
 print "Friday Count:" , friCount
 print "Saturday Count:" , satCount
+
+'''
+#write contents of date_dict to CSV
+with open('day_of_year.csv', 'wb') as outFile:
+	csvWriter = csv.writer(outFile, delimiter = ',')
+	for key, val in date_dict.items():
+		csvWriter.writerow([key, val])
+	outFile.close()
+'''
+
+print date_dict[dt.date(2013,6,28)]
