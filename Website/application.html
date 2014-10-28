@@ -226,65 +226,111 @@
 				<div class="col-sm-6 col-md-6 col-lg-6">
 					<h1 style="text-align: center;">Data</h1>
 
-					<div class="row">
-						<div id='dashboard' class="col-sm-12 col-md-12 col-lg-12 data-cells">
-							<!--<h3>Sub Right - Left</h3>-->
-							<!--<div id='dashboard'>-->
-								<!--SCRIPT TO GENERATE GRAPHS-->
-								<script>
-								      var width = 960,
-								          height = 500,
-								          radius = Math.min(width, height) / 2;
+					<div class="row data-row">
+						<div id='data1' class="col-sm-12 col-md-12 col-lg-12 data-cell">
+							<h4 style="text-align: center;">Number Bikes Out Per Weekday</h4>
+							<!--SCRIPT TO GENERATE GRAPHS-->
+							<script>
+							      var width = 960,
+							          height = 500,
+							          radius = Math.min(width, height) / 2;
 
-								      var color = d3.scale.category20();
+							      var color = d3.scale.category20();
 
-								      var arc = d3.svg.arc()
-								          .outerRadius(radius - 20)
-								          .innerRadius(radius - 100);
+							      var arc = d3.svg.arc()
+							          .outerRadius(radius - 20)
+							          .innerRadius(radius - 100);
 
-								      var pie = d3.layout.pie()
-								          .sort(null)
-								          .value(function(d) { return d.Count; });
+							      var pie = d3.layout.pie()
+							          .sort(null)
+							          .value(function(d) { return d.Count; });
 
-								      var svg = d3.select("#dashboard").append("svg")
-								      	.attr("viewBox", "0 0 960 500")
-								      	.attr("preserveAspectRatio", "xMidYMid meet")
-								          .append("g")
-								          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+							      var svg = d3.select("#data1").append("svg")
+							      	.attr("viewBox", "0 0 960 500")
+							      	.attr("preserveAspectRatio", "xMidYMid meet")
+							          .append("g")
+							          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-								      d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
-								          data.forEach(function(d) {
-								              d.Count = +d.Count;
-								          });
+							      d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
+							          data.forEach(function(d) {
+							              d.Count = +d.Count;
+							          });
 
-								          var g = svg.selectAll(".arc")
-								                .data(pie(data))
-								                .enter().append("g")
-								                .attr("class", "arc");
+							          var g = svg.selectAll(".arc")
+							                .data(pie(data))
+							                .enter().append("g")
+							                .attr("class", "arc");
 
-								          g.append("path")
-								                .attr("d", arc)
-								                .style("fill", function(d) { return color(d.data.Weekday); });
+							          g.append("path")
+							                .attr("d", arc)
+							                .style("fill", function(d) { return color(d.data.Weekday); });
 
-								          g.append("text")
-								                .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-								                .attr("dy", ".35em")
-								                .style("text-anchor", "middle")
-								                .text(function(d) { return d.data.Weekday + "\n\n\n" + d.data.Count; });
-								      });
-							    </script>
-							<!--</div>-->
+							          g.append("text")
+							                .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+							                .attr("dy", ".35em")
+							                .style("text-anchor", "middle")
+							                .text(function(d) { return d.data.Weekday + "\n\n\n " + d.data.Count; });
+							      });
+						    </script>
+						</div><!-- End data1 -->
+					</div><!-- End data-row -->
 
-						</div>
-					</div>
+					<div class="row data-row">
+						<div id='data2' class="col-sm-12 col-md-12 col-lg-12 data-cell">
+							<h4 style="text-align: center;">Gender</h4>
+							<!--SCRIPT TO GENERATE GRAPHS-->
+							<script>
+								/*this stuff is actually generic and can be re-used from above but i'm leaving it
+								in, just in case*/
+								var width = 960,
+						         	height1 = 500,
+						         	radius1 = Math.min(width, height1) / 2;
 
+						      	var color1 = d3.scale.category20();
+
+						     	 var arc1 = d3.svg.arc()
+						         	.outerRadius(radius1 - 20)
+						         	.innerRadius(radius1 - 100);
+
+								var pie = d3.layout.pie()
+									.sort(null)
+									.value(function(d) { return d.Count; });
+
+								var genderGraph = d3.select('#data2').append("svg")
+									.attr("viewBox", "0 0 960 500")
+									.attr("preserveAspectRatio", "xMidYMid meet")
+									.append("g")
+									.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+								d3.csv("Assets/CSV/demo.csv", function(error, data) {
+									data.forEach(function(d){
+										d.Count = +d.Count;
+									});
+
+								var g = genderGraph.selectAll(".arc")
+										.data(pie(data))
+										.enter().append("g")
+										.attr("class", "arc")
+
+								g.append("path")
+									.attr("d", arc)
+									.style("fill", function(d) { return color(d.data.Gender); });
+
+								g.append("text")
+									.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+									.attr("dy", ".35em")
+									.style("text-anchor", "middle")
+									.text(function(d) { return d.data.Gender; });
+								});
+						    </script>
+						</div><!-- End data2 -->
+					</div><!-- End data-row -->
 
 				</div> <!-- End Right Side -->
+
 			</div><!-- End Main Row -->
 		</div><!-- End Main Body -->
 					
-
-
 		<footer>
 		</footer>
 	</body>

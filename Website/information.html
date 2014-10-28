@@ -32,6 +32,31 @@
 				</div>
 			</nav>
 		</header>
+
+		<div class="container-fluid">
+			<div class="row info-row">
+				<div class="col-sm-8 col-md-8 col-lg-8">
+					<h2>The Website</h2>
+					<p>We begin by designing the basic layout and structure of the project site. Given that we wanted the application to run right off of it we knew we would have to implement some type of layout that resizes depending on browser size and screen resolution. While it could have been done by hand, it was much easier to implement Bootstrap 3 into the design, and use their framework to create a grid system that would allow us to easily place maps and graphs throughout the page and maintain correct sizes and aspect ratios.</p>
+					<p>Here is the basic grid system used by Bootstrap:</p>
+					<img id="bootstrap-grid" class="info-img" src="Assets/Images/bootstrap_grid.png" alt="Bootstrap Grid Layout">
+					<p>We also used Bootstrap to handle the creation of the navigation bar at the top of the page. It’s not fixed at the top so that you are able to scroll down and see more of the map and data and not be obstructed by the navigation header.</p>
+					<p>Majority of the containers used within the website are fluid and thus fill their respective regions as opposed to having fixed widths.</p>
+					<h2>The Map</h2>
+					<p>To create our map we used a few different resources depending on what was needed. We used Leaflet’s JavaScript library to manage and display our different map layers allowing for easy interactivity.</p>
+					<img id="leaflet-sample" class="info-img" src="Assets/Images/leaflet-sample.png" alt="Leaflet sample">
+					<p>For our street view layer we used Mapbox’s API as we liked the look of it over the all too often seen Google Map’s layer.</p>
+					<img id="mapbox-sample" class="info-img" src="Assets/Images/mapbox-sample.png" alt="Mapbox layer sample">
+					<p>For the satellite layer we used ArcGIS from ESRI which was very simple to toggle in using Leaflet’s library.</p>
+					<img id="arcgis-sample" class="info-img" src="Assets/Images/arcgis-sample.png" alt="ArcGIS layer sample">
+					<p></p>
+				</div>
+
+				<div class="col-sm-4 col-md-4 col-lg-4">
+				</div>
+			</div>
+		</div>
+
 		<footer>
 		</footer>
 	</body>

@@ -62,6 +62,7 @@ body {
 }
 #home-img {
 	float: left;
+	min-width: 100%;
 	/* round corners */
 	border:1px solid #;
 	-webkit-border-radius: 20px;
@@ -99,5 +100,13 @@ body {
 }
 
 /*********** Information Styles **********/
+.info-row h2 {
+
+}
+
+.info-img {
+	
+}
+
 
 /*********** Screenshots and Videos Styles ***********/
