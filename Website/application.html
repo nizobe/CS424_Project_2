@@ -227,34 +227,57 @@
 					<h1 style="text-align: center;">Data</h1>
 
 					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Left</h3>
-						</div>
+						<div id='dashboard' class="col-sm-12 col-md-12 col-lg-12 data-cells">
+							<!--<h3>Sub Right - Left</h3>-->
+							<!--<div id='dashboard'>-->
+								<!--SCRIPT TO GENERATE GRAPHS-->
+								<script>
+								      var width = 960,
+								          height = 500,
+								          radius = Math.min(width, height) / 2;
 
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Right</h3>
+								      var color = d3.scale.category20();
+
+								      var arc = d3.svg.arc()
+								          .outerRadius(radius - 20)
+								          .innerRadius(radius - 100);
+
+								      var pie = d3.layout.pie()
+								          .sort(null)
+								          .value(function(d) { return d.Count; });
+
+								      var svg = d3.select("#dashboard").append("svg")
+								      	.attr("viewBox", "0 0 960 500")
+								      	.attr("preserveAspectRatio", "xMidYMid meet")
+								          .append("g")
+								          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+								      d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
+								          data.forEach(function(d) {
+								              d.Count = +d.Count;
+								          });
+
+								          var g = svg.selectAll(".arc")
+								                .data(pie(data))
+								                .enter().append("g")
+								                .attr("class", "arc");
+
+								          g.append("path")
+								                .attr("d", arc)
+								                .style("fill", function(d) { return color(d.data.Weekday); });
+
+								          g.append("text")
+								                .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+								                .attr("dy", ".35em")
+								                .style("text-anchor", "middle")
+								                .text(function(d) { return d.data.Weekday + "\n\n\n" + d.data.Count; });
+								      });
+							    </script>
+							<!--</div>-->
+
 						</div>
 					</div>
 
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Left 2</h3>
-						</div>
-
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Right 2</h3>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Left 3</h3>
-						</div>
-
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Right 3</h3>
-						</div>
-					</div>
 
 				</div> <!-- End Right Side -->
 			</div><!-- End Main Row -->
