@@ -4,19 +4,21 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Divvy Bike Race</title>
-		<!-- CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-		<link rel="stylesheet" href="Assets/CSS/styles.css">
-		<!-- Scripts -->
-		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-		<script src="http://d3js.org/d3.v3.min.js"></script>
-		<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
-		<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
-		<script src="community_areas.geojson"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	    <!-- CSS -->
+	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
+	    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	    <link rel="stylesheet" href="Assets/CSS/styles.css">
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	    <!-- Scripts -->
+	    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	    <script src="http://d3js.org/d3.v3.min.js"></script>
+	    <script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
+	    <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+	    <script src="community_areas.geojson"></script>
+	    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
 
 	<body>
@@ -33,8 +35,11 @@
 						<ul class="nav navbar-nav">
 							<li><a href="index.html">Home</a></li>
 					        <li class="active"><a href="application.html">Application</a></li>
-					        <li><a href="information.html">Information</a></li> 
-					        <li><a href="sav.html">Screenshots and Videos</a></li> 
+					        <li><a href="how_to.html">How-To</a></li>
+					        <li><a href="data.html">Data</a></li>
+					        <li><a href="source_code.html">Source Code</a></li>
+					       	<li><a href="interesting_things.html">Interesting Things</a></li> 
+					        <li><a href="team_roles.html">Team Roles</a></li> 
 						</ul>
 					</div>
 				</div>
@@ -48,6 +53,7 @@
 				<!-- Left Side -->
 				<div class="col-sm-6 col-md-6 col-lg-6 app-map">
 					<h1 style="text-align: center;">Chicago Map</h1>
+					<p style="text-align: center;">(may need to reload page if map isn't showing)</p>
 
 					<div id="map"><!--div to hold map-->
 						<script>
@@ -226,55 +232,94 @@
 				<div class="col-sm-6 col-md-6 col-lg-6">
 					<h1 style="text-align: center;">Data</h1>
 
+					<!-- Master Toggle Button -->
+					<div class="row button-master-row">
+						<div class+"col-sm-12 col-md-12 col-lg-12">
+							<button type="button" id="b0" class="btn btn-default">Show/Hide All</button>
+						</div>
+					</div><!--End Master Toggle -->
+
+					<!-- Toggle Buttons -->
+					<div class="row button-row">
+						<div class+"col-sm-12 col-md-12 col-lg-12">
+							<button type="button" id="b1" class="btn btn-default">Number of Bikes out per Weekday</button>
+         					<button type="button" id="b2" class="btn btn-default">Gender Distribution</button>
+          					<button type="button" id="b3" class="btn btn-default">Trips per Day</button>
+          					<button type="button" id="b4" class="btn btn-default">Subscribers</button>
+						</div>
+					</div><!--End Toggle Buttons -->
+
+					<!-- Bikes out per weekday -->
 					<div class="row data-row">
 						<div id='data1' class="col-sm-12 col-md-12 col-lg-12 data-cell">
-							<h4 style="text-align: center;">Number Bikes Out Per Weekday</h4>
-							<!--SCRIPT TO GENERATE GRAPHS-->
-							<script>
-							      var width = 960,
-							          height = 500,
-							          radius = Math.min(width, height) / 2;
+								<h4 style="text-align: center;">Number Bikes Out Per Weekday</h4>
+								<!--SCRIPT TO GENERATE GRAPHS-->
+								<script>
+								    var width = 960,
+								        height = 500,
+								        radius = Math.min(width, height) / 2;
 
-							      var color = d3.scale.category20();
+								    var color = d3.scale.category20();
 
-							      var arc = d3.svg.arc()
-							          .outerRadius(radius - 20)
-							          .innerRadius(radius - 100);
+								    var arc = d3.svg.arc()
+								        .outerRadius(radius - 20)
+								        .innerRadius(radius - 100);
 
-							      var pie = d3.layout.pie()
-							          .sort(null)
-							          .value(function(d) { return d.Count; });
+								    var pie = d3.layout.pie()
+								        .sort(null)
+								        .value(function(d) { return d.Count; });
 
-							      var svg = d3.select("#data1").append("svg")
-							      	.attr("viewBox", "0 0 960 500")
-							      	.attr("preserveAspectRatio", "xMidYMid meet")
-							          .append("g")
-							          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+								    var svg = d3.select("#data1").append("svg")
+								      	.attr("viewBox", "0 0 960 500")
+								      	.attr("preserveAspectRatio", "xMidYMid meet")
+								        .append("g")
+								        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-							      d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
-							          data.forEach(function(d) {
-							              d.Count = +d.Count;
-							          });
+								    d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
+								        data.forEach(function(d) {
+								        	d.Count = +d.Count;
+								     	});
 
-							          var g = svg.selectAll(".arc")
-							                .data(pie(data))
-							                .enter().append("g")
-							                .attr("class", "arc");
+								        var g = svg.selectAll(".arc")
+								        	.data(pie(data))
+								        	.enter().append("g")
+								        	.attr("class", "arc");
 
-							          g.append("path")
-							                .attr("d", arc)
-							                .style("fill", function(d) { return color(d.data.Weekday); });
+								        g.append("path")
+								        	.attr("d", arc)
+								        	.style("fill", function(d) { return color(d.data.Weekday); });
 
-							          g.append("text")
-							                .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-							                .attr("dy", ".35em")
-							                .style("text-anchor", "middle")
-							                .text(function(d) { return d.data.Weekday + "\n\n\n " + d.data.Count; });
-							      });
-						    </script>
+								        g.append("text")
+								        	.style("font-size", 30)
+								            .attr("transform", function(d) { 
+								            	var center = arc.centroid(d)
+								            	x = center[0]
+								            	y = center[1]
+								            	return "translate(" + x + "," + y + ")"; })
+								            .attr("dy", ".35em")
+								            .style("text-anchor", "middle")
+								            .text(function(d) { return d.data.Weekday; });
+
+										g.append("text")
+								        	.style("font-size", 30)
+								            .attr("transform", function(d) { 
+								            	var center = arc.centroid(d)
+								            	x = center[0]
+								            	y = center[1]
+								            	return "translate(" + x + "," + (y+45) + ")"; })
+								            .attr("dy", ".35em")
+								            .style("text-anchor", "middle")
+								            .text(function(d) { return d.data.Percent; });
+								    });
+
+		    						$( "#b1" ).click(function() {
+              							$( "#data1" ).toggle( "blind", 1000 );
+            						});
+							    </script>
 						</div><!-- End data1 -->
-					</div><!-- End data-row -->
+					</div><!-- End data-row --><!-- End Bikes out per weekday -->
 
+					<!-- Gender -->
 					<div class="row data-row">
 						<div id='data2' class="col-sm-12 col-md-12 col-lg-12 data-cell">
 							<h4 style="text-align: center;">Gender</h4>
@@ -288,7 +333,7 @@
 
 						      	var color1 = d3.scale.category20();
 
-						     	 var arc1 = d3.svg.arc()
+						     	var arc1 = d3.svg.arc()
 						         	.outerRadius(radius1 - 20)
 						         	.innerRadius(radius1 - 100);
 
@@ -308,29 +353,410 @@
 									});
 
 								var g = genderGraph.selectAll(".arc")
-										.data(pie(data))
-										.enter().append("g")
-										.attr("class", "arc")
+									.data(pie(data))
+									.enter().append("g")
+									.attr("class", "arc")
 
 								g.append("path")
 									.attr("d", arc)
 									.style("fill", function(d) { return color(d.data.Gender); });
 
 								g.append("text")
-									.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+									.style("font-size", 30)
+									.attr("transform", function(d) { 
+										var center = arc.centroid(d)
+										return "translate(" + center + ")"; })
 									.attr("dy", ".35em")
 									.style("text-anchor", "middle")
 									.text(function(d) { return d.data.Gender; });
+
+								g.append("text")
+									.style("font-size", 30)
+									.attr("transform", function(d) { 
+										var center = arc.centroid(d)
+										x = center[0]
+										y = center[1]
+										return "translate(" + (x) + "," + (y+45) + ")"; })
+									.attr("dy", ".35em")
+									.style("text-anchor", "middle")
+									.text(function(d) { return d.data.Percent; });
 								});
+		    					$( "#b2" ).click(function() {
+              						$( "#data2" ).toggle( "blind", 1000 );
+            					});
 						    </script>
 						</div><!-- End data2 -->
-					</div><!-- End data-row -->
+					</div><!-- End data-row --><!-- End Gender -->
+
+					<!-- Trips per Day -->
+					<div class="row data-row">
+						<div id='data3' class="col-sm-12 col-md-12 col-lg-12 data-cell">
+							<h4 style="text-align: center;">Trips per Day</h4>
+								<div id="chart"></div>
+									<script src="http://d3js.org/d3.v2.min.js"></script>
+									<script>
+									function renderChart() {
+
+									var data = d3.csv.parse(d3.select('#csv').text());
+									var valueLabelWidth = 40; // space reserved for value labels (right)
+									var barHeight = 20; // height of one bar
+									var barLabelWidth = 100; // space reserved for bar labels
+									var barLabelPadding = 5; // padding between bar and bar labels (left)
+									var gridLabelHeight = 18; // space reserved for gridline labels
+									var gridChartOffset = 3; // space between start of grid and first bar
+									var maxBarWidth = 420; // width of the bar with the max value
+
+									// accessor functions 
+									var barLabel = function(d) { return d['date']; };
+									var barValue = function(d) { return parseFloat(d['numTrips']); };
+
+									// sorting
+									var sortedData = data.sort(function(a, b) {
+									return d3.ascending(barLabel(a), barLabel(b));
+									}); 
+
+									// scales
+									var yScale = d3.scale.ordinal().domain(d3.range(0, sortedData.length)).rangeBands([0, sortedData.length * barHeight]);
+									var y = function(d, i) { return yScale(i); };
+									var yText = function(d, i) { return y(d, i) + yScale.rangeBand() / 2; };
+									var x = d3.scale.linear().domain([0, d3.max(sortedData, barValue)]).range([0, maxBarWidth]);
+									// svg container element
+									var chart = d3.select('#chart').append("svg")
+									.attr('width', maxBarWidth + barLabelWidth + valueLabelWidth)
+									.attr('height', gridLabelHeight + gridChartOffset + sortedData.length * barHeight);
+									// grid line labels
+									var gridContainer = chart.append('g')
+									.attr('transform', 'translate(' + barLabelWidth + ',' + gridLabelHeight + ')'); 
+									gridContainer.selectAll("text").data(x.ticks(10)).enter().append("text")
+									.attr("x", x)
+									.attr("dy", -3)
+									.attr("text-anchor", "middle")
+									.text(String);
+									// vertical grid lines
+									gridContainer.selectAll("line").data(x.ticks(10)).enter().append("line")
+									.attr("x1", x)
+									.attr("x2", x)
+									.attr("y1", 0)
+									.attr("y2", yScale.rangeExtent()[1] + gridChartOffset)
+									.style("stroke", "#ccc");
+									// bar labels
+									var labelsContainer = chart.append('g')
+									.attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+									labelsContainer.selectAll('text').data(sortedData).enter().append('text')
+									.attr('y', yText)
+									.attr('stroke', 'none')
+									.attr('fill', 'black')
+									.attr("dy", ".35em") // vertical-align: middle
+									.attr('text-anchor', 'end')
+									.text(barLabel);
+									// bars
+									var barsContainer = chart.append('g')
+									.attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')'); 
+									barsContainer.selectAll("rect").data(sortedData).enter().append("rect")
+									.attr('y', y)
+									.attr('height', yScale.rangeBand())
+									.attr('width', function(d) { return x(barValue(d)); })
+									.attr('stroke', 'white')
+									.attr('fill', 'steelblue');
+									// bar value labels
+									barsContainer.selectAll("text").data(sortedData).enter().append("text")
+									.attr("x", function(d) { return x(barValue(d)); })
+									.attr("y", yText)
+									.attr("dx", 3) // padding-left
+									.attr("dy", ".35em") // vertical-align: middle
+									.attr("text-anchor", "start") // text-align: right
+									.attr("fill", "black")
+									.attr("stroke", "none")
+									.text(function(d) { return d3.round(barValue(d), 2); });
+									// start line
+									barsContainer.append("line")
+									.attr("y1", -gridChartOffset)
+									.attr("y2", yScale.rangeExtent()[1] + gridChartOffset)
+									.style("stroke", "#000");
+
+									}
+									</script>
+									<script id="csv" type="text/csv">date,numTrips
+									2013-09-13,5992
+									2013-07-12,2552
+									2013-10-18,5080
+									2013-12-03,3536
+									2013-09-22,7808
+									2013-11-01,4102
+									2013-12-26,785
+									2013-11-30,2141
+									2013-08-11,5730
+									2013-08-18,7798
+									2013-10-03,4845
+									2013-09-05,5956
+									2013-07-20,3655
+									2013-12-11,1207
+									2013-11-09,4972
+									2013-08-03,5959
+									2013-07-07,2377
+									2013-10-27,3855
+									2013-09-29,7819
+									2013-07-28,3349
+									2013-12-19,2381
+									2013-11-17,1420
+									2013-08-12,3983
+									2013-08-27,5109
+									2013-10-08,7022
+									2013-09-12,6090
+									2013-07-15,2028
+									2013-10-19,5132
+									2013-12-04,3889
+									2013-09-21,8839
+									2013-12-27,1594
+									2013-11-25,2159
+									2013-08-04,5487
+									2013-08-19,5709
+									2013-09-04,6022
+									2013-07-23,2671
+									2013-12-12,1241
+									2013-11-08,4459
+									2013-08-28,5335
+									2013-07-06,3001
+									2013-10-24,4301
+									2013-09-28,10573
+									2013-07-31,2294
+									2013-12-20,1632
+									2013-11-16,2101
+									2013-08-13,4724
+									2013-08-20,5921
+									2013-10-09,7141
+									2013-09-11,5530
+									2013-07-14,3309
+									2013-10-16,5539
+									2013-12-05,2853
+									2013-09-20,6560
+									2013-11-03,4054
+									2013-12-28,1899
+									2013-11-24,950
+									2013-08-05,3381
+									2013-07-01,1559
+									2013-10-01,6875
+									2013-09-03,5951
+									2013-07-22,2734
+									2013-12-13,1858
+									2013-06-30,1812
+									2013-11-11,2273
+									2013-08-29,5828
+									2013-07-09,1502
+									2013-10-25,4708
+									2013-09-27,7875
+									2013-07-30,2412
+									2013-12-21,704
+									2013-11-19,3567
+									2013-08-14,4726
+									2013-08-21,5722
+									2013-10-14,7469
+									2013-09-10,5612
+									2013-07-17,1825
+									2013-10-17,3562
+									2013-12-06,2338
+									2013-09-19,4770
+									2013-11-02,3218
+									2013-12-29,625
+									2013-11-27,1936
+									2013-08-06,3913
+									2013-10-06,5821
+									2013-09-02,9101
+									2013-07-25,2810
+									2013-12-14,346
+									2013-11-10,3850
+									2013-08-30,5191
+									2013-07-08,1105
+									2013-10-30,3860
+									2013-09-26,6742
+									2013-11-05,4640
+									2013-12-22,635
+									2013-11-18,3269
+									2013-08-15,4811
+									2013-08-22,3856
+									2013-10-15,5271
+									2013-09-09,5618
+									2013-07-16,2057
+									2013-10-22,3814
+									2013-12-07,1067
+									2013-09-18,4292
+									2013-11-13,3133
+									2013-12-30,933
+									2013-11-26,2715
+									2013-08-07,3264
+									2013-07-03,1007
+									2013-10-07,6042
+									2013-09-01,9804
+									2013-07-24,2663
+									2013-12-15,432
+									2013-06-28,897
+									2013-11-21,3173
+									2013-08-31,5107
+									2013-07-11,2308
+									2013-10-31,1681
+									2013-09-25,6356
+									2013-11-04,4871
+									2013-12-23,1086
+									2013-11-29,1282
+									2013-08-08,4396
+									2013-08-23,7072
+									2013-10-12,8500
+									2013-09-08,6403
+									2013-07-19,2004
+									2013-10-23,4169
+									2013-12-08,488
+									2013-09-17,6121
+									2013-11-12,2960
+									2013-12-31,512
+									2013-07-02,1108
+									2013-10-04,7400
+									2013-07-27,3334
+									2013-12-16,1255
+									2013-06-29,1201
+									2013-11-20,3336
+									2013-08-24,9811
+									2013-09-15,1606
+									2013-07-10,1901
+									2013-10-28,4551
+									2013-12-01,1396
+									2013-09-24,6400
+									2013-11-07,4080
+									2013-12-24,389
+									2013-11-28,597
+									2013-08-09,4975
+									2013-08-16,6132
+									2013-10-13,8966
+									2013-09-07,8650
+									2013-07-18,1728
+									2013-10-20,4845
+									2013-12-09,1317
+									2013-09-16,5358
+									2013-11-15,4098
+									2013-08-01,3568
+									2013-07-05,2463
+									2013-10-05,5986
+									2013-07-26,2157
+									2013-12-17,1647
+									2013-11-23,1350
+									2013-08-25,8272
+									2013-10-10,7860
+									2013-09-14,8953
+									2013-07-13,3345
+									2013-10-29,4984
+									2013-12-02,3248
+									2013-09-23,5934
+									2013-11-06,2612
+									2013-12-25,125
+									2013-08-10,7148
+									2013-08-17,8299
+									2013-10-02,7180
+									2013-09-06,7186
+									2013-07-21,3545
+									2013-10-21,4821
+									2013-12-10,1270
+									2013-11-14,3598
+									2013-08-02,3394
+									2013-07-04,2956
+									2013-10-26,4146
+									2013-09-30,7109
+									2013-07-29,3108
+									2013-12-18,1985
+									2013-06-27,95
+									2013-11-22,3094
+									2013-08-26,5887
+									2013-10-11,9269</script>
+								<script>renderChart();</script>
+								<script>
+									$( "#b3" ).click(function() {
+              							$( "#data3" ).toggle( "blind", 1000 );
+            						});
+								</script>
+						</div><!-- End data3 -->
+					</div><!-- End data-row --><!-- End Trips per Day -->
+
+					<div class="row data-row">
+						<div id="data4" class="col-sm-12 col-md-12 col-lg-12">
+							<h4 style="text-align: center;">Subscribers</h4>
+							<!-- GRAPH SCRIPT GOES HERE!!! -->
+							<script>
+								var width3 = 960,
+									height3 = 500,
+							        radius3 = Math.min(width3, height3) / 2;
+
+							    var color3 = d3.scale.category20();
+
+							    var arc3 = d3.svg.arc()
+							        .outerRadius(radius3 - 20)
+							        .innerRadius(radius3 - 100);
+
+							    var pie = d3.layout.pie()
+							        .sort(null)
+							        .value(function(d) { return d.Count; });
+
+							    var svg1 = d3.select("#data4").append("svg")
+							      	.attr("viewBox", "0 0 960 500")
+							      	.attr("preserveAspectRatio", "xMidYMid meet")
+							        .append("g")
+							        .attr("transform", "translate(" + (width3 / 2) + "," + (height3 / 2) + ")");
+
+							    d3.csv("Assets/CSV/subscriber.csv", function(error, data) {
+							        data.forEach(function(d) {
+							        	d.Count = +d.Count;
+							     	});
+
+							        var g = svg1.selectAll(".arc")
+							        	.data(pie(data))
+							        	.enter().append("g")
+							        	.attr("class", "arc");
+
+							        g.append("path")
+							        	.attr("d", arc3)
+							        	.style("fill", function(d) { return color3(d.data.Subs); });
+
+							        g.append("text")
+							        	.style("font-size", 30)
+							            .attr("transform", function(d) { 
+							            	var center = arc.centroid(d)
+							            	x = center[0]
+							            	y = center[1]
+							            	return "translate(" + x + "," + y + ")"; })
+							            .attr("dy", ".35em")
+							            .style("text-anchor", "middle")
+							            .text(function(d) { return d.data.Subs; });
+
+									g.append("text")
+							        	.style("font-size", 30)
+							            .attr("transform", function(d) { 						        
+							            	var center = arc.centroid(d)
+							            	x = center[0]
+							            	y = center[1]
+							            	return "translate(" + x + "," + (y+45) + ")"; })
+							            .attr("dy", ".35em")
+							            .style("text-anchor", "middle")
+							            .text(function(d) { return d.data.Percent; });
+							    });
+							</script>
+							<!-- Toggle script -->
+							<script>
+								$( "#b4" ).click(function() {
+              						$( "#data4" ).toggle( "blind", 1000 );
+            					});
+							</script>
+						</div><!-- End data4 -->
+					</div><!-- End data-row --><!-- End Subscribers -->
 
 				</div> <!-- End Right Side -->
 
 			</div><!-- End Main Row -->
 		</div><!-- End Main Body -->
-					
+				
+		<!-- Master Toggle Script -->
+		<script>
+			$( "#b0" ).click(function() {
+				$( "#data1, #data2, #data3, #data4" ).toggle( "blind", 1000 );
+			});
+		</script>
+
 		<footer>
 		</footer>
 	</body>
