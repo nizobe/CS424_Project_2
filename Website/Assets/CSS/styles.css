@@ -19,6 +19,10 @@ body {
 	
 }
 
+h4 {
+	color: black;
+}
+
 /***** Navigation Styles *****/
 .navbar {
 	font-size: 18px;
@@ -62,6 +66,7 @@ body {
 }
 #home-img {
 	float: left;
+	min-width: 100%;
 	/* round corners */
 	border:1px solid #;
 	-webkit-border-radius: 20px;
@@ -91,13 +96,29 @@ body {
 	margin: 0 0 5px;
 	color: #777;
 }
+.button-row {
+	text-align: center;
+	margin-bottom: 5px;
+}
+.button-master-row {
+	text-align: center;
+	margin-bottom: 5px;
+}
 .app-main {
 
 }
 .data-cells {
-	border-style: solid;
+
 }
 
 /*********** Information Styles **********/
+.info-row h2 {
+
+}
+
+.info-img {
+	
+}
+
 
 /*********** Screenshots and Videos Styles ***********/

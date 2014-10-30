@@ -1,4 +1,4 @@
-Gender,Count
-Male,318596
-Female,84450
-Unknown,356742
+Gender,Count,Percent
+Male,318596,41.9%
+Female,84450,11.1%
+Unknown,356742,47.0%

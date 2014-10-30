@@ -4,39 +4,56 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Divvy Bike Race</title>
-		<!-- CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-		<link rel="stylesheet" href="Assets/CSS/styles.css">
-		<!-- Scripts -->
-		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-		<script src="http://d3js.org/d3.v3.min.js"></script>
-		<script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
-		<script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
-		<script src="community_areas.geojson"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-  		<style>
-  			/*body {
-  			        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  			        margin: auto;
-  			        position: relative;
-  			        /*width: 960px;
-  			    }*/
-
-  			    text {
-  			        font: 25px sans-serif;
-  			    }
-
-  			    form {
-  			        position: absolute;
-  			        right: 10px;
-  			        top: 10px;
-  			    }
-  		</style>
+	    <!-- CSS -->
+	    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css">
+	    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	    <link rel="stylesheet" href="Assets/CSS/styles.css">
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	    <!-- Scripts -->
+	    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	    <script src="http://d3js.org/d3.v3.min.js"></script>
+	    <script type="leaflet-tilelayer-geojson-master/TileLayer.GeoJSON.js"></script>
+	    <script src="http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
+	    <script src="community_areas.geojson"></script>
+	    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</head>
+
+	<style>
+	.chart rect {
+		fill: blue;
+	}
+
+	.chart text {
+		fill: white;
+		font: 10px sans-serif;
+		text-anchor: middle;
+	}
+	.bar {
+	  fill: blue;
+	}
+
+	.bar:hover {
+	  fill: orange;
+	}
+
+	.axis {
+	  font: 10px sans-serif;
+	}
+
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+
+	.x.axis path {
+	  display: none;
+	}
+	</style>
 
 	<body>
 		<header>
@@ -52,8 +69,11 @@
 						<ul class="nav navbar-nav">
 							<li><a href="index.html">Home</a></li>
 					        <li class="active"><a href="application.html">Application</a></li>
-					        <li><a href="information.html">Information</a></li> 
-					        <li><a href="sav.html">Screenshots and Videos</a></li> 
+					        <li><a href="how_to.html">How-To</a></li>
+					        <li><a href="data.html">Data</a></li>
+					        <li><a href="source_code.html">Source Code</a></li>
+					       	<li><a href="interesting_things.html">Interesting Things</a></li> 
+					        <li><a href="team_roles.html">Team Roles</a></li> 
 						</ul>
 					</div>
 				</div>
@@ -245,130 +265,265 @@
 				<div class="col-sm-6 col-md-6 col-lg-6">
 					<h1 style="text-align: center;">Data</h1>
 
-					<div class="row">
-						<div id='top-left' class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h4 style="text-align: center;">Number Bikes Out Per Weekday</h4>
+					<!-- Master Toggle Button -->
+					<div class="row button-master-row">
+						<div class+"col-sm-12 col-md-12 col-lg-12">
+							<button type="button" id="b0" class="btn btn-default">Show/Hide All</button>
+						</div>
+					</div><!--End Master Toggle -->
+
+
+					<!-- Toggle Buttons -->
+					<div class="row button-row">
+						<div class+"col-sm-12 col-md-12 col-lg-12">
+							<button type="button" id="b1" class="btn btn-default">Number of Bikes out per Weekday</button>
+         					<button type="button" id="b2" class="btn btn-default">Gender Distribution</button>
+          					<button type="button" id="b3" class="btn btn-default">Trips per Day</button>
+						</div>
+					</div><!--End Toggle Buttons -->
+
+					<!-- Bikes out per weekday -->
+					<div class="row data-row">
+						<div id='data1' class="col-sm-12 col-md-12 col-lg-12 data-cell">
+								<h4 style="text-align: center;">Number Bikes Out Per Weekday</h4>
 								<!--SCRIPT TO GENERATE GRAPHS-->
 								<script>
-								      var width = 960,
-								          height = 500,
-								          radius = Math.min(width, height) / 2;
+								    var width = 960,
+								        height = 500,
+								        radius = Math.min(width, height) / 2;
 
-								      var color = d3.scale.category20();
+								    var color = d3.scale.category20();
 
-								      var arc = d3.svg.arc()
-								          .outerRadius(radius - 20)
-								          .innerRadius(radius - 100);
+								    var arc = d3.svg.arc()
+								        .outerRadius(radius - 20)
+								        .innerRadius(radius - 100);
 
-								      var pie = d3.layout.pie()
-								          .sort(null)
-								          .value(function(d) { return d.Count; });
+								    var pie = d3.layout.pie()
+								        .sort(null)
+								        .value(function(d) { return d.Count; });
 
-								      var dayOfWeekGraph = d3.select("#top-left").append("svg")
+								    var svg = d3.select("#data1").append("svg")
 								      	.attr("viewBox", "0 0 960 500")
 								      	.attr("preserveAspectRatio", "xMidYMid meet")
 								        .append("g")
 								        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-								      d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
-								          data.forEach(function(d) {
-								              d.Count = +d.Count;
-								          });
+								    d3.csv("Assets/CSV/num_day_week.csv", function(error, data) {
+								        data.forEach(function(d) {
+								        	d.Count = +d.Count;
+								     	});
 
-								          var g = dayOfWeekGraph.selectAll(".arc")
-								                .data(pie(data))
-								                .enter().append("g")
-								                .attr("class", "arc");
+								        var g = svg.selectAll(".arc")
+								        	.data(pie(data))
+								        	.enter().append("g")
+								        	.attr("class", "arc");
 
-								          g.append("path")
-								                .attr("d", arc)
-								                .style("fill", function(d) { return color(d.data.Weekday); });
+								        g.append("path")
+								        	.attr("d", arc)
+								        	.style("fill", function(d) { return color(d.data.Weekday); });
 
-								          g.append("text")
-								                .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-								                .attr("dy", ".35em")
-								                .style("text-anchor", "middle")
-								                .text(function(d) { return d.data.Weekday; });
-								      });
-							    </script>
-						</div>
-
-						<div id="top-right" class="col-lg-6 col-lg-6 data-cells">
-							<h4 style="text-align: center;">Gender</h4>
-								<!--SCRIPT TO GENERATE GRAPHS-->
-									<script>
-										/*this stuff is actually generic and can be re-used from above but i'm leaving it
-										in, just in case*/
-										var width = 960,
-								         	height1 = 500,
-								         	radius1 = Math.min(width, height1) / 2;
-
-								      	var color1 = d3.scale.category20();
-
-								     	 var arc1 = d3.svg.arc()
-								         	.outerRadius(radius1 - 20)
-								         	.innerRadius(radius1 - 100);
-
-										var pie = d3.layout.pie()
-											.sort(null)
-											.value(function(d) { return d.Count; });
-
-										var genderGraph = d3.select('#top-right').append("svg")
-											.attr("viewBox", "0 0 960 500")
-											.attr("preserveAspectRatio", "xMidYMid meet")
-											.append("g")
-											.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-										d3.csv("Assets/CSV/demo.csv", function(error, data) {
-											data.forEach(function(d){
-												d.Count = +d.Count;
-											});
-
-										var g = genderGraph.selectAll(".arc")
-												.data(pie(data))
-												.enter().append("g")
-												.attr("class", "arc")
-
-										g.append("path")
-											.attr("d", arc)
-											.style("fill", function(d) { return color(d.data.Gender); });
+								        g.append("text")
+								        	.style("font-size", 30)
+								            .attr("transform", function(d) { 
+								            	var center = arc.centroid(d)
+								            	x = center[0]
+								            	y = center[1]
+								            	return "translate(" + x + "," + y + ")"; })
+								            .attr("dy", ".35em")
+								            .style("text-anchor", "middle")
+								            .text(function(d) { return d.data.Weekday; });
 
 										g.append("text")
-											.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-											.attr("dy", ".35em")
-											.style("text-anchor", "middle")
-											.text(function(d) { return d.data.Gender; });
-										});
-								    </script>
-						</div>
-					</div>
+								        	.style("font-size", 30)
+								            .attr("transform", function(d) { 
+								            	var center = arc.centroid(d)
+								            	x = center[0]
+								            	y = center[1]
+								            	return "translate(" + x + "," + (y+45) + ")"; })
+								            .attr("dy", ".35em")
+								            .style("text-anchor", "middle")
+								            .text(function(d) { return d.data.Percent; });
+								    });
 
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Left 2</h3>
-						</div>
+            						$( "#b1" ).click(function() {
+              							$( "#data1" ).toggle( "blind", 1000 );
+            						});
+							    </script>
+						</div><!-- End data1 -->
+					</div><!-- End data-row --><!-- End Bikes out per weekday -->
 
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Right 2</h3>
-						</div>
-					</div>
+					<!-- Gender -->
+					<div class="row data-row">
+						<div id='data2' class="col-sm-12 col-md-12 col-lg-12 data-cell">
+							<h4 style="text-align: center;">Gender</h4>
+							<!--SCRIPT TO GENERATE GRAPHS-->
+							<script>
+								/*this stuff is actually generic and can be re-used from above but i'm leaving it
+								in, just in case*/
+								var width = 960,
+						         	height1 = 500,
+						         	radius1 = Math.min(width, height1) / 2;
 
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Left 3</h3>
-						</div>
+						      	var color1 = d3.scale.category20();
 
-						<div class="col-sm-6 col-md-6 col-lg-6 data-cells">
-							<h3>Sub Right - Right 3</h3>
-						</div>
-					</div>
+						     	var arc1 = d3.svg.arc()
+						         	.outerRadius(radius1 - 20)
+						         	.innerRadius(radius1 - 100);
+
+								var pie = d3.layout.pie()
+									.sort(null)
+									.value(function(d) { return d.Count; });
+
+								var genderGraph = d3.select('#data2').append("svg")
+									.attr("viewBox", "0 0 960 500")
+									.attr("preserveAspectRatio", "xMidYMid meet")
+									.append("g")
+									.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+								d3.csv("Assets/CSV/demo.csv", function(error, data) {
+									data.forEach(function(d){
+										d.Count = +d.Count;
+									});
+
+								var g = genderGraph.selectAll(".arc")
+									.data(pie(data))
+									.enter().append("g")
+									.attr("class", "arc")
+
+								g.append("path")
+									.attr("d", arc)
+									.style("fill", function(d) { return color(d.data.Gender); });
+
+								g.append("text")
+									.style("font-size", 30)
+									.attr("transform", function(d) { 
+										var center = arc.centroid(d)
+										return "translate(" + center + ")"; })
+									.attr("dy", ".35em")
+									.style("text-anchor", "middle")
+									.text(function(d) { return d.data.Gender; });
+
+								g.append("text")
+									.style("font-size", 30)
+									.attr("transform", function(d) { 
+										var center = arc.centroid(d)
+										x = center[0]
+										y = center[1]
+										return "translate(" + (x) + "," + (y+45) + ")"; })
+									.attr("dy", ".35em")
+									.style("text-anchor", "middle")
+									.text(function(d) { return d.data.Percent; });
+								});
+
+							</script>
+
+							<!-- Toggle Script -->
+							<script>	
+								$( "#b2" ).click(function() {
+              						$( "#data2" ).toggle( "blind", 1000 );
+            					});
+						    </script>
+						</div><!-- End data2 -->
+					</div><!-- End data-row --><!-- End Gender -->
+
+					<!-- Trips per Day -->
+					<div class="row data-row">
+						<div id="data3" class="col-sm-12 col-md-12 col-lg-12 data-cell">
+							<h4 style="text-align: center;">Number of Bikes Out in Day of Year</h4>
+							<!--SCRIPT TO GENERATE GRAPHS-->
+							<script>
+								var margin = {top: 0, right: 0, bottom: 100, left: 40},
+									barPadding = 1,
+								    width2 = 2200,
+								    height2 = 300 - margin.top - margin.bottom;
+
+								var x = d3.scale.ordinal()
+								    .rangeRoundBands([0, width2], .1);
+
+								var y = d3.scale.linear()
+								    .range([height2, 0]);
+
+								var xAxis = d3.svg.axis()
+								    .scale(x)
+								    .orient("bottom");
+
+								var yAxis = d3.svg.axis()
+								    .scale(y)
+								    .orient("left")
+								    .ticks(10);
+
+								var svg = d3.select('#data3').append("svg")
+								.attr("viewBox", "0 0 960 500")
+								.attr("preserveAspectRatio", "xMidYMid meet")
+								.append("g")
+								.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+								d3.tsv("Assets/CSV/day_of_year.tsv", type, function(error, data) {
+									x.domain(data.map(function(d) { return d.date; }));
+									y.domain([0, d3.max(data, function(d) { return d.numTrips })]);
+
+								  svg.append("g")
+								    	.attr("class", "y axis")
+								    	.call(yAxis)
+								    .append("text")
+								    	.attr("transform", "rotate(-90)")
+								    	.attr("y", 6)
+								    	.attr("dy", ".71em")
+								    	.style("text-anchor", "end")
+								    	.text("NumTrips");
+
+								  svg.append("g")
+									    .attr("class", "x axis")
+									    .attr("transform", "translate(0," + height2 + ")")
+									    .call(xAxis)
+									    .selectAll("text")  
+									    .style("text-anchor", "end")
+									    .attr("dx", "-.8em")
+									    .attr("dy", ".15em")
+									    .attr("transform", function(d) {
+									        return "rotate(-65)" 
+									    });
+
+								  svg.selectAll(".bar")
+								    	.data(data)
+								    .enter().append("rect")
+								    	.attr("class", "bar")
+								     	.attr("x", function(d) { 
+								     		var date = x(d.date)
+								     		return date; })
+								    	.attr("width", x.rangeBand())
+								    	.attr("y", function(d) { return y(d.numTrips); })
+								    	.attr("height", function(d) { return height2 - y(d.numTrips); });
+
+								});
+
+								function type(d) {
+									d.numTrips = +d.numTrips;
+									return d;
+								}
+							</script>
+
+							<!-- Toggle script -->
+							<script>
+								$( "#b3" ).click(function() {
+              						$( "#data3" ).toggle( "blind", 1000 );
+            					});
+							</script>
+						</div><!--End data3 -->
+					</div><!-- End data-row --><!-- End Trips per Day -->
 
 				</div> <!-- End Right Side -->
+
 			</div><!-- End Main Row -->
 		</div><!-- End Main Body -->
+
+		<!-- Master Toggle Script -->
+		<script>
+			$( "#b0" ).click(function() {
+				$( "#data1, #data2, #data3" ).toggle( "blind", 1000 );
+			});
+		</script>
 					
-
-
 		<footer>
 		</footer>
 	</body>

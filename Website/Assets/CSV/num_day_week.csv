@@ -1,8 +1,8 @@
-Weekday,Count
-Sunday,112456
-Monday,105908
-Tuesday,102703
-Wednesday,97049
-Thursday,96871
-Friday,115364
-Saturday,129437
+Weekday,Count,Percent
+Sunday,112456,14.8%
+Monday,105908,13.9%
+Tuesday,102703,13.5%
+Wednesday,97049,12.8%
+Thursday,96871,12.8%
+Friday,115364,15.2%
+Saturday,129437,17.0%
