@@ -10,6 +10,17 @@
 		<!-- Scripts -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<style>
+			h2 {
+				margin-left: 10px;
+				text-decoration: underline;
+			}
+			p {
+				margin-left: 10px;
+				font-size: 20px;
+			}
+		</style>
 	</head>
 	<body>
 		<header>
@@ -25,8 +36,11 @@
 						<ul class="nav navbar-nav">
 							<li><a href="index.html">Home</a></li>
 					        <li><a href="application.html">Application</a></li>
-					        <li class="active"><a href="information.html">Information</a></li> 
-					        <li><a href="sav.html">Screenshots and Videos</a></li> 
+					        <li><a href="how_to.html">How-To</a></li>
+					        <li class="active"><a href="information.html">Information</a></li>
+					        <li><a href="source_code.html">Source Code</a></li>
+					       	<li><a href="interesting_things.html">Interesting Things</a></li> 
+					        <li><a href="team_roles.html">Team Roles</a></li> 
 						</ul>
 					</div>
 				</div>
@@ -49,7 +63,11 @@
 					<img id="mapbox-sample" class="info-img" src="Assets/Images/mapbox-sample.png" alt="Mapbox layer sample">
 					<p>For the satellite layer we used ArcGIS from ESRI which was very simple to toggle in using Leaflet’s library.</p>
 					<img id="arcgis-sample" class="info-img" src="Assets/Images/arcgis-sample.png" alt="ArcGIS layer sample">
-					<p></p>
+					<h2>The Data</h2>
+					<p>We began by downloading the Divvy bike statistics from <a href="https://github.com/stevevance/divvy-munging">here</a>.</p>
+					<p>We then accessed the City of Chicago's data portal and downloaded all the individual Divvy stations from there. That can be found <a href="https://data.cityofchicago.org/Transportation/Divvy-Bicycle-Stations/bbyy-e7gq">here</a>.</p>
+					<p>Using a combination of Microsoft Excel, Sublime Text Editor, and custom Python scripts we created we were able to sort through the thousands of lines of data to extract the relevant pieces we needed.</p>
+					<p>D3 provided us with the tools need to generate SVG graphs. These graphs are perfect for the large display in the EVL as they automatically scale to the requested resolution.</p>
 				</div>
 
 				<div class="col-sm-4 col-md-4 col-lg-4">
