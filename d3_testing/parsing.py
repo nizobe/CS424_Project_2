@@ -144,4 +144,15 @@ with open('day_of_year.csv', 'wb') as outFile:
 	outFile.close()
 '''
 
-print date_dict[dt.date(2013,6,28)]
+'''
+#CHRONOLOGICALLY write contents of the date_ditct to CSV
+with open('day_of_year.csv', 'wb') as outFile:
+	csvWriter = csv.writer(outFile, delimiter = ',')
+	for day in date_list:
+		csvWriter.writerow([day,date_dict[day]])
+	#for key, val in date_dict.items():
+		#csvWriter.writerow([key, val])
+	outFile.close()
+'''
+
+#print date_dict[dt.date(2013,6,28)]
